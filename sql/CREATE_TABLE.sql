@@ -1,0 +1,31 @@
+CREATE TABLE Produkte (
+	ProduktID INT NOT NULL PRIMARY KEY,
+	Name VARCHAR(20) NOT NULL,
+	Firma VARCHAR(30) NOT NULL,
+	Beschreibung VARCHAR(500),
+	AlkWert DECIMAL(3,1) NOT NULL,
+);
+
+CREATE TABLE Benutzer (
+	UserID INT NOT NULL PRIMARY KEY,
+	Username VARCHAR(20) NOT NULL,
+	Passwort VARCHAR(20) NOT NULL,
+);
+
+CREATE TABLE Warenkorb (
+	UserID INT NOT NULL FOREIGN KEY REFERENCES Benutzer(UserID),
+	ProduktID INT NOT NULL FOREIGN KEY REFERENCES Produkte(ProduktID),
+	AnzahlProdukt INT NOT NULL,
+
+	PRIMARY KEY (UserID, ProduktID)
+);
+
+CREATE TABLE Historie (
+	UserID INT NOT NULL FOREIGN KEY REFERENCES Benutzer(UserID),
+	ProduktID INT NOT NULL FOREIGN KEY REFERENCES Produkte(ProduktID),
+	AnzahlProdukt INT NOT NULL,
+	DatumGekauft DATE NOT NULL,
+	IstGekauft BIT NOT NULL,
+
+	PRIMARY KEY (UserID, ProduktID)
+);
