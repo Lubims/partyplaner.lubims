@@ -1,5 +1,5 @@
-DROP TABLE [php-2019].dbo.Warenkorb;
-DROP TABLE [php-2019].dbo.Historie;
+DROP TABLE IF EXISTS Warenkorb;
+DROP TABLE IF EXISTS Historie;
 
-DROP TABLE [php-2019].dbo.Benutzer;
-DROP TABLE [php-2019].dbo.Produkte;
+DROP TABLE IF EXISTS Benutzer;
+DROP TABLE IF EXISTS Produkte;

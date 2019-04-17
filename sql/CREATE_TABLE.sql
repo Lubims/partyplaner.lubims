@@ -22,8 +22,8 @@ CREATE TABLE Warenkorb (
 	AnzahlProdukt INT NOT NULL,
 
 	PRIMARY KEY (UserID, ProduktID),
-	FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID),
-	FOREIGN KEY (UserID) REFERENCES Benutzer(UserID)
+	FOREIGN KEY (UserID) REFERENCES Benutzer(UserID),
+	FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID)
 );
 
 CREATE TABLE Historie (
@@ -34,6 +34,6 @@ CREATE TABLE Historie (
 	IstGekauft BIT NOT NULL,
 
 	PRIMARY KEY (UserID, ProduktID),
-	FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID),
-	FOREIGN KEY (UserID) REFERENCES Benutzer(UserID)
+	FOREIGN KEY (UserID) REFERENCES Benutzer(UserID),
+	FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID)
 );
