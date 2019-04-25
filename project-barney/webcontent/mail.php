@@ -1,11 +1,13 @@
-header("Location: start.html");
+<?php
+  header("Location: start.html");
+?>
+
 <!DOCTYPE html>
 <html>
   <head></head>
   <body>
 
     <?php
-
       use PHPMailer\PHPMailer\PHPMailer;
       use PHPMailer\PHPMailer\Exception;
 
