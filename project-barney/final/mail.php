@@ -15,12 +15,11 @@
       //Testdaten
       $barneyuser = "Robin";
       $code = 123456;
-      $email_barneyuser = "robinbehrendt@web.de";
 
       //Erstellen der Email
       $message = "<html>";
       $message .= "<body style=\"font-family:Verdana, Verdana, Geneva, sans-serif; font-size:12px; color:#666666;\">";
-      $message .= "Der Code für die Registrierung lautet:<br>";
+      $message .= "Der Code für die Registrierung lautet<br>";
       $message .= "<br><font size=\"2\" color=\"black\" style=\"font-weight: bold\">".$code."</font><br>";
       $message .= "<br><a href=\"http://localhost/php-2019/project-barney/bootstrap-4.1.3-dist/index.html\">Zurück zur Homepage</a>";
       $message .= "</body>";
@@ -42,7 +41,7 @@
       //s}
 
       //Typical mail data
-      $mail->AddAddress($email_barneyuser);
+      $mail->AddAddress("robinbehrendt@web.de");
       $mail->SetFrom("noreply@barney.com");
       $mail->Subject = "Registrierung für User ".$barneyuser;
       $mail->Body = $message;

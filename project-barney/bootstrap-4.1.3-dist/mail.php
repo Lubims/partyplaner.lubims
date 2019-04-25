@@ -1,4 +1,3 @@
-header("Location: start.html");
 <!DOCTYPE html>
 <html>
   <head></head>
@@ -49,12 +48,11 @@ header("Location: start.html");
       $mail->Body = $message;
       try{
         $mail->Send();
-        echo "Success";
+        echo "Success!";
       } catch(Exception $e){
         //Something went bad
         echo "Fail :(";
       }
-      die();
     ?>
 
   </body>
