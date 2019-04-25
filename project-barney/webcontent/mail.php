@@ -15,17 +15,17 @@
       require dirname(__DIR__).'/lib/PHPMailer/src/PHPMailer.php';
       require dirname(__DIR__).'/lib/PHPMailer/src/SMTP.php';
 
-      //Testdaten
-      $barneyuser = "Robin";
-      $code = 123456;
-      $email_barneyuser = "robinbehrendt@web.de";
+      //Variablen
+      $signup_username = $_POST["signup_username"];
+      $code = mt_rand(100000, 999999);
+      $signup_email = $_POST["signup_email"];
 
       //Erstellen der Email
       $message = "<html>";
       $message .= "<body style=\"font-family:Verdana, Verdana, Geneva, sans-serif; font-size:12px; color:#666666;\">";
       $message .= "Der Code für die Registrierung lautet:<br>";
       $message .= "<br><font size=\"2\" color=\"black\" style=\"font-weight: bold\">".$code."</font><br>";
-      $message .= "<br><a href=\"http://localhost/php-2019/project-barney/bootstrap-4.1.3-dist/index.html\">Zurück zur Homepage</a>";
+      $message .= "<br><a href=\"http://localhost/php-2019/project-barney/webcontent/index.html\">Zur Homepage</a>";
       $message .= "</body>";
       $message .= "</html>";
 
@@ -45,9 +45,9 @@
       //s}
 
       //Typical mail data
-      $mail->AddAddress($email_barneyuser);
+      $mail->AddAddress($signup_email);
       $mail->SetFrom("noreply@barney.com");
-      $mail->Subject = "Registrierung für User ".$barneyuser;
+      $mail->Subject = "Registrierung für User ".$signup_username;
       $mail->Body = $message;
       try{
         $mail->Send();
