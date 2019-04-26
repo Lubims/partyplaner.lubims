@@ -106,35 +106,35 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel">Registrierung</h4>
                   <label for="modal-switch" class="close" data-dismiss="modal" aria-label="Close" style="display: flex; align-items: center;">
                     <span aria-hidden="true">&times;</span>
                   </label>
-                  <h4 class="modal-title" id="myModalLabel">Registrierung</h4>
                 </div>
                 <form class="form-inline" action="mail.php" method="post">
                   <div class="modal-body">
                     <table>
                       <tr>
                         <td style="padding: 10px">Benutzername:</td>
-                        <td style="padding-left: 10px"><input class="form-control" placeholder="Benutzername" name="signup_username"></td>
+                        <td style="padding-left: 10px"><input class="form-control" placeholder="Benutzername" name="signup_username" required></td>
                       </tr>
                       <tr>
                         <td style="padding: 10px">Email-Adresse:</td>
-                        <td style="padding-left: 10px"><input class="form-control" type="email" placeholder="Email-Adresse" name="signup_email"></td>
+                        <td style="padding-left: 10px"><input class="form-control" type="email" placeholder="Email-Adresse" name="signup_email" required></td>
                       </tr>
                       <tr>
                         <td style="padding: 10px">Passwort:</td>
-                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort"></td>
+                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort" name="signup_pwd" required></td>
                       </tr>
                       <tr>
                         <td style="padding: 10px">Passwort wiederholen:</td>
-                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen"></td>
+                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen" name="signup_pwd2" required></td>
                       </tr>
                     </table>
                   </div>
                   <div class="modal-footer">
                     <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
-                    <button type="submit" class="btn btn-primary">Registrieren</button>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 261px">Registrieren</button>
                   </div>
                 </form>
               </div>
