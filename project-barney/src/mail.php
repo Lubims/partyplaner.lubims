@@ -1,5 +1,5 @@
 <?php
-  header("Location: start.html");
+  header("Location: profil.html");
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
       $message .= "<br><a href=\"http://localhost/php-2019/project-barney/webcontent/index.html\">Zur Homepage</a>";
       $message .= "</body>";
       $message .= "</html>";
-      
+
 
       $mail = new PHPMailer(true);
       //Send mail using gmail
