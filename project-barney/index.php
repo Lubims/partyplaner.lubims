@@ -1,3 +1,4 @@
+<?php include("../includes/config.php");?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -9,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Vorlage mit Gleichsatz-Nav für Bootstrap</title>
+    <title><?php echo($PAGE_TITLE)?></title>
 
     <!-- Bootstrap-CSS -->
     <link href="src/css/bootstrap.min.css" rel="stylesheet">
@@ -198,9 +199,7 @@
       </div>
 
       <!-- Site footer -->
-      <footer class="footer">
-        <p>&copy; Lubar - Eine Niederlassung der Lubims AG</p>
-      </footer>
+      <?php include("../includes/footer.php");?>
 
     </div> <!-- /container -->
 

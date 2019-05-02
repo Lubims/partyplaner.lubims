@@ -1,5 +1,5 @@
 <?php
-  header("Location: profil.html");
+  header("Location: profil.php");
 ?>
 
 <!DOCTYPE html>

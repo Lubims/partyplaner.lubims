@@ -1,3 +1,4 @@
+<?php include("../includes/config.php");?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title><?php echo($PAGE_TITLE)?></title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
