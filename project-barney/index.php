@@ -112,7 +112,7 @@
                     <span aria-hidden="true">&times;</span>
                   </label>
                 </div>
-                <form class="form-inline" method="post" action="src/mail.php" onSubmit="return checkPassword(this)">
+                <form class="form-inline" method="post" action="src/registrierung.php" onSubmit="return checkPassword(this)">
                   <div class="modal-body">
                     <table>
                       <tr>
