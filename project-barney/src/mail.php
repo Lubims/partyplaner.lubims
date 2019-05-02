@@ -2,10 +2,6 @@
   header("Location: profil.php");
 ?>
 
-<!DOCTYPE html>
-<html>
-  <head></head>
-  <body>
 
     <?php
       use PHPMailer\PHPMailer\PHPMailer;
@@ -58,6 +54,3 @@
       }
       die();
     ?>
-
-  </body>
-<html>
