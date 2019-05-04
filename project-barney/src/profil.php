@@ -1,191 +1,163 @@
 <?php include("../includes/config.php");?>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="de">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Die 3 Meta-Tags oben *müssen* zuerst im head stehen; jeglicher sonstiger head-Inhalt muss *nach* diesen Tags kommen -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
     <title><?php echo($PAGE_TITLE)?></title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
-
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap-CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="css/bootstrap-grid.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reboot.min.css" rel="stylesheet">-->
 
-    <!-- Custom styles for this template -->
-    <link href="justified-nav.css" rel="stylesheet">
+    <!-- Besondere Stile für diese Vorlage -->
+    <link href="src/css/justified-nav.css" rel="stylesheet">
 
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <!-- Unterstützung für Media Queries und HTML5-Elemente in IE8 über HTML5 shim und Respond.js -->
+ 
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
   </head>
 
   <body>
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <style>
-        
-      </style>
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-
-      <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown-Menü
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Aktion</a></li>
-    <li><a href="#">Andere Aktion</a></li>
-    <li><a href="#">Irgendwas anderes</a></li>
-    <li><a href="#">Abgetrennter Link</a></li>
-  </ul>
-</div>
-
-      
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
-        </li>
-      </ul>
-    </nav>
 
     <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Navigation</span>
-            </h6>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  <span data-feather="home"></span>
-                  Dashboard <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file"></span>
-                  Orders
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="shopping-cart"></span>
-                  Products
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="users"></span>
-                  Customers
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="bar-chart-2"></span>
-                  Reports
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="layers"></span>
-                  Integrations
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
 
-        <!-- <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Dashboard</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Share</button>
-                <button class="btn btn-sm btn-outline-secondary">Export</button>
-              </div>
-              <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                This week
+      <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand">Logo</a>
+          <form class="form-inline">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hallo, Benutzername
               </button>
-            </div>
-          </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Profil</a>
+                <a class="dropdown-item" href="#">Freunde</a>
+                <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Ausloggen</a>
+                </div>
+              </div>
+            </form>
+            <!--Sidebar mit Inhalt-->
+            </nav>
+              <div class="container-fluid">
+                <div class="row">
+                  <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                      <ul class="nav flex-column">
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                          <span>Navigation</span>
+                        </h6>
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            Dashboard 
+                            <span class="sr-only">(current)</span>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="file"></span>
+                              Orders
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                            Products
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                              Customers
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Reports
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="layers"></span>
+                            Integrations
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    </nav>
 
-          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+                    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Dashboard</h1>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                          <div class="btn-group mr-2">
+                            <button class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button class="btn btn-sm btn-outline-secondary">Export</button>
+                          </div>
+                          <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <span data-feather="calendar"></span>
+                            This week
+                          </button>
+                        </div>
+                      </div>
 
-          <h2>Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </main> -->
-      </div>
-    </div>
+                      <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+                      <h2>Section title</h2>
+                      <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Header</th>
+                              <th>Header</th>
+                              <th>Header</th>
+                              <th>Header</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1,001</td>
+                              <td>Lorem</td>
+                              <td>ipsum</td>
+                              <td>dolor</td>
+                              <td>sit</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </main>
+                  </div>
+                </div>
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script>
-      feather.replace()
-    </script>
+    
+        
 
-    <!-- Graphs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          datasets: [{
-            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-    </script>
+        
+
+        
+
+      <!-- Site footer -->
+      <?php include("../includes/footer.php");?>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>  
   </body>
 </html>
