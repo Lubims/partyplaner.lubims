@@ -27,7 +27,7 @@
 
   <body>
 
-    <div class="container">
+    <div class="container-fluid">
 
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand">Logo</a>
