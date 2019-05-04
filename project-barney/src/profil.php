@@ -42,6 +42,8 @@
                 <a class="dropdown-item" href="#">Profil</a>
                 <a class="dropdown-item" href="#">Freunde</a>
                 <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Zur Startseite</a>
+                <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">Ausloggen</a>
                 </div>
               </div>

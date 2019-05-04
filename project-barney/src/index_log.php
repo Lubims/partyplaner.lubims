@@ -1,4 +1,4 @@
-<?php include("includes/config.php");?>
+<?php include("../includes/config.php");?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -13,7 +13,7 @@
     <title><?php echo($PAGE_TITLE)?></title>
 
     <!-- Bootstrap-CSS -->
-    <link href="src/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Besondere Stile für diese Vorlage -->
     <link href="src/css/justified-nav.css" rel="stylesheet">
@@ -29,16 +29,24 @@
 
     <div class="container-fluid">
 
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand">Logo</a>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" placeholder="Benutzername">
-                <input class="form-control mr-sm-2" type="password" placeholder="Password">
-                <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Anmelden</button>
-                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Registrieren</button>-->
-                <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" data-target="#myModal">Registrieren</label>
-            </form>
-        </nav>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand">Logo</a>
+        <form class="form-inline">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Hallo, Benutzername
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Profil</a>
+              <a class="dropdown-item" href="#">Freunde</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Zum Dashboard</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Ausloggen</a>
+            </div>
+          </div>
+        </form>
+    </nav>
 
         <!-- Modal -->
         <div class="pure-css-bootstrap-modal">
@@ -206,5 +214,8 @@
 
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
