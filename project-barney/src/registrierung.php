@@ -58,11 +58,11 @@ try{
 //db eintrag
 try {
     $dbh = new PDO($dsn, $user, $password);
-    $sqlString = "INSERT INTO benutzer (Username, Email, Passwort) VALUES('$signup_username', '$signup_email', '$signup_pwd')";
     $user_check_query = "SELECT * FROM users WHERE Username='$signup_username' OR Email='$signup_email' LIMIT 1";
-
+    $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort) VALUES(?, ?, ?)");
 //noch ohne prüfung und alles
-$dbh->exec($sqlString);
+
+  $InsertStmt->execute([$signup_username, $signup_email,$signup_pwd]);
 
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
