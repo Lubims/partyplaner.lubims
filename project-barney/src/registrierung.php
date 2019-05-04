@@ -9,10 +9,10 @@ require dirname(__DIR__).'/lib/PHPMailer/src/PHPMailer.php';
 require dirname(__DIR__).'/lib/PHPMailer/src/SMTP.php';
 
 //Variablen
-$signup_username = $_POST["signup_username"];
+$signup_username = htmlspecialchars($_POST["signup_username"]);
 $code = mt_rand(100000, 999999);
-$signup_email = $_POST["signup_email"];
-$signup_pwd = $_POST["signup_pwd"];
+$signup_email = htmlspecialchars()$_POST["signup_email"]);
+$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
 $dsn = "mysql:host=localhost;dbname=AlkDB";
 $user = "root";
 $password = "";
@@ -58,11 +58,11 @@ try{
 //db eintrag
 try {
     $dbh = new PDO($dsn, $user, $password);
-    $sqlString = "INSERT INTO benutzer (Username, Email, Passwort) VALUES('$signup_username', '$signup_email', '$signup_pwd')";
     $user_check_query = "SELECT * FROM users WHERE Username='$signup_username' OR Email='$signup_email' LIMIT 1";
-
+    $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort) VALUES(?, ?, ?)");
 //noch ohne prüfung und alles
-$dbh->exec($sqlString);
+
+  $InsertStmt->execute([mysql_real_escape_string($signup_username), mysql_real_escape_string($signup_email),mysql_real_escape_string($signup_pwd]));
 
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
