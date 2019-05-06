@@ -8,7 +8,7 @@
       }
       body {
         overflow:hidden;
-        background-image: url("/php-2019/project-barney/lib/impressum.jpg");
+        background-image: url("/project-barney/lib/impressum.jpg");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         text-align: center;
