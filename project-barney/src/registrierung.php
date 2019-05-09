@@ -13,7 +13,7 @@ $signup_username = htmlspecialchars($_POST["signup_username"]);
 $code = mt_rand(100000, 999999);
 $signup_email = htmlspecialchars($_POST["signup_email"]);
 $signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
-$dsn = "mysql:host=localhost;dbname=AlkDB";
+$dsn = "mysql:host=localhost;dbname=alkdb";
 $user = "root";
 $password = "";
 
@@ -58,18 +58,41 @@ try{
 //db eintrag
 try {
     $dbh = new PDO($dsn, $user, $password);
-    $user_check_query = "SELECT * FROM users WHERE Username='$signup_username' OR Email='$signup_email' LIMIT 1";
-    $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort) VALUES(?, ?, ?)");
-//noch ohne prüfung und alles
+    $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    //Testen ob es den nutzer schon gibt
+    $testStmt = $dbh->prepare("SELECT Username, Email FROM benutzer WHERE Username = :username OR Email = :email LIMIT 1");
+    $testStmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
+    $testStmt->bindParam(":email", $signup_email, PDO::PARAM_STR, 12);
+    $testStmt->execute();
 
-  $InsertStmt->execute([mysqli_real_escape_string ($signup_username), mysqli_real_escape_string ($signup_email),mysqli_real_escape_string ($signup_pwd)]);
+      $user = $testStmt->fetch();
+
+      if ($user) { // if user exists
+        if ($user['Username'] === $signup_username) {
+          echo "<script type='text/javascript'>alert('Dieser Username existiert bereits!');</script>";
+          header('Location: ../index.php');
+          exit;
+        }
+
+        if ($user['Email'] === $signup_email) {
+          echo "<script type='text/javascript'>alert('Diese Email existiert bereits!');</script>";
+          header('Location: ../index.php');
+          exit;
+        }
+
+  }
+
+
+    //Insert in die db
+    $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort) VALUES(?, ?, ?)");
+    $InsertStmt->execute([$signup_username, $signup_email,hash('sha512',$signup_pwd)]);
 
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
     die();
 }
 
-  header("Location: profil.php");
+    header("Location: profil.php");
 die();
 
 
