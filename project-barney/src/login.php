@@ -20,6 +20,7 @@ try {
         if ($user['Username'] === $signup_username) {
           if(password_verify($login_pwd, $user['Passwort'])){
               header("Location: profil.php");
+              exit;
           }
             else{
               echo "<script type='text/javascript'>alert('Falsches Passwort');</script>";
