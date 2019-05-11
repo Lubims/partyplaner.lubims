@@ -169,7 +169,7 @@ if (isset($_SESSION['user'])){
 
         <!--Slideshow-->
 
-        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
           <!--Indicators-->
           <ol class="carousel-indicators">
             <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
@@ -181,18 +181,19 @@ if (isset($_SESSION['user'])){
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <div class="view">
-                <img class="d-block w-auto mx-auto" src="pictures/cheers.jpg" alt="First slide">
+                <img class="d-block w-100" src="pictures/cheers.jpg" height="600px" alt="First slide">
                 <div class="mask rgba-black-light"></div>
               </div>
               <div class="carousel-caption">
-                <h3 class="h3-responsive">Light mask</h3>
-                <p>First text</p>
+              <h1>Alkohol Rechner</h1>
+        <p class="lead">Beschreibung zum Rechner</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Los Gehts!</a></p>
               </div>
             </div>
             <div class="carousel-item">
               <!--Mask color-->
               <div class="view">
-                <img class="d-block w-auto mx-auto" src="pictures/bottles.jpg" alt="Second slide">
+                <img class="d-block w-100 mx-auto" src="pictures/bottles.jpg" height="600px" alt="Second slide">
                 <div class="mask rgba-black-strong"></div>
               </div>
               <div class="carousel-caption">
@@ -203,7 +204,7 @@ if (isset($_SESSION['user'])){
             <div class="carousel-item">
               <!--Mask color-->
               <div class="view">
-                <img class="d-block w-auto mx-auto" src="pictures/bierkisten.jpg" alt="Third slide">
+                <img class="d-block w-100 mx-auto" src="pictures/bierkisten.jpg" height="600px" alt="Third slide">
                 <div class="mask rgba-black-slight"></div>
               </div>
               <div class="carousel-caption">
@@ -225,13 +226,6 @@ if (isset($_SESSION['user'])){
           <!--/.Controls-->
         </div>
         <!--/.Slideshow-->
-
-      <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>Alkohol Rechner</h1>
-        <p class="lead">Beschreibung zum Rechner</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Los Gehts!</a></p>
-      </div>
 
       <!-- Beispiel-Zeile von Spalten -->
       <div class="row">
