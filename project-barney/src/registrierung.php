@@ -1,5 +1,11 @@
-<?php
+<?php session_start();
 /* Connect to a MySQL database using driver invocation */
+
+
+if(session_id() == ''){
+
+    session_start();
+}
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
