@@ -8,12 +8,16 @@ switch ($_SERVER["SCRIPT_NAME"]) {
   case    "/php-2019/project-barney/src/profil.php":
           $CURRENT_PAGE = "Profil";
           $PAGE_TITLE = "Das ist das Profil";
+          if (!isset($_SESSION['user'])){
+            header("Location: /php-2019/project-barney/");
+            exit;
+          }
           break;
   case    "/php-2019/project-barney/src/index_log.php":
           $CURRENT_PAGE = "IndexLog";
           $PAGE_TITLE = "Index aber jetzt eingelogt";
           if (!isset($_SESSION['user'])){
-            header("Location: /project-barney");
+            header("Location: /php-2019/project-barney/");
             exit;
           }
           break;
