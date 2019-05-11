@@ -34,7 +34,7 @@
         <form class="form-inline">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Hallo, Benutzername
+              Hallo, <?php echo $_SESSION['user'];?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#">Profil</a>
@@ -46,7 +46,7 @@
             </div>
           </div>
         </form>
-    </nav>
+    </nav<?php include("../includes/config.php");?>
 
         
 
