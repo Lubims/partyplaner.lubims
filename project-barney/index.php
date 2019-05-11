@@ -31,7 +31,7 @@
 
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand">Logo</a>
-            <form class="form-inline">
+            <form class="form-inline" action="src/login.php">
                 <input class="form-control mr-sm-2" placeholder="Benutzername">
                 <input class="form-control mr-sm-2" type="password" placeholder="Password">
                 <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Anmelden</button>
