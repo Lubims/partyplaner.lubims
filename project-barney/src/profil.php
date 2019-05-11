@@ -44,7 +44,7 @@
                 <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="index_log.php">Zur Startseite</a>
                 <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Ausloggen</a>
+                  <a class="dropdown-item" href="logout.php">Ausloggen</a>
                 </div>
               </div>
             </form>

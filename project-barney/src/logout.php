@@ -1,10 +1,7 @@
 <?php
-if (!isset($_SESSION['user'])){
+  session_start();
+  session_unset();
   session_destroy();
-  header("Location: /php-2019/project-barney/");
+  header("Location: /php-2019/project-barney/index.php");
   exit;
-}else{
-  header("Location: /php-2019/project-barney/");
-  exit;
-}
 ?>
