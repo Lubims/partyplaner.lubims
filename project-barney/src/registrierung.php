@@ -94,7 +94,7 @@ try {
     die();
 }
   $_SESSION['user'] = $signup_username;
-  header("Location: /project-barney/src/index_log.php");
+  header("Location: /php-2019/project-barney/src/index_log.php");
 die();
 
 
