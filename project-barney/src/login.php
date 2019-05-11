@@ -11,29 +11,30 @@ try {
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
     $testStmt = $dbh->prepare("SELECT Username, Passwort FROM benutzer WHERE Username = :username LIMIT 1");
-    $testStmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
+    $testStmt->bindParam(":username", $login_username, PDO::PARAM_STR, 12);
     $testStmt->execute();
 
     $user = $testStmt->fetch();
 
     if ($user) {
-        if ($user['Username'] === $signup_username) {
+        if ($user['Username'] == $login_username) {
           if(password_verify($login_pwd, $user['Passwort'])){
-              $_SESSION['user'] = $signup_username;
-              echo "<script type='text/javascript'>alert('Falsche Eingabe');</script>";
-          //    header("Location: index_log.php");
+              $_SESSION['user'] = $login_username;
+              header("Location: index_log.php");
+              echo "string";
               exit;
           }
             else{
-              echo "<script type='text/javascript'>alert('Falsche Eingabe');</script>";
-          //    header('Location: ../index.php');
+              header('Location: ../index.php');
               exit;
             }
+        }else{
+          header('Location: ../index.php');
+          exit;
         }
     }
     else {
-      echo "<script type='text/javascript'>alert('Falsche Eingabe');</script>";
-    //  header('Location: ../index.php');
+      header('Location: ../index.php');
       exit;
     }
 
