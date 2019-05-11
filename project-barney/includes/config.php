@@ -1,7 +1,9 @@
 
 <?php
-session_start();
-
+if(session_id() == ''){
+    
+    session_start();
+}
 switch ($_SERVER["SCRIPT_NAME"]) {
   case    "/project-barney/src/profil.php":
           $CURRENT_PAGE = "Profil";
