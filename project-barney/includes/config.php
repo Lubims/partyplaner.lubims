@@ -9,7 +9,7 @@ switch ($_SERVER["SCRIPT_NAME"]) {
           $CURRENT_PAGE = "Profil";
           $PAGE_TITLE = "Das ist das Profil";
           break;
-  case    "/php-201/project-barney/src/index_log.php":
+  case    "/php-2019/project-barney/src/index_log.php":
           $CURRENT_PAGE = "IndexLog";
           $PAGE_TITLE = "Index aber jetzt eingelogt";
           if (!isset($_SESSION['user'])){
