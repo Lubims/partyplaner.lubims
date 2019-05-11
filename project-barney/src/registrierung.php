@@ -87,13 +87,14 @@ try {
     //Insert in die db
     $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort) VALUES(?, ?, ?)");
     $InsertStmt->execute([$signup_username, $signup_email,password_hash($signup_pwd, PASSWORD_BCRYPT)]);
+    $_SESSION['name'] = $signup_username;
 
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
     die();
 }
-
-    header("Location: profil.php");
+  $_SESSION['user'] = $signup_username;
+  header("Location: /project-barney/src/index_log.php");
 die();
 
 

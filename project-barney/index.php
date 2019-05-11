@@ -1,4 +1,8 @@
-<?php include("includes/config.php");?>
+<?php include("includes/config.php");
+if (isset($_SESSION['user'])){
+  header("Location: index_log.php");
+  exit;
+}?>
 <!DOCTYPE html>
 <html lang="de">
   <head>

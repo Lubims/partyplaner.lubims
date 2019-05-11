@@ -19,18 +19,19 @@ try {
     if ($user) {
         if ($user['Username'] === $signup_username) {
           if(password_verify($login_pwd, $user['Passwort'])){
-              header("Location: profil.php");
+              $_SESSION['user'] = $signup_username;
+              header("Location: index_log.php");
               exit;
           }
             else{
-              echo "<script type='text/javascript'>alert('Falsches Passwort');</script>";
+              echo "<script type='text/javascript'>alert('Falsche Eingabe');</script>";
               header('Location: ../index.php');
               exit;
             }
         }
     }
     else {
-      echo "<script type='text/javascript'>alert('Diesen User gibt es nicht');</script>";
+      echo "<script type='text/javascript'>alert('Falsche Eingabe');</script>";
       header('Location: ../index.php');
       exit;
     }
