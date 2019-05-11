@@ -1,6 +1,6 @@
 <?php include("includes/config.php");
 if (isset($_SESSION['user'])){
-  header("Location: /project-barney/src/index_log.php");
+  header("Location: /php-2019/project-barney/src/index_log.php");
   exit;
 }?>
 <!DOCTYPE html>
