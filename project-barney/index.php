@@ -181,7 +181,7 @@ if (isset($_SESSION['user'])){
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <div class="view">
-                <img class="d-block w-100" src="pictures/cheers.jpg" height="600px" alt="First slide">
+                <img class="d-block w-100" src="pictures/cheers.jpg" height="800px" alt="First slide">
                 <div class="mask rgba-black-light"></div>
               </div>
               <div class="carousel-caption">
@@ -193,7 +193,7 @@ if (isset($_SESSION['user'])){
             <div class="carousel-item">
               <!--Mask color-->
               <div class="view">
-                <img class="d-block w-100 mx-auto" src="pictures/bottles.jpg" height="600px" alt="Second slide">
+                <img class="d-block w-100 mx-auto" src="pictures/bottles.jpg" height="800px" alt="Second slide">
                 <div class="mask rgba-black-strong"></div>
               </div>
               <div class="carousel-caption">
@@ -204,7 +204,7 @@ if (isset($_SESSION['user'])){
             <div class="carousel-item">
               <!--Mask color-->
               <div class="view">
-                <img class="d-block w-100 mx-auto" src="pictures/bierkisten.jpg" height="600px" alt="Third slide">
+                <img class="d-block w-100 mx-auto" src="pictures/bierkisten.jpg" height="800px" alt="Third slide">
                 <div class="mask rgba-black-slight"></div>
               </div>
               <div class="carousel-caption">
