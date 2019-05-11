@@ -181,13 +181,13 @@ if (isset($_SESSION['user'])){
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
               <div class="view">
-                <img class="d-block w-100" src="pictures/cheers.jpg" height="550px" alt="First slide">
+                <img class="d-block w-100" src="pictures/biermeter.jpg" height="550px" alt="First slide">
                 <div class="mask rgba-black-light"></div>
               </div>
               <div class="carousel-caption">
-              <h1>Alkohol Rechner</h1>
-        <p class="lead">Beschreibung zum Rechner</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Los Gehts!</a></p>
+                <h1>Alkohol Rechner</h1>
+                <p class="lead">Beschreibung zum Rechner</p>
+                <p><a class="btn btn-lg btn-success" href="#" role="button">Los Gehts!</a></p>
               </div>
             </div>
             <div class="carousel-item">
@@ -204,7 +204,7 @@ if (isset($_SESSION['user'])){
             <div class="carousel-item">
               <!--Mask color-->
               <div class="view">
-                <img class="d-block w-100 mx-auto" src="pictures/bierkisten.jpg" height="550px" alt="Third slide">
+                <img class="d-block w-100 mx-auto" src="pictures/flaschen.jpg" height="550px" alt="Third slide">
                 <div class="mask rgba-black-slight"></div>
               </div>
               <div class="carousel-caption">
@@ -214,6 +214,7 @@ if (isset($_SESSION['user'])){
             </div>
           </div>
           <!--/.Slides-->
+          
           <!--Controls-->
           <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
