@@ -40,7 +40,7 @@
               <a class="dropdown-item" href="#">Profil</a>
               <a class="dropdown-item" href="#">Freunde</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="profil.php">Zum Dashboard</a>
+              <a class="dropdown-item" href="dashboard/profil.php">Zum Dashboard</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="logout.php">Ausloggen</a>
             </div>

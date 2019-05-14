@@ -56,7 +56,7 @@ try {
     $message .= "<body style=\"font-family:Verdana, Verdana, Geneva, sans-serif; font-size:12px; color:#666666;\">";
     $message .= "Der Code für die Registrierung lautet:<br>";
     $message .= "<br><font size=\"2\" color=\"black\" style=\"font-weight: bold\">".$code."</font><br>";
-    $message .= "<br><a href=\"http://localhost/php-2019/project-barney/src/profil.php\">Zur Homepage</a>";
+    $message .= "<br><a href=\"http://localhost/php-2019/project-barney/src/dashboard/profil.php\">Zur Homepage</a>";
     $message .= "</body>";
     $message .= "</html>";
 

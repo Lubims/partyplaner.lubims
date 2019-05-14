@@ -5,7 +5,7 @@ if(session_id() == ''){
     session_start();
 }
 switch ($_SERVER["SCRIPT_NAME"]) {
-  case    "/php-2019/project-barney/src/profil.php":
+  case    "/php-2019/project-barney/src/dashboard/profil.php":
           $CURRENT_PAGE = "Profil";
           $PAGE_TITLE = "Das ist das Profil";
           if (!isset($_SESSION['user'])){
