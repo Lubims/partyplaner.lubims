@@ -28,6 +28,9 @@
   </head>
 
   <body>
+  <!--Überprüfung Mail-Code-->
+    
+  <!--Überprüfung Mail-Code-->
 
     <div class="container-fluid">
 
@@ -39,8 +42,8 @@
                 Hallo, <?php echo $_SESSION['user'];?>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Profil</a>
-                <a class="dropdown-item" href="#">Freunde</a>
+                <a class="dropdown-item" href="../profil_bearbeiten.php">Profil</a>
+                <a class="dropdown-item" href="../freunde.php">Freunde</a>
                 <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="../index_log.php">Zur Startseite</a>
                 <div class="dropdown-divider"></div>
