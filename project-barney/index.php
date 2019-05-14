@@ -252,7 +252,6 @@ if (isset($_SESSION['user'])){
 
     </div> <!-- /container -->
 
-
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
