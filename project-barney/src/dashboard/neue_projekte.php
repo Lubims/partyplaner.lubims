@@ -61,7 +61,6 @@
                         <li class="nav-item">
                           <a class="nav-link active" href="profil.php">
                             Übersicht
-                            <span class="sr-only">(current)</span>
                           </a>
                         </li>
                         <li class="nav-item">
