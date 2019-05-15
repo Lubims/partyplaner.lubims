@@ -1,51 +1,11 @@
-<?php include("includes/config.php");?>
+<?php include("includes/config.php");
+if (isset($_SESSION['user'])){
+  header("Location: /php-2019/project-barney/src/index_log.php");
+  exit;
+}?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
-    <script>
-        // Function to check Whether both passwords
-        // is same or not.
-        function checkSignup(form) {
-            password1 = form.signup_pwd.value;
-            password2 = form.signup_pwd2.value;
-            pwd2_feld = document.getElementById("confirm_password");
-            newUser = true;
-            var isUserNew;
-
-            jQuery.ajax({
-                async: false,
-                type: 'POST',
-                url: 'src/registrierung.php',
-                data: {signup_username: form.signup_username.value, signup_email: form.signup_email.value, signup_pwd: form.signup_pwd.value},
-
-                success:function(isUserNew) {
-                    if(isUserNew.localeCompare("true")) {
-                        newUser = false;
-                    } else {
-                      newUser = true;
-                    }
-                }
-            });
-
-            if(newUser) {
-                // If Not same return False.
-                if (password1 != password2) {
-                    alert ("Passwörter stimmen nicht überein.");
-                    return false;
-                }
-
-                // If same return True.
-                else {
-                    return true;
-                }
-            } else {
-                console.log(newUser);
-                alert ("User existiert bereits");
-                return false;
-            }
-        }
-    </script>
-    <script src="/php-2019/project-barney/lib/jquery-3.4.1.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,11 +35,10 @@
 
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand">Logo</a>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" placeholder="Benutzername">
-                <input class="form-control mr-sm-2" type="password" placeholder="Password">
+            <form class="form-inline"  method="post" action="src/login.php">
+                <input class="form-control mr-sm-2" placeholder="Benutzername" name="login_username" required>
+                <input class="form-control mr-sm-2" type="password" placeholder="Password" name="login_pwd" required>
                 <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Anmelden</button>
-                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Registrieren</button>-->
                 <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" data-target="#myModal">Registrieren</label>
             </form>
         </nav>
@@ -156,8 +115,7 @@
                     <span aria-hidden="true">&times;</span>
                   </label>
                 </div>
-                <form class="form-inline" method="post" onSubmit="return checkSignup(this)">
-                <!--<form class="form-inline" method="post" action="src/profil.php" onSubmit="return checkSignup(this)">-->
+                <form class="form-inline" method="post" action="src/registrierung.php" onSubmit="return checkPassword(this)">
                   <div class="modal-body">
                     <table>
                       <tr>
@@ -174,9 +132,29 @@
                       </tr>
                       <tr>
                         <td style="padding: 10px">Passwort wiederholen:</td>
-                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen" name="signup_pwd2" required></td>
+                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen" oninput="check(this)" name="signup_pwd2" required></td>
                       </tr>
                     </table>
+                    <script>
+                        // Function to check Whether both passwords
+                        // is same or not.
+                        function checkPassword(form) {
+                            password1 = form.signup_pwd.value;
+                            password2 = form.signup_pwd2.value;
+                            pwd2_feld = document.getElementById("confirm_password");
+
+                            // If Not same return False.
+                            if (password1 != password2) {
+                                alert ("Passwörter stimmen nicht überein.");
+                                return false;
+                            }
+
+                            // If same return True.
+                            else{
+                                return true;
+                            }
+                        }
+                    </script>
                   </div>
                   <div class="modal-footer">
                     <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
@@ -188,20 +166,66 @@
           </div>
         </div>
 
-        <div class="text-center">
-            <div class="btn-group btn-group-lg" role="group">
-                <button type="button" class="btn btn-secondary">Left</button>
-                <button type="button" class="btn btn-secondary">Middle</button>
-                <button type="button" class="btn btn-secondary">Right</button>
-            </div>
-        </div>
+        <!--Slideshow-->
 
-      <!-- Jumbotron -->
-      <div class="jumbotron">
-        <h1>Alkohol Rechner</h1>
-        <p class="lead">Beschreibung zum Rechner</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Los Gehts!</a></p>
-      </div>
+        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+          <!--Indicators-->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-2" data-slide-to="1"></li>
+            <li data-target="#carousel-example-2" data-slide-to="2"></li>
+          </ol>
+          <!--/.Indicators-->
+          <!--Slides-->
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <div class="view">
+                <img class="d-block w-100" src="pictures/biermeter.jpg" height="550px" alt="First slide">
+                <div class="mask rgba-black-light"></div>
+              </div>
+              <div class="carousel-caption">
+                <h1>Alkohol Rechner</h1>
+                <p class="lead">Beschreibung zum Rechner</p>
+                <p><a class="btn btn-lg btn-success" href="#" role="button">Los Gehts!</a></p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <!--Mask color-->
+              <div class="view">
+                <img class="d-block w-100 mx-auto" src="pictures/wand.jpg" height="550px" alt="Second slide">
+                <div class="mask rgba-black-strong"></div>
+              </div>
+              <div class="carousel-caption">
+                <h3 class="h3-responsive">Strong mask</h3>
+                <p>Secondary text</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <!--Mask color-->
+              <div class="view">
+                <img class="d-block w-100 mx-auto" src="pictures/flaschen.jpg" height="550px" alt="Third slide">
+                <div class="mask rgba-black-slight"></div>
+              </div>
+              <div class="carousel-caption">
+                <h3 class="h3-responsive">Slight mask</h3>
+                <p>Third text</p>
+              </div>
+            </div>
+          </div>
+          <!--/.Slides-->
+          
+          <!--Controls-->
+          <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          <!--/.Controls-->
+        </div>
+        <!--/.Slideshow-->
 
       <!-- Beispiel-Zeile von Spalten -->
       <div class="row">
@@ -228,8 +252,10 @@
 
     </div> <!-- /container -->
 
-
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="src/js/bootstrap.min.js"></script>
   </body>
 </html>
