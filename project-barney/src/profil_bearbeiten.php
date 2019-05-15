@@ -74,7 +74,7 @@ $USER_EMAIL = $user['Email'];
 =======
 <!--HIER!-->
     <span class="label label-primary"><?php echo $USER_EMAIL;?></span>
->>>>>>> 0b2cf065e8bb01d7f23875a5298441becd1e7022
+
 
       <!-- Site footer -->
       <?php include("../includes/footer.php");?>
