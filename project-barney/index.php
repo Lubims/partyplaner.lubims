@@ -6,6 +6,53 @@ if (isset($_SESSION['user'])){
 <!DOCTYPE html>
 <html lang="de">
   <head>
+    <script>
+        // Function to check Whether both passwords
+        // is same or not.
+        function checkSignup(form) {
+            password1 = form.signup_pwd.value;
+            password2 = form.signup_pwd2.value;
+            pwd2_feld = document.getElementById("confirm_password");
+            newUser = true;
+            var isUserNew;
+
+            jQuery.ajax({
+                async: false,
+                type: 'POST',
+                url: 'src/registrierung.php',
+                data: {signup_username: form.signup_username.value, signup_email: form.signup_email.value, signup_pwd: form.signup_pwd.value},
+
+                success:function(isUserNew) {
+                    if(isUserNew.localeCompare("true")) {
+                        newUser = false;
+                    } else {
+                      newUser = true;
+                    }
+                }
+            });
+
+            if(newUser) {
+                // If Not same return False.
+                if (password1 != password2) {
+                    alert ("Passwörter stimmen nicht überein.");
+                    return false;
+                }
+
+                // If same return True.
+                else {
+                    return true;
+                }
+            } else {
+                console.log(newUser);
+                alert ("User existiert bereits");
+                return false;
+            }
+        }
+    </script>
+    <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="src/js/bootstrap.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,26 +182,6 @@ if (isset($_SESSION['user'])){
                         <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen" oninput="check(this)" name="signup_pwd2" required></td>
                       </tr>
                     </table>
-                    <script>
-                        // Function to check Whether both passwords
-                        // is same or not.
-                        function checkPassword(form) {
-                            password1 = form.signup_pwd.value;
-                            password2 = form.signup_pwd2.value;
-                            pwd2_feld = document.getElementById("confirm_password");
-
-                            // If Not same return False.
-                            if (password1 != password2) {
-                                alert ("Passwörter stimmen nicht überein.");
-                                return false;
-                            }
-
-                            // If same return True.
-                            else{
-                                return true;
-                            }
-                        }
-                    </script>
                   </div>
                   <div class="modal-footer">
                     <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
@@ -213,7 +240,7 @@ if (isset($_SESSION['user'])){
             </div>
           </div>
           <!--/.Slides-->
-          
+
           <!--Controls-->
           <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -251,11 +278,5 @@ if (isset($_SESSION['user'])){
       <?php include("includes/footer.php");?>
 
     </div> <!-- /container -->
-
-    <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="src/js/bootstrap.min.js"></script>
   </body>
 </html>
