@@ -28,12 +28,12 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $testStmt = $dbh->prepare("SELECT Username, Email FROM benutzer WHERE Username = :username OR Email = :email LIMIT 1");
-    $testStmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
-    $testStmt->bindParam(":email", $signup_email, PDO::PARAM_STR, 12);
-    $testStmt->execute();
+    $Stmt = $dbh->prepare("SELECT Username, Email FROM benutzer WHERE Username = :username OR Email = :email LIMIT 1");
+    $Stmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
+    $Stmt->bindParam(":email", $signup_email, PDO::PARAM_STR, 12);
+    $Stmt->execute();
 
-      $user = $testStmt->fetch();
+      $user = $Stmt->fetch();
 
       if ($user) {
         if ($user['Username'] === $signup_username) {
