@@ -47,8 +47,24 @@
           </div>
         </form>
     </nav>
-<!--HIER!-->
-    <span class="label label-primary">Primary Label</span>
+    <!--Profil bearbeiten-->
+
+    <div class="modal-body text-center">
+      <table class="table">
+        <tr>
+          <td style="padding: 10px"><input type="text" readonly class="form-control-plaintext" value="Benutzername:"></td>
+          <td style="padding-left: 10px"><input type="text" readonly class="form-control-plaintext" id="staticUser" value="Name"></td>
+          <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" data-target="#benutzerändern">ändern</label></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px"><input type="text" readonly class="form-control-plaintext" value="Email:"></td>
+          <td style="padding-left: 10px"><input type="text" readonly class="form-control-plaintext" id="staticUser" value="Name"></td>
+          <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" data-target="#mailändern">ändern</label></td>
+        </tr>
+      </table>
+      <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" data-target="#passwortändern">Passwort ändern</label></td>
+    </div>
+
 
       <!-- Site footer -->
       <?php include("../includes/footer.php");?>
