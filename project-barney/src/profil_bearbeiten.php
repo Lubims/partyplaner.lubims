@@ -1,4 +1,9 @@
-<?php include("../includes/config.php");?>
+<?php include("../includes/config.php");
+$user = getUserData();
+$USER_NAME = $user['Username'];
+$USER_EMAIL = $user['Email'];
+
+?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -48,7 +53,7 @@
         </form>
     </nav>
 <!--HIER!-->
-    <span class="label label-primary">Primary Label</span>
+    <span class="label label-primary"><?php echo $USER_EMAIL;?></span>
 
       <!-- Site footer -->
       <?php include("../includes/footer.php");?>
