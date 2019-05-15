@@ -162,7 +162,7 @@ if (isset($_SESSION['user'])){
                     <span aria-hidden="true">&times;</span>
                   </label>
                 </div>
-                <form class="form-inline" method="post" action="src/profil.php" onSubmit="return checkSignup(this)">
+                <form class="form-inline" method="post" action="src/dashboard/profil.php" onSubmit="return checkSignup(this)">
                   <div class="modal-body">
                     <table>
                       <tr>
