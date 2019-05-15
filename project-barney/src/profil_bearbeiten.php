@@ -52,7 +52,6 @@ $USER_EMAIL = $user['Email'];
           </div>
         </form>
     </nav>
-<<<<<<< HEAD
     <!--Profil bearbeiten-->
 
     <div class="modal-body text-center">
@@ -71,7 +70,6 @@ $USER_EMAIL = $user['Email'];
       <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" data-target="#passwortändern">Passwort ändern</label></td>
     </div>
 
-=======
 <!--HIER!-->
     <span class="label label-primary"><?php echo $USER_EMAIL;?></span>
 
