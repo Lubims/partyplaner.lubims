@@ -8,7 +8,7 @@
       }
       body {
         overflow:hidden;
-        background-image: url("../lib/impressum.jpg");
+        background-image: url("../pictures/impressum.jpg");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         text-align: center;
@@ -25,7 +25,7 @@
   </head>
   <body>
     <h1>&copy; LUBAR - EINE NIEDERLASSUNG DER LUBIMS AG</h1>
-    <h4 style="transform: translate(-570px, 80px)">
+    <h4 style="transform: translate(-530px, 80px)">
       Ansässig in der:<br>
       Werner-Peix-Straße 29<br>
       31789 Hameln
@@ -37,6 +37,6 @@
     </h4>
   </body>
   <span style="position: fixed; bottom: 0pt; transform: translate(-50px)">
-    <p><a style="text-align: center; color: black; font-size: 12px" href="/index.php">Zurück zur Homepage</a></p>
+    <p><a style="text-align: center; color: black; font-size: 12px" href="/php-2019/project-barney/">Zurück zur Homepage</a></p>
   </span>
 <html>

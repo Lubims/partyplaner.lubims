@@ -1,4 +1,12 @@
-<?php
+<?php session_start();
+/* Connect to a MySQL database using driver invocation */
+
+
+if(session_id() == ''){
+
+    session_start();
+}
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -22,18 +30,20 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $testStmt = $dbh->prepare("SELECT Username, Email FROM benutzer WHERE Username = :username OR Email = :email LIMIT 1");
-    $testStmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
-    $testStmt->bindParam(":email", $signup_email, PDO::PARAM_STR, 12);
-    $testStmt->execute();
+    $Stmt = $dbh->prepare("SELECT Username, Email FROM benutzer WHERE Username = :username OR Email = :email LIMIT 1");
+    $Stmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
+    $Stmt->bindParam(":email", $signup_email, PDO::PARAM_STR, 12);
+    $Stmt->execute();
 
-      $user = $testStmt->fetch();
+      $user = $Stmt->fetch();
 
-    if ($user) {
-        if ($user['Username'] === $signup_username || $user['Email'] === $signup_email) {
-            echo "false";
+      if ($user) {
+        if ($user['Username'] === $signup_username) {
+          echo "<script type='text/javascript'>alert('Dieser Username existiert bereits!');</script>";
+          header('Location: ../index.php');
+          exit;
         }
-    } else {
+      } else {
       //Erstellen der Email
       $message = "<html>";
       $message .= "<body style=\"font-family:Verdana, Verdana, Geneva, sans-serif; font-size:12px; color:#666666;\">";
@@ -75,13 +85,12 @@ try {
       $InsertStmt->execute([$signup_username, $signup_email,password_hash($signup_pwd, PASSWORD_BCRYPT)]);
       echo "true";
     }
-
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
     die();
 }
 
-//header("Location: profil.php");
 die();
+
 
 ?>
