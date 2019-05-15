@@ -34,16 +34,18 @@ CREATE TABLE Projekte (
 	ProjektName VARCHAR(30) NOT NULL,
 	Termin DATE NOT NULL,
 	Beschreibung VARCHAR(500),
+
+	PRIMARY KEY (ProjektID)
 );
 
 CREATE TABLE Produktliste(
+ProjekteID INT NOT NULL,
 ProduktID INT NOT NULL,
-ProjektID INT NOT NULL,
 
-PRIMARY KEY (ProduktID, ProduktName),
+PRIMARY KEY (ProjekteID, ProduktID),
 FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID),
-FOREIGN KEY (ProjektID) REFERENCES Projekte(ProjekteID)
-)
+FOREIGN KEY (ProjekteID) REFERENCES Projekte(ProjektID)
+);
 
 
 
