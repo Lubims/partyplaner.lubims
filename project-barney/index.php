@@ -1,8 +1,4 @@
-<?php include("includes/config.php");
-if (isset($_SESSION['user'])){
-  header("Location: /php-2019/project-barney/src/index_log.php");
-  exit;
-}?>
+<?php include("includes/config.php");?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -81,10 +77,11 @@ if (isset($_SESSION['user'])){
 
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand">Logo</a>
-            <form class="form-inline"  method="post" action="src/login.php">
-                <input class="form-control mr-sm-2" placeholder="Benutzername" name="login_username" required>
-                <input class="form-control mr-sm-2" type="password" placeholder="Password" name="login_pwd" required>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" placeholder="Benutzername">
+                <input class="form-control mr-sm-2" type="password" placeholder="Password">
                 <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Anmelden</button>
+                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Registrieren</button>-->
                 <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" data-target="#myModal">Registrieren</label>
             </form>
         </nav>
@@ -192,66 +189,20 @@ if (isset($_SESSION['user'])){
           </div>
         </div>
 
-        <!--Slideshow-->
-
-        <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
-          <!--Indicators-->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-2" data-slide-to="1"></li>
-            <li data-target="#carousel-example-2" data-slide-to="2"></li>
-          </ol>
-          <!--/.Indicators-->
-          <!--Slides-->
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <div class="view">
-                <img class="d-block w-100" src="pictures/biermeter.jpg" height="550px" alt="First slide">
-                <div class="mask rgba-black-light"></div>
-              </div>
-              <div class="carousel-caption">
-                <h1>Alkohol Rechner</h1>
-                <p class="lead">Beschreibung zum Rechner</p>
-                <p><a class="btn btn-lg btn-success" href="#" role="button">Los Gehts!</a></p>
-              </div>
+        <div class="text-center">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="button" class="btn btn-secondary">Left</button>
+                <button type="button" class="btn btn-secondary">Middle</button>
+                <button type="button" class="btn btn-secondary">Right</button>
             </div>
-            <div class="carousel-item">
-              <!--Mask color-->
-              <div class="view">
-                <img class="d-block w-100 mx-auto" src="pictures/wand.jpg" height="550px" alt="Second slide">
-                <div class="mask rgba-black-strong"></div>
-              </div>
-              <div class="carousel-caption">
-                <h3 class="h3-responsive">Strong mask</h3>
-                <p>Secondary text</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <!--Mask color-->
-              <div class="view">
-                <img class="d-block w-100 mx-auto" src="pictures/flaschen.jpg" height="550px" alt="Third slide">
-                <div class="mask rgba-black-slight"></div>
-              </div>
-              <div class="carousel-caption">
-                <h3 class="h3-responsive">Slight mask</h3>
-                <p>Third text</p>
-              </div>
-            </div>
-          </div>
-          <!--/.Slides-->
-          
-          <!--Controls-->
-          <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-          <!--/.Controls-->
         </div>
-        <!--/.Slideshow-->
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Alkohol Rechner</h1>
+        <p class="lead">Beschreibung zum Rechner</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Los Gehts!</a></p>
+      </div>
 
       <!-- Beispiel-Zeile von Spalten -->
       <div class="row">
@@ -278,10 +229,8 @@ if (isset($_SESSION['user'])){
 
     </div> <!-- /container -->
 
+
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="src/js/bootstrap.min.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<?php include("../../includes/config.php");?>
+<?php include("../includes/config.php");?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -13,24 +13,21 @@
     <title><?php echo($PAGE_TITLE)?></title>
 
     <!-- Bootstrap-CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!--<link href="css/bootstrap-grid.min.css" rel="stylesheet">
     <link href="css/bootstrap-reboot.min.css" rel="stylesheet">-->
 
     <!-- Besondere Stile für diese Vorlage -->
-    <link href="../src/css/justified-nav.css" rel="stylesheet">
+    <link href="src/css/justified-nav.css" rel="stylesheet">
 
     <!-- Unterstützung für Media Queries und HTML5-Elemente in IE8 über HTML5 shim und Respond.js -->
-
+ 
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
   </head>
 
   <body>
-  <!--Überprüfung Mail-Code-->
-    
-  <!--Überprüfung Mail-Code-->
 
     <div class="container-fluid">
 
@@ -39,15 +36,15 @@
           <form class="form-inline">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Hallo, <?php echo $_SESSION['user'];?>
+                Hallo, Benutzername
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="../profil_bearbeiten.php">Profil</a>
-                <a class="dropdown-item" href="../freunde.php">Freunde</a>
+                <a class="dropdown-item" href="#">Profil</a>
+                <a class="dropdown-item" href="#">Freunde</a>
                 <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="../index_log.php">Zur Startseite</a>
+              <a class="dropdown-item" href="#">Zur Startseite</a>
                 <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="../logout.php">Ausloggen</a>
+                  <a class="dropdown-item" href="#">Ausloggen</a>
                 </div>
               </div>
             </form>
@@ -62,19 +59,40 @@
                           <span>Navigation</span>
                         </h6>
                         <li class="nav-item">
-                          <a class="nav-link active" href="profil.php">
-                            Übersicht
+                          <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            Dashboard 
                             <span class="sr-only">(current)</span>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="projekte.php">
-                            Projekte
+                          <a class="nav-link" href="#">
+                            <span data-feather="file"></span>
+                              Orders
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="neue_projekte.php">
-                            Neues Projekt
+                          <a class="nav-link" href="#">
+                            <span data-feather="shopping-cart"></span>
+                            Products
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                              Customers
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Reports
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">
+                            <span data-feather="layers"></span>
+                            Integrations
                           </a>
                         </li>
                       </ul>
@@ -125,15 +143,15 @@
                   </div>
                 </div>
 
+    
+        
 
+        
 
-
-
-
-
+        
 
       <!-- Site footer -->
-      <?php include("../../includes/footer.php");?>
+      <?php include("../includes/footer.php");?>
 
     </div> <!-- /container -->
 
@@ -142,6 +160,6 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>  
   </body>
 </html>
