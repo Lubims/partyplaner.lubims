@@ -47,6 +47,8 @@
           </div>
         </form>
     </nav>
+<!--HIER!-->
+    <span class="label label-primary">Primary Label</span>
 
       <!-- Site footer -->
       <?php include("../includes/footer.php");?>
