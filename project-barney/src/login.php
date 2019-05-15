@@ -10,15 +10,18 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $testStmt = $dbh->prepare("SELECT Username, Passwort FROM benutzer WHERE Username = :username LIMIT 1");
-    $testStmt->bindParam(":username", $login_username, PDO::PARAM_STR, 12);
-    $testStmt->execute();
+    $Stmt = $dbh->prepare("SELECT Username, Passwort, Code FROM benutzer WHERE Username = :username LIMIT 1");
+    $Stmt->bindParam(":username", $login_username, PDO::PARAM_STR, 12);
+    $Stmt->execute();
 
-    $user = $testStmt->fetch();
+    $user = $Stmt->fetch();
 
     if ($user) {
         if ($user['Username'] == $login_username) {
           if(password_verify($login_pwd, $user['Passwort'])){
+            if(isset($user['Code'])){
+              $_SESSION['code'] = $user['Code'];
+            }
               $_SESSION['user'] = $login_username;
               header("Location: index_log.php");
               echo "string";
@@ -34,8 +37,7 @@ try {
         }
     }
     else {
-      header('Location: ../index.php');
-      exit;
+        header('Location: ../index.php');
     }
 
 }
