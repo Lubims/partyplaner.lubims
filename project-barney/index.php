@@ -6,6 +6,52 @@ if (isset($_SESSION['user'])){
 <!DOCTYPE html>
 <html lang="de">
   <head>
+    <script>
+        // Function to check Whether both passwords
+        // is same or not.
+        function checkSignup(form) {
+            password1 = form.signup_pwd.value;
+            password2 = form.signup_pwd2.value;
+            pwd2_feld = document.getElementById("confirm_password");
+            newUser = true;
+            var isUserNew;
+
+            console.log("test");
+
+            jQuery.ajax({
+                type: 'POST',
+                url: 'src/registrierung.php',
+                data: {signup_username: form.signup_username.value, signup_email: form.signup_email.value, signup_pwd: form.signup_pwd.value},
+
+                success:function(isUserNew) {
+                    console.log("ich bin nur hier zum test");
+                    console.log(isUserNew);
+                    if isUserNew = "false" {
+                        newUser = false;
+                    } else {
+                      newUser = true;
+                    }
+                }
+            });
+
+            if(newUser == false) {
+                // If Not same return False.
+                if (password1 != password2) {
+                    alert ("Passwörter stimmen nicht überein.");
+                    return false;
+                }
+
+                // If same return True.
+                else {
+                    return true;
+                }
+            } else {
+                alert ("User existiert bereits");
+                return false;
+            }
+        }
+    </script>
+    <script src="/php-2019/project-barney/lib/jquery-3.4.1.min.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -115,7 +161,7 @@ if (isset($_SESSION['user'])){
                     <span aria-hidden="true">&times;</span>
                   </label>
                 </div>
-                <form class="form-inline" method="post" action="src/registrierung.php" onSubmit="return checkPassword(this)">
+                <form class="form-inline" method="post" action="src/profil.php" onSubmit="return checkSignup(this)">
                   <div class="modal-body">
                     <table>
                       <tr>
@@ -132,29 +178,9 @@ if (isset($_SESSION['user'])){
                       </tr>
                       <tr>
                         <td style="padding: 10px">Passwort wiederholen:</td>
-                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen" oninput="check(this)" name="signup_pwd2" required></td>
+                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen" name="signup_pwd2" required></td>
                       </tr>
                     </table>
-                    <script>
-                        // Function to check Whether both passwords
-                        // is same or not.
-                        function checkPassword(form) {
-                            password1 = form.signup_pwd.value;
-                            password2 = form.signup_pwd2.value;
-                            pwd2_feld = document.getElementById("confirm_password");
-
-                            // If Not same return False.
-                            if (password1 != password2) {
-                                alert ("Passwörter stimmen nicht überein.");
-                                return false;
-                            }
-
-                            // If same return True.
-                            else{
-                                return true;
-                            }
-                        }
-                    </script>
                   </div>
                   <div class="modal-footer">
                     <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
