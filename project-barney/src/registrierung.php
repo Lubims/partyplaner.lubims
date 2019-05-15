@@ -81,8 +81,8 @@ try {
 
 
       //Insert in die db
-      $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort) VALUES(?, ?, ?)");
-      $InsertStmt->execute([$signup_username, $signup_email,password_hash($signup_pwd, PASSWORD_BCRYPT)]);
+      $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort, Code) VALUES(?, ?, ?, ?)");
+      $InsertStmt->execute([$signup_username, $signup_email, password_hash($signup_pwd, PASSWORD_BCRYPT), $code]);
       echo "true";
     }
 } catch (PDOException $e) {

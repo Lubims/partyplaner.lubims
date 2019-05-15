@@ -16,37 +16,38 @@ if (isset($_SESSION['user'])){
             newUser = true;
             var isUserNew;
 
-            jQuery.ajax({
-                async: false,
-                type: 'POST',
-                url: 'src/registrierung.php',
-                data: {signup_username: form.signup_username.value, signup_email: form.signup_email.value, signup_pwd: form.signup_pwd.value},
-
-                success:function(isUserNew) {
-                    if(isUserNew.localeCompare("true")) {
-                        newUser = false;
-                    } else {
-                      newUser = true;
-                    }
-                }
-            });
-
-            if(newUser) {
-                // If Not same return False.
-                if (password1 != password2) {
-                    alert ("Passwörter stimmen nicht überein.");
-                    return false;
-                }
-
-                // If same return True.
-                else {
-                    return true;
-                }
-            } else {
-                console.log(newUser);
-                alert ("User existiert bereits");
+            // If Not same return False.
+            if (password1 != password2) {
+                alert ("Passwörter stimmen nicht überein.");
                 return false;
             }
+
+            // If same return True.
+            else {
+              jQuery.ajax({
+                  async: false,
+                  type: 'POST',
+                  url: 'src/registrierung.php',
+                  data: {signup_username: form.signup_username.value, signup_email: form.signup_email.value, signup_pwd: form.signup_pwd.value},
+
+                  success:function(isUserNew) {
+                      if(isUserNew.localeCompare("true")) {
+                          newUser = false;
+                      } else {
+                        newUser = true;
+                      }
+                  }
+              });
+
+              if(newUser) {
+                  alert ("User registriert, bitte anmelden.")
+                  return true;
+              } else {
+                  alert ("User existiert bereits");
+                  return false;
+              }
+            }
+
         }
     </script>
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
