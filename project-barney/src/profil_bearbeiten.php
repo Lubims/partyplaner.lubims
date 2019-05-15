@@ -1,4 +1,9 @@
-<?php include("../includes/config.php");?>
+<?php include("../includes/config.php");
+$user = getUserData();
+$USER_NAME = $user['Username'];
+$USER_EMAIL = $user['Email'];
+
+?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -47,6 +52,7 @@
           </div>
         </form>
     </nav>
+<<<<<<< HEAD
     <!--Profil bearbeiten-->
 
     <div class="modal-body text-center">
@@ -65,6 +71,10 @@
       <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" data-target="#passwortändern">Passwort ändern</label></td>
     </div>
 
+=======
+<!--HIER!-->
+    <span class="label label-primary"><?php echo $USER_EMAIL;?></span>
+>>>>>>> 0b2cf065e8bb01d7f23875a5298441becd1e7022
 
       <!-- Site footer -->
       <?php include("../includes/footer.php");?>
