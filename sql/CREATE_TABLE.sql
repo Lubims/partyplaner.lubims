@@ -30,6 +30,22 @@ CREATE TABLE Freunde (
 	FOREIGN KEY (User2ID) REFERENCES Benutzer(UserID)
 );
 
+CREATE TABLE Projekte (
+
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
 CREATE TABLE Warenkorb (
 	UserID INT NOT NULL,
 	ProduktID INT NOT NULL,
