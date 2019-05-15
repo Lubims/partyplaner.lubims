@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 //Variablen
 $login_username = htmlspecialchars($_POST["login_username"]);
 $login_pwd = htmlspecialchars($_POST["login_pwd"]);
@@ -10,34 +10,29 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $Stmt = $dbh->prepare("SELECT Username, Passwort, Code FROM benutzer WHERE Username = :username LIMIT 1");
-    $Stmt->bindParam(":username", $login_username, PDO::PARAM_STR, 12);
-    $Stmt->execute();
+    $testStmt = $dbh->prepare("SELECT Username, Passwort FROM benutzer WHERE Username = :username LIMIT 1");
+    $testStmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
+    $testStmt->execute();
 
-    $user = $Stmt->fetch();
+    $user = $testStmt->fetch();
 
     if ($user) {
-        if ($user['Username'] == $login_username) {
+        if ($user['Username'] === $signup_username) {
           if(password_verify($login_pwd, $user['Passwort'])){
-            if(isset($user['Code'])){
-              $_SESSION['code'] = $user['Code'];
-            }
-              $_SESSION['user'] = $login_username;
-              header("Location: index_log.php");
-              echo "string";
+              header("Location: profil.php");
               exit;
           }
             else{
+              echo "<script type='text/javascript'>alert('Falsches Passwort');</script>";
               header('Location: ../index.php');
               exit;
             }
-        }else{
-          header('Location: ../index.php');
-          exit;
         }
     }
     else {
-        header('Location: ../index.php');
+      echo "<script type='text/javascript'>alert('Diesen User gibt es nicht');</script>";
+      header('Location: ../index.php');
+      exit;
     }
 
 }

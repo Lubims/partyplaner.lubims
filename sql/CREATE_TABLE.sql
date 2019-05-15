@@ -15,49 +15,9 @@ CREATE TABLE Benutzer (
 	Username VARCHAR(20) NOT NULL,
 	Email VARCHAR(20) NOT NULL,
 	Passwort VARCHAR(255) NOT NULL,
-	Code VARCHAR(6),
 
 	PRIMARY KEY (UserID)
 );
-
-CREATE TABLE Freunde (
-	User1ID INT NOT NULL,
-	User2ID INT NOT NULL,
-
-	PRIMARY KEY (User1ID, User2ID),
-	FOREIGN KEY (User1ID) REFERENCES Benutzer(UserID),
-	FOREIGN KEY (User2ID) REFERENCES Benutzer(UserID)
-);
-
-CREATE TABLE Projekte (
-	ProjektID INT NOT NULL AUTO_INCREMENT,
-	ProjektName VARCHAR(30) NOT NULL,
-	Termin DATE NOT NULL,
-	Beschreibung VARCHAR(500),
-
-	PRIMARY KEY (ProjektID)
-);
-
-CREATE TABLE Produktliste(
-ProjekteID INT NOT NULL,
-ProduktID INT NOT NULL,
-
-PRIMARY KEY (ProjekteID, ProduktID),
-FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID),
-FOREIGN KEY (ProjekteID) REFERENCES Projekte(ProjektID)
-);
-
-
-
-
-
-
-
-
-
-
-
-
 
 CREATE TABLE Warenkorb (
 	UserID INT NOT NULL,
