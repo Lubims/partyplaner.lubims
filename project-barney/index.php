@@ -12,17 +12,14 @@
             newUser = true;
             var isUserNew;
 
-            console.log("test");
-
             jQuery.ajax({
+                async: false,
                 type: 'POST',
                 url: 'src/registrierung.php',
                 data: {signup_username: form.signup_username.value, signup_email: form.signup_email.value, signup_pwd: form.signup_pwd.value},
 
                 success:function(isUserNew) {
-                    console.log("ich bin nur hier zum test");
-                    console.log(isUserNew);
-                    if isUserNew = "false" {
+                    if(isUserNew.localeCompare("true")) {
                         newUser = false;
                     } else {
                       newUser = true;
@@ -30,7 +27,7 @@
                 }
             });
 
-            if(newUser == false) {
+            if(newUser) {
                 // If Not same return False.
                 if (password1 != password2) {
                     alert ("Passwörter stimmen nicht überein.");
@@ -42,6 +39,7 @@
                     return true;
                 }
             } else {
+                console.log(newUser);
                 alert ("User existiert bereits");
                 return false;
             }
@@ -158,7 +156,8 @@
                     <span aria-hidden="true">&times;</span>
                   </label>
                 </div>
-                <form class="form-inline" method="post" action="src/profil.php" onSubmit="return checkSignup(this)">
+                <form class="form-inline" method="post" onSubmit="return checkSignup(this)">
+                <!--<form class="form-inline" method="post" action="src/profil.php" onSubmit="return checkSignup(this)">-->
                   <div class="modal-body">
                     <table>
                       <tr>
