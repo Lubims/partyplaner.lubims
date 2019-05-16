@@ -68,6 +68,7 @@ $USER_EMAIL = $user['Email'];
         </tr>
       </table>
       <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" data-target="#passwortändern">Passwort ändern</label></td>
+      <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-danger my-2 my-sm-0" role="button" data-toggle="modal" data-target="#accountloeschen">Account löschen</label></td>
     </div>
 
 
