@@ -1,4 +1,27 @@
-<?php include("../../includes/config.php");?>
+<?php include("../../includes/config.php");
+
+  if(isset($_POST['checkCode'])) {
+    if($_SESSION['code'] == $_POST['checkCode']) {
+      $dsn = "mysql:host=localhost;dbname=alkdb";
+      $user = "root";
+      $password = "";
+
+      try {
+          $dbh = new PDO($dsn, $user, $password);
+          $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+          //Insert in die db
+          $InsertStmt = $dbh->prepare("UPDATE benutzer SET Code = -1 WHERE Username = ?");
+          //$Stmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
+          $InsertStmt->execute([$_SESSION['user']]);
+
+          $_SESSION['code'] = -1;
+      } catch (PDOException $e) {
+          echo 'Connection failed: ' . $e->getMessage();
+          die();
+      }
+    }
+  }
+?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -29,10 +52,105 @@
 
   <body>
   <!--Überprüfung Mail-Code-->
-    
+
   <!--Überprüfung Mail-Code-->
 
     <div class="container-fluid">
+
+      <!-- Modal -->
+      <div class="pure-css-bootstrap-modal">
+        <style>
+          .pure-css-bootstrap-modal {
+            position: absolute; /* Don't take any space. */
+          }
+
+          #modal-switch {
+            display: none;
+          }
+          /* MODAL */
+          .modal {
+            display: block;
+          }
+          #modal-switch:not(:checked) ~ .modal {
+            /*
+            In Bootstrap Model is hidden by `display: none`.
+            Unfortunately I couldn't get this option to work with css transitions
+            (they are disabled when `display: none` is present).
+            We need other way to hide the modal, e.g. with `max-width`.
+            */
+            max-width: 0;
+          }
+          #modal-switch:checked ~ .fade,
+          #modal-switch:checked ~ .modal .fade
+          {
+            opacity: 1;
+          }
+          /* BACKDROP */
+          .modal-backdrop {
+            margin: 0;
+          }
+          #modal-switch:not(:checked) ~ .modal .modal-backdrop
+          {
+            display: none;
+          }
+          #modal-switch:checked ~ .modal .modal-backdrop
+          {
+            filter: alpha(opacity=50);
+            opacity: 0.5;
+          }
+          /* DIALOG */
+          #modal-switch ~ .modal .modal-dialog {
+            transition: transform .3s ease-out;
+            transform: translate(0, -50%);
+          }
+          #modal-switch:checked ~ .modal .modal-dialog {
+            transform: translate(0, 10%);
+            z-index: 1050;
+          }
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+              /* display: none; <- Crashes Chrome on hover */
+              -webkit-appearance: none;
+              margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+          }
+
+          input[type=number] {
+              -moz-appearance:textfield; /* Firefox */
+          }
+
+        </style>
+
+
+        <!-- <input type="checkbox" id="modal-switch"/> -->
+        <input type="checkbox" name="modal-switch" id="modal-switch" value="yes" <?php if ($_SESSION['code'] > -1) echo "checked='checked'"; ?>>
+
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <label class="modal-backdrop fade" for="modal-switch"></label>
+
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Registrierung</h4>
+                </label>
+              </div>
+              <form class="form-inline" method="post" action="profil.php">
+                <div class="modal-body">
+                  <table>
+                    <tr>
+                      <td style="padding: 10px">Registrierungscode aus Email:</td>
+                      <td style="padding-left: 10px"><input class="form-control" type="number" placeholder="Code" name="checkCode" required></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="modal-footer justify-content-end">
+                  <button type="submit" name="signup_submit" class="btn btn-primary mr-auto">Abschicken</button></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <nav class="navbar navbar-light bg-light">
           <a class="navbar-brand">Logo</a>
