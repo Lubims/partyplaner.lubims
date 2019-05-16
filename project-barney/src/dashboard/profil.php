@@ -131,7 +131,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Registrierung</h4>
+                <h4 class="modal-title" id="myModalLabel">Registrierung abschließen</h4>
                 </label>
               </div>
               <form class="form-inline" method="post" action="profil.php">
@@ -143,8 +143,9 @@
                     </tr>
                   </table>
                 </div>
-                <div class="modal-footer justify-content-end">
-                  <button type="submit" name="signup_submit" class="btn btn-primary mr-auto">Abschicken</button></p>
+                <div class="modal-footer">
+                  <span>
+                  <button type="submit" name="signup_submit" class="btn btn-primary mr-auto">Abschicken</button>
                 </div>
               </form>
             </div>
