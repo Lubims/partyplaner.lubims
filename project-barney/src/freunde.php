@@ -55,6 +55,33 @@
     </form>
     </div>
 
+    <form class="form-inline">
+                  <div class="modal-body">
+                    <table>
+                      <tr>
+                        <td style="padding: 10px">Benutzername:</td>
+                        <td style="padding-left: 10px"><input class="form-control" placeholder="Benutzername" name="signup_username" required></td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px">Email-Adresse:</td>
+                        <td style="padding-left: 10px"><input class="form-control" type="email" placeholder="Email-Adresse" name="signup_email" required></td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px">Passwort:</td>
+                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort" name="signup_pwd" required></td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px">Passwort wiederholen:</td>
+                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen" oninput="check(this)" name="signup_pwd2" required></td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
+                    <button type="submit" name="signup_submit" class="btn btn-primary" style="margin-left: 261px">Registrieren</button>
+                  </div>
+                </form>
+
       <!-- Site footer -->
       <?php include("../includes/footer.php");?>
 
