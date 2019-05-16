@@ -67,8 +67,6 @@
   <body>
   <!--Überprüfung Mail-Code-->
 
-  <!--Überprüfung Mail-Code-->
-
     <div class="container-fluid">
 
       <!-- Modal -->
