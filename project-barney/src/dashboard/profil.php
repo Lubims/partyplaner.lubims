@@ -25,6 +25,20 @@
 <!DOCTYPE html>
 <html lang="de">
   <head>
+    <script>
+        // Function to check Whether both passwords
+        // is same or not.
+        function checkInputCode(form) {
+          userCode = form.sessionCode.value;
+          inputCode = form.checkCode.value;
+          if(userCode == inputCode) {
+              return true;
+          } else {
+              alert ("Registrierungs-Code inkorrekt");
+              return false;
+          }
+        }
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -134,7 +148,8 @@
                 <h4 class="modal-title" id="myModalLabel">Registrierung abschließen</h4>
                 </label>
               </div>
-              <form class="form-inline" method="post" action="profil.php">
+              <form class="form-inline" method="post" action="profil.php" onSubmit="return checkInputCode(this)">
+                <input type="hidden" name="sessionCode" value="<?php echo htmlspecialchars($_SESSION['code']); ?>"/>
                 <div class="modal-body">
                   <table>
                     <tr>
