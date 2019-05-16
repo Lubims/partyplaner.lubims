@@ -20,12 +20,20 @@ switch ($_SERVER["SCRIPT_NAME"]) {
             header("Location: /php-2019/project-barney/");
             exit;
           }
+          if($_SESSION['code'] != -1) {
+            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
+            exit;
+          }
           break;
   case    "/php-2019/project-barney/src/dashboard/projekte.php":
           $CURRENT_PAGE = "Projekte";
           $PAGE_TITLE = "Projekte";
           if (!isset($_SESSION['user'])){
             header("Location: /php-2019/project-barney/");
+            exit;
+          }
+          if($_SESSION['code'] != -1) {
+            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
             exit;
           }
           break;
@@ -36,6 +44,10 @@ switch ($_SERVER["SCRIPT_NAME"]) {
             header("Location: /php-2019/project-barney/");
             exit;
           }
+          if($_SESSION['code'] != -1) {
+            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
+            exit;
+          }
           break;
   case    "/php-2019/project-barney/src/freunde.php":
           $CURRENT_PAGE = "Freunde";
@@ -44,12 +56,20 @@ switch ($_SERVER["SCRIPT_NAME"]) {
             header("Location: /php-2019/project-barney/");
             exit;
           }
+          if($_SESSION['code'] != -1) {
+            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
+            exit;
+          }
           break;
   case    "/php-2019/project-barney/src/profil_bearbeiten.php":
           $CURRENT_PAGE = "ProfilBearbeiten";
           $PAGE_TITLE = "Profil Bearbeiten";
           if (!isset($_SESSION['user'])){
             header("Location: /php-2019/project-barney/");
+            exit;
+          }
+          if($_SESSION['code'] != -1) {
+            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
             exit;
           }
           break;
