@@ -14,12 +14,11 @@ $code = mt_rand(100000, 999999);
 $signup_username = "robin2810";
 $signup_email = "robinbehrendt@web.de";
 $signup_pwd = "123";
-$dsn = "mysql:81.169.248.236; dbname=AlkDB";
+$dsn = "mysql:h2836116.stratoserver.net; dbname=AlkDB";
 $user = "root";
 $password = "php-2019";
 
 
-try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
@@ -77,8 +76,5 @@ try {
       $InsertStmt->execute([$signup_username, $signup_email, password_hash($signup_pwd, PASSWORD_BCRYPT), $code]);
       echo "true";
     }
-} catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
-}
 
 ?>
