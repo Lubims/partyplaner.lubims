@@ -14,7 +14,7 @@ $code = mt_rand(100000, 999999);
 $signup_username = "robin2810";
 $signup_email = "robinbehrendt@web.de";
 $signup_pwd = "123";
-$dsn = "mysql:81.169.248.236; dbname=alkdb";
+$dsn = "mysql:h2836116.stratoserver.net; dbname=alkdb";
 $user = "root";
 $password = "php-2019";
 
