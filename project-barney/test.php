@@ -12,7 +12,6 @@ require dirname(__DIR__).'/project-barney/lib/PHPMailer/src/SMTP.php';
 /* Connect to a MySQL database using driver invocation */
 
 //Variablen
-      echo 'test2';
 $code = mt_rand(100000, 999999);
 $signup_username = "robin2810";
 $signup_email = "robinbehrendt@web.de";
@@ -20,6 +19,7 @@ $signup_pwd = "123";
 $dsn = "mysql:h2836116.stratoserver.net; dbname=AlkDB";
 $user = "root";
 $password = "php-2019";
+      echo 'test2';
 
 
     $dbh = new PDO($dsn, $user, $password);
