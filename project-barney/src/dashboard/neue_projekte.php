@@ -39,8 +39,8 @@
                 Hallo, <?php echo $_SESSION['user'];?>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Profil</a>
-                <a class="dropdown-item" href="#">Freunde</a>
+                <a class="dropdown-item" href="../profil_bearbeiten.php">Profil</a>
+                <a class="dropdown-item" href="../freunde.php">Freunde</a>
                 <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="../index_log.php">Zur Startseite</a>
                 <div class="dropdown-divider"></div>
@@ -88,7 +88,7 @@
                             </tr>
                             <tr>
                               <td style="padding: 10px">Termin:</td>
-                              <td style="padding-left: 10px"><input class="form-control" type="email" placeholder="Datum" name="veranstaltung_termin" required></td>
+                              <td style="padding-left: 10px"><input class="form-control" type="date" placeholder="Datum" name="veranstaltung_termin" required></td>
                             </tr>
                             <tr>
                               <td style="padding: 10px">Beschreibung:</td>
@@ -97,6 +97,7 @@
                               </td>
                             </tr>
                           </table>
+                          <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2 mt-lg-1" type="submit">Anlegen</button>
                         </div>
                       </form>
                     </div>    
