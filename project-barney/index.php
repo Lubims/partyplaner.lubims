@@ -46,18 +46,16 @@
 
         }
         function loadDynamicContentNavbar() {
-          var navbar =
-          <?php
+          var navbar = <?php
           if (isset($_SESSION['user'])){
-            echo 'navbar_log.html';
+            echo json_encode("navbar_log.php");
           } else {
-            echo 'navbar.html';
+            echo json_encode("navbar.html");
           }
-          ?>
+          ?>;
 
-          $('#dynamic-navbar').load('includes/' + navbar,
-              function() {
-              });
+          console.log(navbar);
+          $('#dynamic-navbar').load('includes/' + navbar);
         }
     </script>
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
@@ -87,7 +85,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body onload="loadDynamicContentNavbar();">
 
     <div class="container-fluid">
 

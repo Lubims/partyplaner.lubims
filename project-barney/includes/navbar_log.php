@@ -1,3 +1,4 @@
+<?php include("config.php"); ?>
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand">Logo</a>
     <form class="form-inline">
