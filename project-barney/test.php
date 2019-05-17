@@ -10,9 +10,9 @@ if(session_id() == ''){
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require dirname(__DIR__).'/lib/PHPMailer/src/Exception.php';
-require dirname(__DIR__).'/lib/PHPMailer/src/PHPMailer.php';
-require dirname(__DIR__).'/lib/PHPMailer/src/SMTP.php';
+require dirname(__DIR__).'/project-barney/lib/PHPMailer/src/Exception.php';
+require dirname(__DIR__).'/project-barney//lib/PHPMailer/src/PHPMailer.php';
+require dirname(__DIR__).'/project-barney//lib/PHPMailer/src/SMTP.php';
 
 /* Connect to a MySQL database using driver invocation */
 
