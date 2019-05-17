@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Email ändern</h4>
+  <label for="modal-switch" class="close" data-dismiss="modal" aria-label="Close" style="display: flex; align-items: center;">
+    <span aria-hidden="true">&times;</span>
+  </label>
+</div>
+<form class="form-inline" method="post" action="profil_bearbeiten/email_aendern.php" onSubmit="return checkEmails(this)">
+  <div class="modal-body">
+    <table>
+      <tr>
+        <td style="padding: 10px">Email-Adresse:</td>
+        <td style="padding-left: 10px"><input class="form-control" type="email" placeholder="Neue Email-Adresse" name="new_email" required></td>
+      </tr>
+      <tr>
+        <td style="padding: 10px">Email-Adresse wiederholen:</td>
+        <td style="padding-left: 10px"><input class="form-control" type="email" placeholder="Neue Email-Adresse wiederholen" name="new_email2" required></td>
+      </tr>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
+    <button type="submit" name="signup_submit" class="btn btn-primary">Email-Adresse ändern</button>
+  </div>
+</form>

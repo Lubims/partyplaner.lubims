@@ -10,9 +10,8 @@
           $dbh = new PDO($dsn, $user, $password);
           $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
           //Insert in die db
-          $InsertStmt = $dbh->prepare("UPDATE benutzer SET Code = -1 WHERE Username = ?");
-          //$Stmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
-          $InsertStmt->execute([$_SESSION['user']]);
+          $Stmt = $dbh->prepare("UPDATE benutzer SET Code = -1 WHERE Username = ?");
+          $Stmt->execute([$_SESSION['user']]);
 
           $_SESSION['code'] = -1;
       } catch (PDOException $e) {
