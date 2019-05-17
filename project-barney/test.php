@@ -19,7 +19,6 @@ $signup_pwd = "123";
 $dsn = "mysql:h2836116.stratoserver.net; dbname=AlkDB";
 $user = "root";
 $password = "php-2019";
-      echo 'test2';
 
 
     $dbh = new PDO($dsn, $user, $password);
@@ -31,6 +30,7 @@ $password = "php-2019";
     $Stmt->execute();
 
       $user = $Stmt->fetch();
+            echo 'test2';
 
       if ($user) {
         if ($user['Username'] === $signup_username) {
