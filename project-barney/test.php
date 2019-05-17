@@ -1,11 +1,4 @@
-<?php session_start();
-/* Connect to a MySQL database using driver invocation */
-
-
-if(session_id() == ''){
-
-    session_start();
-}
+<?php
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -18,9 +11,9 @@ require dirname(__DIR__).'/lib/PHPMailer/src/SMTP.php';
 
 //Variablen
 $code = mt_rand(100000, 999999);
-$signup_username = htmlspecialchars($_POST["signup_username"]);
-$signup_email = htmlspecialchars($_POST["signup_email"]);
-$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
+$signup_username = "robin2810";
+$signup_email = "robinbehrendt@web.de";
+$signup_pwd = "123";
 $dsn = "mysql:host=h2836116.stratoserver.net; dbname=alkdb";
 $user = "root";
 $password = "php-2019";
@@ -40,7 +33,6 @@ try {
       if ($user) {
         if ($user['Username'] === $signup_username) {
           echo "<script type='text/javascript'>alert('Dieser Username existiert bereits!');</script>";
-          header('Location: ../index.php');
           exit;
         }
       } else {
@@ -87,10 +79,6 @@ try {
     }
 } catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
-    die();
 }
-
-die();
-
 
 ?>

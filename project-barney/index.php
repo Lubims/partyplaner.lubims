@@ -91,7 +91,6 @@
 
       <!-- NavBar -->
       <div id="dynamic-navbar"></div>
-      <?php //include("includes/navbar.php");?>
 
         <!-- Modal -->
         <div class="pure-css-bootstrap-modal">
