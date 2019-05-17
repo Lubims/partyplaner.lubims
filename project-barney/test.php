@@ -21,7 +21,7 @@ $code = mt_rand(100000, 999999);
 $signup_username = "robin2810";
 $signup_email = "robinbehrendt@web.de";
 $signup_pwd = "123";
-$dsn = "mysql:host=h2836116.stratoserver.net; dbname=AlkDB";
+$dsn = "mysql:host=h2836116.stratoserver.net; dbname=alkdb";
 $user = "root";
 $password = "php-2019";
 
@@ -30,7 +30,7 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $Stmt = $dbh->prepare("SELECT Username, Email FROM AlkDB.Benutzer WHERE Username = :username OR Email = :email LIMIT 1");
+    $Stmt = $dbh->prepare("SELECT Username, Email FROM Benutzer WHERE Username = :username OR Email = :email LIMIT 1");
     $Stmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
     $Stmt->bindParam(":email", $signup_email, PDO::PARAM_STR, 12);
     $Stmt->execute();
