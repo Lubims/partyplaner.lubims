@@ -31,7 +31,7 @@ $password = "php-2019";
 
       $user = $Stmt->fetch();
 
-      echo $user;
+      echo 'test2';
       if ($user) {
         if ($user['Username'] === $signup_username) {
           echo "<script type='text/javascript'>alert('Dieser Username existiert bereits!');</script>";
