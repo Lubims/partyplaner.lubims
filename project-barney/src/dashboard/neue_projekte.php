@@ -88,7 +88,7 @@
                             </tr>
                             <tr>
                               <td style="padding: 10px">Termin:</td>
-                              <td style="padding-left: 10px"><input class="form-control" type="email" placeholder="Datum" name="veranstaltung_termin" required></td>
+                              <td style="padding-left: 10px"><input class="form-control" type="date" placeholder="Datum" name="veranstaltung_termin" required></td>
                             </tr>
                             <tr>
                               <td style="padding: 10px">Beschreibung:</td>
@@ -97,6 +97,7 @@
                               </td>
                             </tr>
                           </table>
+                          <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2 mt-lg-1" type="submit">Anlegen</button>
                         </div>
                       </form>
                     </div>    
