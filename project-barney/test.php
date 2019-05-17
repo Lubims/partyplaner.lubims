@@ -1,36 +1,28 @@
-<?php session_start();
-/* Connect to a MySQL database using driver invocation */
-
-
-if(session_id() == ''){
-
-    session_start();
-}
+<?php
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require dirname(__DIR__).'/lib/PHPMailer/src/Exception.php';
-require dirname(__DIR__).'/lib/PHPMailer/src/PHPMailer.php';
-require dirname(__DIR__).'/lib/PHPMailer/src/SMTP.php';
+require dirname(__DIR__).'/project-barney/lib/PHPMailer/src/Exception.php';
+require dirname(__DIR__).'/project-barney/lib/PHPMailer/src/PHPMailer.php';
+require dirname(__DIR__).'/project-barney/lib/PHPMailer/src/SMTP.php';
 
 /* Connect to a MySQL database using driver invocation */
 
 //Variablen
 $code = mt_rand(100000, 999999);
-$signup_username = htmlspecialchars($_POST["signup_username"]);
-$signup_email = htmlspecialchars($_POST["signup_email"]);
-$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
-$dsn = "mysql:host=h2836116.stratoserver.net; dbname=alkdb";
-$user = "root";
+$signup_username = "robin2810";
+$signup_email = "robinbehrendt@web.de";
+$signup_pwd = "123";
+$dsn = "mysql:h2836116.stratoserver.net; dbname=AlkDB";
+$user = "php-2019";
 $password = "php-2019";
 
 
-try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $Stmt = $dbh->prepare("SELECT Username, Email FROM benutzer WHERE Username = :username OR Email = :email LIMIT 1");
+    $Stmt = $dbh->prepare("SELECT Username, Email FROM alkdb.benutzer WHERE Username = :username OR Email = :email LIMIT 1");
     $Stmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
     $Stmt->bindParam(":email", $signup_email, PDO::PARAM_STR, 12);
     $Stmt->execute();
@@ -40,7 +32,6 @@ try {
       if ($user) {
         if ($user['Username'] === $signup_username) {
           echo "<script type='text/javascript'>alert('Dieser Username existiert bereits!');</script>";
-          header('Location: ../index.php');
           exit;
         }
       } else {
@@ -85,12 +76,5 @@ try {
       $InsertStmt->execute([$signup_username, $signup_email, password_hash($signup_pwd, PASSWORD_BCRYPT), $code]);
       echo "true";
     }
-} catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
-    die();
-}
-
-die();
-
 
 ?>
