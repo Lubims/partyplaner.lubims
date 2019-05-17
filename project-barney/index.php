@@ -1,8 +1,4 @@
-<?php include("includes/config.php");
-if (isset($_SESSION['user'])){
-  header("Location: /php-2019/project-barney/src/index_log.php");
-  exit;
-}?>
+<?php include("includes/config.php");?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -49,6 +45,20 @@ if (isset($_SESSION['user'])){
             }
 
         }
+        function loadDynamicContentNavbar() {
+          var navbar =
+          <?php
+          if (isset($_SESSION['user'])){
+            echo 'navbar_log.html';
+          } else {
+            echo 'navbar.html';
+          }
+          ?>
+
+          $('#dynamic-navbar').load('includes/' + navbar,
+              function() {
+              });
+        }
     </script>
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
@@ -82,7 +92,8 @@ if (isset($_SESSION['user'])){
     <div class="container-fluid">
 
       <!-- NavBar -->
-      <?php include("includes/navbar.php");?>
+      <div id="dynamic-navbar"></div>
+      <?php //include("includes/navbar.php");?>
 
         <!-- Modal -->
         <div class="pure-css-bootstrap-modal">
@@ -179,7 +190,7 @@ if (isset($_SESSION['user'])){
                   </div>
                   <div class="modal-footer">
                     <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
-                    <button type="submit" name="signup_submit" class="btn btn-primary" style="margin-left: 261px">Registrieren</button>
+                    <button type="submit" name="signup_submit" class="btn btn-primary">Registrieren</button>
                   </div>
                 </form>
               </div>

@@ -21,9 +21,9 @@ $code = mt_rand(100000, 999999);
 $signup_username = htmlspecialchars($_POST["signup_username"]);
 $signup_email = htmlspecialchars($_POST["signup_email"]);
 $signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
-$dsn = "mysql:host=localhost;dbname=alkdb";
+$dsn = "mysql:host=http://h2836116.stratoserver.net;dbname=alkdb";
 $user = "root";
-$password = "";
+$password = "php-2019";
 
 
 try {
