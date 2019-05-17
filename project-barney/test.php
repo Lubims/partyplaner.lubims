@@ -15,7 +15,7 @@ $signup_username = "robin2810";
 $signup_email = "robinbehrendt@web.de";
 $signup_pwd = "123";
 $dsn = "mysql:h2836116.stratoserver.net; dbname=AlkDB";
-$user = "php-2019";
+$user = "root";
 $password = "php-2019";
 
 
