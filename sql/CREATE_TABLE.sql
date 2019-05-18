@@ -33,9 +33,21 @@ CREATE TABLE Projekte (
 	ProjektID INT NOT NULL AUTO_INCREMENT,
 	ProjektName VARCHAR(30) NOT NULL,
 	Termin DATE NOT NULL,
+	Zeit VARCHAR(30) NOT NULL,
 	Beschreibung VARCHAR(500),
+	BesitzerID INT NOT NULL,
 
-	PRIMARY KEY (ProjektID)
+	PRIMARY KEY (ProjektID),
+	FOREIGN KEY (BesitzerID) REFERENCES Benutzer(UserID)
+);
+
+CREATE TABLE ProjektUser(
+	ProjektID INT NOT NULL,
+	UserID INT NOT NULL,
+
+	PRIMARY KEY (ProjektID, UserID),
+	FOREIGN KEY (ProjektID) REFERENCES Projekte(ProjektID),
+	FOREIGN KEY (UserID) REFERENCES Benutzer(UserID)
 );
 
 CREATE TABLE Produktliste(
@@ -45,38 +57,4 @@ ProduktID INT NOT NULL,
 PRIMARY KEY (ProjekteID, ProduktID),
 FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID),
 FOREIGN KEY (ProjekteID) REFERENCES Projekte(ProjektID)
-);
-
-
-
-
-
-
-
-
-
-
-
-
-
-CREATE TABLE Warenkorb (
-	UserID INT NOT NULL,
-	ProduktID INT NOT NULL,
-	AnzahlProdukt INT NOT NULL,
-
-	PRIMARY KEY (UserID, ProduktID),
-	FOREIGN KEY (UserID) REFERENCES Benutzer(UserID),
-	FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID)
-);
-
-CREATE TABLE Historie (
-	UserID INT NOT NULL,
-	ProduktID INT NOT NULL,
-	AnzahlProdukt INT NOT NULL,
-	DatumGekauft DATE NOT NULL,
-	IstGekauft BIT NOT NULL,
-
-	PRIMARY KEY (UserID, ProduktID),
-	FOREIGN KEY (UserID) REFERENCES Benutzer(UserID),
-	FOREIGN KEY (ProduktID) REFERENCES Produkte(ProduktID)
 );
