@@ -35,15 +35,14 @@ CREATE TABLE Projekte (
 	Termin DATE NOT NULL,
 	Zeit VARCHAR(30) NOT NULL,
 	Beschreibung VARCHAR(500),
-	BesitzerID INT NOT NULL,
 
-	PRIMARY KEY (ProjektID),
-	FOREIGN KEY (BesitzerID) REFERENCES Benutzer(UserID)
+	PRIMARY KEY (ProjektID)
 );
 
 CREATE TABLE ProjektUser(
 	ProjektID INT NOT NULL,
 	UserID INT NOT NULL,
+	Besitzer BOOLEAN,
 
 	PRIMARY KEY (ProjektID, UserID),
 	FOREIGN KEY (ProjektID) REFERENCES Projekte(ProjektID),
