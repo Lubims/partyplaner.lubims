@@ -32,7 +32,7 @@
     <div class="container-fluid">
 
       <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand">Logo</a>
+          <a href="/php-2019/project-barney"><img src="/php-2019/project-barney/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
           <form class="form-inline">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +80,7 @@
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                         <canvas id="doughnutChart"></canvas>
-                        
+
                       </div>
                     </main>
                   </div>
