@@ -7,10 +7,10 @@
           Hallo, <?php echo $_SESSION['user'];?>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="profil_bearbeiten.php">Profil</a>
-          <a class="dropdown-item" href="freunde.php">Freunde</a>
+          <a class="dropdown-item" href="src/profil_bearbeiten.php">Profil</a>
+          <a class="dropdown-item" href="src/freunde.php">Freunde</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="dashboard/profil.php">Zum Dashboard</a>
+          <a class="dropdown-item" href="src/dashboard/profil.php">Zum Dashboard</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="logout.php">Ausloggen</a>
         </div>
