@@ -76,7 +76,7 @@
           ?>;
 
           console.log(navbar);
-          $('#dynamic-navbar').load('includes/' + navbar);
+          $('#dynamic-navbar').load('src/navbar/' + navbar);
         }
     </script>
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
