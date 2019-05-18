@@ -29,25 +29,24 @@
 
     <div class="container-fluid">
 
-    <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand">Logo</a>
-        <form class="form-inline">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Hallo, <?php echo $_SESSION['user'];?>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="profil_bearbeiten.php">Profil</a>
-              <a class="dropdown-item" href="freunde.php">Freunde</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="dashboard/profil.php">Zum Dashboard</a>
-              <a class="dropdown-item" href="../index.php">Zur startseite</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="logout.php">Ausloggen</a>
+      <nav class="navbar navbar-light bg-light">
+        <a href="/php-2019/project-barney"><img src="/php-2019/project-barney/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
+          <form class="form-inline">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hallo, <?php echo $_SESSION['user'];?>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="profil_bearbeiten.php">Profil</a>
+                <a class="dropdown-item" href="freunde.php">Freunde</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="dashboard/profil.php">Zum Dashboard</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="logout.php">Ausloggen</a>
+              </div>
             </div>
-          </div>
-        </form>
-    </nav>
+          </form>
+      </nav>
     <!--Freunde suchen-->
     <div class="mt-lg-1">
     <form class="form-inline mt-2 mt-md-0 justify-content-center">
@@ -57,7 +56,7 @@
     </form>
     </div>
 
-    
+
 
       <!-- Site footer -->
       <?php include("../includes/footer.php");?>

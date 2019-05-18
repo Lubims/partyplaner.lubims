@@ -22,39 +22,42 @@ $USER_EMAIL = $user['Email'];
     				});
     	}
       function checkPasswords(form) {
-        passwort1 = form.new_pwd.value;
-        passwort2 = form.new_pwd2.value;
+        altes_passwort = form.old_pwd.value;
+        neues_passwort = form.new_pwd.value;
+        neues_passwort2 = form.new_pwd2.value;
+        var isReturnTrue = false;
 
-        if (password1 != password2) {
+        if (neues_passwort != neues_passwort2) {
             alert ("Passwörter stimmen nicht überein.");
             return false;
-        } else {
-          return true;
-        }
-      }
-      function checkUsernames(form) {
-        username1 = form.new_username.value;
-        username2 = form.new_username2.value;
-
-        if (username1 != username2) {
-            alert ("Benutzernamen stimmen nicht überein.");
+        } else if(altes_passwort == neues_passwort) {
+            alert ("Altes und neues Passwort sind identisch.");
             return false;
         } else {
-          return true;
-        }
-      }
-      function checkEmails(form) {
-        email1 = form.new_email.value;
-        email2 = form.new_email2.value;
+          jQuery.ajax({
+              async: false,
+              type: 'POST',
+              url: 'profil_bearbeiten/passwort_aendern.php',
+              data: {old_pwd: form.old_pwd.value, new_pwd: form.new_pwd.value},
 
-        if (email1 != email2) {
-            alert ("Email-Adressen stimmen nicht überein.");
-            return false;
-        } else {
-          return true;
+              success:function(isPasswordCorrect) {
+                  console.log(isPasswordCorrect);
+                  if(isPasswordCorrect.localeCompare('true')) {
+                    alert ("Altes Passwort inkorrekt.")
+                    isReturnTrue = false;
+                  } else if(isPasswordCorrect.localeCompare('false')){
+                    isReturnTrue = true;
+                  } else {
+                    alert ("Ein Fehler ist aufgetreten. Erneut versuchen.");
+                    isReturnTrue = false;
+                  }
+              }
+          });
+          return isReturnTrue;
         }
       }
     </script>
+    <script src="http://code.jquery.com/jquery.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -155,7 +158,7 @@ $USER_EMAIL = $user['Email'];
       </div>
 
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand">Logo</a>
+        <a href="/php-2019/project-barney"><img src="/php-2019/project-barney/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
         <form class="form-inline">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

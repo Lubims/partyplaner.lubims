@@ -21,21 +21,17 @@ try {
           if(password_verify($login_pwd, $user['Passwort'])){
               $_SESSION['code'] = $user['Code'];
               $_SESSION['user'] = $login_username;
-              header("Location: index_log.php");
-              echo "string";
-              exit;
+              echo "true";
           }
             else{
-              header('Location: ../index.php');
-              exit;
+              echo "false";
             }
         }else{
-          header('Location: ../index.php');
-          exit;
+          echo "false";
         }
     }
     else {
-        header('Location: ../index.php');
+        echo "false";
     }
 
 }

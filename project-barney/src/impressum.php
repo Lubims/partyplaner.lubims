@@ -37,6 +37,6 @@
     </h4>
   </body>
   <span style="position: fixed; bottom: 0pt; transform: translate(-50px)">
-    <p><a style="text-align: center; color: black; font-size: 12px" href="../index.php">Zurück zur Homepage</a></p>
+    <p><a style="text-align: center; color: black; font-size: 12px" href="..">Zurück zur Homepage</a></p>
   </span>
 <html>

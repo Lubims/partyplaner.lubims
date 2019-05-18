@@ -45,6 +45,27 @@
             }
 
         }
+        function checkLogin(form) {
+            var isLoginCorrect = false;
+
+            jQuery.ajax({
+                async: false,
+                type: 'POST',
+                url: 'src/login.php',
+                data: {login_username: form.login_username.value, login_pwd: form.login_pwd.value},
+
+                success:function(loginCorrect) {
+                    if(loginCorrect.localeCompare("false")) {
+                      isLoginCorrect = true;
+                    } else {
+                      alert ("Anmeldedaten falsch. Erneut versuchen.");
+                      isLoginCorrect = false;
+                    }
+                }
+            });
+            return isLoginCorrect;
+
+        }
         function loadDynamicContentNavbar() {
           var navbar = <?php
           if (isset($_SESSION['user'])){
