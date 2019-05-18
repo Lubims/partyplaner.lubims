@@ -34,7 +34,7 @@
 
     <div class="container-fluid">
 
-      <nav class="navbar fixed-top navbar-light bg-light">
+      <nav class="navbar navbar-light bg-light">
           <a href="/php-2019/project-barney"><img src="/php-2019/project-barney/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
           <form class="form-inline">
             <div class="dropdown">
