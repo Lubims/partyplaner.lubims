@@ -11,9 +11,9 @@ require dirname(__DIR__).'/project-barney/lib/PHPMailer/src/SMTP.php';
 
 //Variablen
 $code = mt_rand(100000, 999999);
-$signup_username = htmlspecialchars($_POST["signup_username"]);
-$signup_email = htmlspecialchars($_POST["signup_email"]);
-$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
+$signup_username = "robin2810";
+$signup_email = "robinbehrendt@web.de"
+$signup_pwd = "123";
 $dsn = "mysql:host=http://h2836116.stratoserver.net; dbname=alkdb";
 $user = "root";
 $password = "php-2019";
