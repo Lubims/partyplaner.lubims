@@ -78,6 +78,21 @@
           console.log(navbar);
           $('#dynamic-navbar').load('src/navbar/' + navbar);
         }
+        function losGehts() {
+          var signup = <?php
+          if (isset($_SESSION['user'])){
+            echo json_encode("signed_up");
+          } else {
+            echo json_encode("signup");
+          }
+          ?>;
+
+          if(signup == "signup") {
+            document.getElementById("modal-switch").checked = true;
+          } else {
+            window.location.href = "src/dashboard/neue_projekte.php";
+          }
+        }
     </script>
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
@@ -239,7 +254,7 @@
               <div class="carousel-caption">
                 <h1>Alkohol Rechner</h1>
                 <p class="lead">Beschreibung zum Rechner</p>
-                <p><a class="btn btn-lg btn-success" href="#" role="button">Los Gehts!</a></p>
+                <p><a class="btn btn-lg btn-success" href="javascript:losGehts()" role="button">Los Gehts!</a></p>
               </div>
             </div>
             <div class="carousel-item">
