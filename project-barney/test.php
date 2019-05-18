@@ -12,7 +12,7 @@ require dirname(__DIR__).'/project-barney/lib/PHPMailer/src/SMTP.php';
 //Variablen
 $code = mt_rand(100000, 999999);
 $signup_username = "robin2810";
-$signup_email = "robinbehrendt@web.de"
+$signup_email = "robinbehrendt@web.de";
 $signup_pwd = "123";
 $dsn = "mysql:host=http://h2836116.stratoserver.net; dbname=alkdb";
 $user = "root";
