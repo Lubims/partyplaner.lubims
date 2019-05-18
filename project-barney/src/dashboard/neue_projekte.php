@@ -42,7 +42,7 @@
                 <a class="dropdown-item" href="../profil_bearbeiten.php">Profil</a>
                 <a class="dropdown-item" href="../freunde.php">Freunde</a>
                 <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="../index_log.php">Zur Startseite</a>
+              <a class="dropdown-item" href="../../index.php">Zur Startseite</a>
                 <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="../logout.php">Ausloggen</a>
                 </div>
