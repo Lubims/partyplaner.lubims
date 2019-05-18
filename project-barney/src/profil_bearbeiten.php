@@ -44,9 +44,9 @@ $USER_EMAIL = $user['Email'];
                   console.log(isPasswordCorrect);
                   if(isPasswordCorrect.localeCompare('true')) {
                     alert ("Altes Passwort inkorrekt.")
-                    isReturnTrue = true;
-                  } else if(isPasswordCorrect.localeCompare('false')){
                     isReturnTrue = false;
+                  } else if(isPasswordCorrect.localeCompare('false')){
+                    isReturnTrue = true;
                   } else {
                     alert ("Ein Fehler ist aufgetreten. Erneut versuchen.");
                     isReturnTrue = false;
