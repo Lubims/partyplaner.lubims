@@ -51,7 +51,7 @@
     <div class="mt-lg-1">
     <form class="form-inline mt-2 mt-md-0 justify-content-center">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" role="button" data-toggle="modal" onclick="loadDynamicContentModal('username_aendern.html')">Suchen</label>
+      <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
       <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" role="button" data-toggle="modal" onclick="loadDynamicContentModal('username_aendern.html')">Freunde hinzufügen</label>
     </form>
     </div>

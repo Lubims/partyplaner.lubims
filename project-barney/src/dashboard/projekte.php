@@ -39,8 +39,8 @@
                 Hallo, <?php echo $_SESSION['user'];?>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Profil</a>
-                <a class="dropdown-item" href="#">Freunde</a>
+                <a class="dropdown-item" href="profil.php">Profil</a>
+                <a class="dropdown-item" href="../freunde.php">Freunde</a>
                 <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="../index_log.php">Zur Startseite</a>
                 <div class="dropdown-divider"></div>
@@ -79,25 +79,6 @@
 
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                      <script>
-  //doughnut
-  var ctxD = document.getElementById("doughnutChart").getContext('2d');
-  var myLineChart = new Chart(ctxD, {
-    type: 'doughnut',
-    data: {
-      labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
-      datasets: [{
-        data: [300, 50, 100, 40, 120],
-        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
-        hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
-      }]
-    },
-    options: {
-      responsive: true
-    }
-  });
-
-</script>
                         <canvas id="doughnutChart"></canvas>
                         
                       </div>
