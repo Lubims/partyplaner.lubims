@@ -32,7 +32,7 @@
     <div class="container-fluid">
 
       <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand">Logo</a>
+          <a href="/php-2019/project-barney"><img src="/php-2019/project-barney/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
           <form class="form-inline">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,7 +104,7 @@
                           <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2 mt-lg-1" type="submit">Anlegen</button>
                         </div>
                       </form>
-                    </div>    
+                    </div>
                   </main>
                 </div>
               </div>
