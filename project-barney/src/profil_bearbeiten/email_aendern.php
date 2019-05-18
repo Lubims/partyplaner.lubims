@@ -1,4 +1,5 @@
-<?php
+<?php session_start();
+
 $dsn = "mysql:host=localhost;dbname=alkdb";
 $user = "root";
 $password = "";
