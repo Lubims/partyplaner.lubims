@@ -4,8 +4,8 @@ $dsn = "mysql:host=localhost;dbname=alkdb";
 $user = "root";
 $password = "";
 
-$old_pwd = htmlspecialchars($_POST['old_pwd']);
-$new_pwd = htmlspecialchars($_POST['new_pwd']);
+$old_pwd = $_POST["old_pwd"];
+$new_pwd = $_POST["new_pwd"];
 
 try {
     $dbh = new PDO($dsn, $user, $password);
@@ -15,10 +15,6 @@ try {
     $Stmt->execute([$_SESSION['user']]);
 
     $pwd = $Stmt->fetch();
-
-    echo password_verify($old_pwd, $pwd['Passwort'])."\n";
-    echo $_POST['old_pwd']."\n";
-    echo $pwd['Passwort']."\n";
 
     if(password_verify($old_pwd, $pwd['Passwort'])) {
       //Update des Passworts

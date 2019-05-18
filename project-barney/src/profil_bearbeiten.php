@@ -25,6 +25,7 @@ $USER_EMAIL = $user['Email'];
         altes_passwort = form.old_pwd.value;
         neues_passwort = form.new_pwd.value;
         neues_passwort2 = form.new_pwd2.value;
+        var isReturnTrue = false;
 
         if (neues_passwort != neues_passwort2) {
             alert ("Passwörter stimmen nicht überein.");
@@ -37,21 +38,22 @@ $USER_EMAIL = $user['Email'];
               async: false,
               type: 'POST',
               url: 'profil_bearbeiten/passwort_aendern.php',
-              data: {old_pwd: altes_passwort, new_pwd: neues_passwort},
+              data: {old_pwd: form.old_pwd.value, new_pwd: form.new_pwd.value},
 
               success:function(isPasswordCorrect) {
                   console.log(isPasswordCorrect);
-                  if(isPasswordCorrect.localeCompare("true")) {
+                  if(isPasswordCorrect.localeCompare('true')) {
                     alert ("Altes Passwort inkorrekt.")
-                    return false;
-                  } else if(isPasswordCorrect.localeCompare("false")){
-                    return true;
+                    isReturnTrue = true;
+                  } else if(isPasswordCorrect.localeCompare('false')){
+                    isReturnTrue = false;
                   } else {
                     alert ("Ein Fehler ist aufgetreten. Erneut versuchen.");
-                    return false;
+                    isReturnTrue = false;
                   }
               }
           });
+          return isReturnTrue;
         }
       }
     </script>
