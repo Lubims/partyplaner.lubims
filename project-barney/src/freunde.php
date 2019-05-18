@@ -16,7 +16,10 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Besondere Stile für diese Vorlage -->
-    <link href="src/css/justified-nav.css" rel="stylesheet">
+    <link href="css/justified-nav.css" rel="stylesheet">
+
+    <!-- Footer CSS -->
+    <link href="css/sticky-footer.css" rel="stylesheet">
 
     <!-- Unterstützung für Media Queries und HTML5-Elemente in IE8 über HTML5 shim und Respond.js -->
     <!--[if lt IE 9]>

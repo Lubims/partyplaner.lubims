@@ -99,6 +99,9 @@
     <!-- Besondere Stile für diese Vorlage -->
     <link href="src/css/justified-nav.css" rel="stylesheet">
 
+    <!-- Footer CSS -->
+    <link href="src/css/sticky-footer.css" rel="stylesheet">
+
     <!-- Unterstützung für Media Queries und HTML5-Elemente in IE8 über HTML5 shim und Respond.js -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

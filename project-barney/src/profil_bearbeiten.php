@@ -72,7 +72,10 @@ $USER_EMAIL = $user['Email'];
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Besondere Stile für diese Vorlage -->
-    <link href="src/css/justified-nav.css" rel="stylesheet">
+    <link href="css/justified-nav.css" rel="stylesheet">
+
+    <!-- Footer CSS -->
+    <link href="css/sticky-footer.css" rel="stylesheet">
 
     <!-- Unterstützung für Media Queries und HTML5-Elemente in IE8 über HTML5 shim und Respond.js -->
     <!--[if lt IE 9]>
@@ -195,13 +198,10 @@ $USER_EMAIL = $user['Email'];
       <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-danger my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('account_loeschen.html')">Account löschen</label></td>
     </div>
 
-
-
-      <!-- Site footer -->
-      <?php include("../includes/footer.php");?>
+    <!-- Site footer -->
+    <?php include("../includes/footer.php");?>
 
     </div> <!-- /container -->
-
 
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
