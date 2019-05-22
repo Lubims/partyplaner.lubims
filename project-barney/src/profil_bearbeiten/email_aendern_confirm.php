@@ -8,7 +8,7 @@ if(session_id() == ''){
 $code = mt_rand(100000, 999999);
 $dsn = "mysql:host=localhost; dbname=alkdb";
 $user = "root";
-$password = "php-2019";
+$password = "";
 try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
