@@ -1,25 +1,25 @@
 <?php include("../../includes/config.php");
 
-  if(isset($_POST['checkCode'])) {
-    if($_SESSION['code'] == $_POST['checkCode']) {
-      $dsn = "mysql:host=localhost;dbname=alkdb";
-      $user = "root";
-      $password = "";
+if(isset($_POST['checkCode'])) {
+  if($_SESSION['code'] == $_POST['checkCode']) {
+    $dsn = "mysql:host=localhost;dbname=alkdb";
+    $user = "root";
+    $password = "";
 
-      try {
-          $dbh = new PDO($dsn, $user, $password);
-          $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-          //Insert in die db
-          $Stmt = $dbh->prepare("UPDATE benutzer SET Code = -1 WHERE Username = ?");
-          $Stmt->execute([$_SESSION['user']]);
+    try {
+        $dbh = new PDO($dsn, $user, $password);
+        $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+        //Insert in die db
+        $Stmt = $dbh->prepare("UPDATE benutzer SET Code = -1 WHERE Username = ?");
+        $Stmt->execute([$_SESSION['user']]);
 
-          $_SESSION['code'] = -1;
-      } catch (PDOException $e) {
-          echo 'Connection failed: ' . $e->getMessage();
-          die();
-      }
+        $_SESSION['code'] = -1;
+    } catch (PDOException $e) {
+        echo 'Connection failed: ' . $e->getMessage();
+        die();
     }
   }
+}
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -135,8 +135,7 @@
         </style>
 
 
-        <!-- <input type="checkbox" id="modal-switch"/> -->
-        <input type="checkbox" name="modal-switch" id="modal-switch" value="yes" <?php if ($_SESSION['code'] > -1) echo "checked='checked'"; ?>>
+        <input type="checkbox" name="modal-switch" id="modal-switch" <?php if ($_SESSION['code'] > -1) echo "checked='checked'"; ?>>
 
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -146,7 +145,6 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel">Registrierung abschließen</h4>
-                </label>
               </div>
               <form class="form-inline" method="post" action="profil.php" onSubmit="return checkInputCode(this)">
                 <input type="hidden" name="sessionCode" value="<?php echo htmlspecialchars($_SESSION['code']); ?>"/>
@@ -159,7 +157,6 @@
                   </table>
                 </div>
                 <div class="modal-footer">
-                  <span>
                   <button type="submit" name="signup_submit" class="btn btn-primary mr-auto">Abschicken</button>
                 </div>
               </form>
