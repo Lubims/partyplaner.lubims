@@ -37,7 +37,17 @@ if(isset($_POST['checkCode'])) {
               return false;
           }
         }
+        function keepModalOpen() {
+          var code = <?php echo $_SESSION['code'] ?>;
+          if(code < 0) {
+            document.getElementById("modal-switch").checked = true;
+          }
+        }
     </script>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -135,7 +145,7 @@ if(isset($_POST['checkCode'])) {
         </style>
 
 
-        <input type="checkbox" name="modal-switch" id="modal-switch" <?php if ($_SESSION['code'] > -1) echo "checked='checked'"; ?>>
+        <input type="checkbox" name="modal-switch" id="modal-switch" onchange="keepModalOpen()" <?php if ($_SESSION['code'] > -1) echo "checked='checked'"; ?>>
 
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -271,11 +281,6 @@ if(isset($_POST['checkCode'])) {
 
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-    <script
-			  src="https://code.jquery.com/jquery-3.4.1.js"
-			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-			  crossorigin="anonymous"></script>
     <script src="../js/bootstrap.min.js"></script>
   </body>
 </html>

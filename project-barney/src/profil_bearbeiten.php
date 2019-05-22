@@ -229,7 +229,7 @@ $USER_EMAIL = $user['Email'];
         </style>
 
 
-        <input type="checkbox" id="modal-switch"/>
+        <input type="checkbox" id="modal-switch" onchange="emailConfirm()"/>
 
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
