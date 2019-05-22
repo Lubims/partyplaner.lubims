@@ -1,6 +1,7 @@
 <?php session_start();
 
-$dsn = "mysql:host=localhost;dbname=alkdb";
+$new_username = $_POST["new_username"];
+$dsn = "mysql:host=localhost; dbname=alkdb";
 $user = "root";
 $password = "";
 
@@ -8,16 +9,29 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $Stmt = $dbh->prepare("UPDATE benutzer SET Username = ? WHERE Username = ?");
-    $Stmt->execute([$_POST['new_username'], $_SESSION['user']]);
-    $_SESSION['user'] = $_POST['new_username'];
+    $Stmt1 = $dbh->prepare("SELECT Username FROM benutzer WHERE Username = ?");
+    $Stmt1->execute([$new_username]);
+    $userExists = $Stmt1->fetch();
 
-    echo 'Success';
-    header("Location: ../profil_bearbeiten.php");
-    die();
-}
-catch (PDOException $e) {
+    if ($userExists) {
+      echo 'false_exists';
+    } else {
+      $Stmt2 = $dbh->prepare("SELECT Username FROM benutzer WHERE username = ?");
+      $Stmt2->execute([$_SESSION['user']]);
+      $user = $Stmt2->fetch();
+      if($user['Username'] === $new_username) {
+        echo 'false_same';
+      } else {
+        //Update in die db
+        $UpdateStmt = $dbh->prepare("UPDATE benutzer SET Username = ? WHERE Username = ?");
+        $UpdateStmt->execute([$new_username, $_SESSION['user']]);
+        $_SESSION['user'] = $new_username;
+        echo 'true';
+      }
+  }
+} catch (PDOException $e) {
     header("Location: ../error.html");
-    die();
 }
+
+die();
 ?>

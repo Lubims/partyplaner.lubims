@@ -21,12 +21,12 @@ try {
       $Stmt = $dbh->prepare("UPDATE benutzer SET Passwort = ? WHERE Username = ?");
       $Stmt->execute([password_hash($new_pwd, PASSWORD_BCRYPT), $_SESSION['user']]);
 
-      echo json_encode(true);
+      echo 'true';
     } else {
-      echo json_encode(false);
+      echo 'false';
     }
 }
 catch (PDOException $e) {
-    echo json_encode(error);
+    echo 'error';
 }
 ?>

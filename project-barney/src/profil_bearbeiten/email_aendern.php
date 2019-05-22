@@ -25,13 +25,13 @@ try {
     $userExists = $Stmt1->fetch();
 
     if ($userExists) {
-      echo json_encode(false_exists);
+      echo 'false_exists';
     } else {
       $Stmt2 = $dbh->prepare("SELECT email FROM benutzer WHERE username = ?");
       $Stmt2->execute([$_SESSION['user']]);
       $user = $Stmt2->fetch();
       if($user['email'] === $new_email) {
-        echo json_encode(false_same);
+        echo 'false_same';
       } else {
         //Erstellen der Email
         $message = "<html>";
@@ -69,7 +69,7 @@ try {
         $UpdateStmt->execute([$_POST['new_email'], $code, $_SESSION['user']]);
         $_SESSION['newemail_code'] = $code;
         $_SESSION['new_email'] = $new_email;
-        echo json_encode(true);
+        echo 'true';
       }
   }
 } catch (PDOException $e) {

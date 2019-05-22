@@ -15,7 +15,7 @@ $USER_EMAIL = $user['Email'];
         }
       }
       function loadDynamicContentModal(modal) {
-        isCodeSet = <?php if(isset($_SESSION['newemail_code'])){echo json_encode(true);} else{echo json_encode(false);}?>;
+        isCodeSet = <?php if(isset($_SESSION['newemail_code'])){echo 'true';} else{echo 'false';}?>;
         if(modal.localeCompare('email_aendern.html') == 0) {
           if(isCodeSet == true) {
             console.log("test");
@@ -46,24 +46,25 @@ $USER_EMAIL = $user['Email'];
             alert ("Altes und neues Passwort sind identisch.");
             return false;
         } else {
+          var returnVal;
           jQuery.ajax({
               async: false,
               type: 'POST',
               url: 'profil_bearbeiten/passwort_aendern.php',
               data: {old_pwd: form.old_pwd.value, new_pwd: form.new_pwd.value},
-
               success:function(isPasswordCorrect) {
                   if(isPasswordCorrect.localeCompare('true') == 0) {
-                    return true;
+                    returnVal = true;
                   } else if(isPasswordCorrect.localeCompare('false') == 0){
                     alert ("Altes Passwort inkorrekt.")
-                    return false;
+                    returnVal = false;
                   } else {
                     alert ("Ein Fehler ist aufgetreten. Erneut versuchen.");
-                    return false;
+                    returnVal = false;
                   }
               }
           });
+          return returnVal;
         }
       }
       function checkInputCode(form) {
@@ -77,6 +78,7 @@ $USER_EMAIL = $user['Email'];
         }
       }
       function checkNewEmail(form) {
+          var returnVal;
           jQuery.ajax({
               async: false,
               type: 'POST',
@@ -84,19 +86,45 @@ $USER_EMAIL = $user['Email'];
               data: {new_email: form.new_email.value},
               success:function(isEmailNew) {
                   if(isEmailNew.localeCompare("true") == 0) {
-                    return true;
+                    returnVal = true;
                   } else if(isEmailNew.localeCompare("false_same") == 0) {
                     alert ("Ein Konto mit der Email existiert bereits.");
-                    return false;
+                    returnVal = false;
                   } else if(isEmailNew.localeCompare("false_exists") == 0) {
                     alert ("Ein Konto mit der Email existiert bereits.");
-                    return false;
+                    returnVal = false;
                   } else {
                     alert ("Ein Fehler ist aufgetreten");
-                    return false;
+                    returnVal = false;
                   }
               }
           });
+          return returnVal;
+      }
+      function checkNewUser(form) {
+        var returnVal;
+        jQuery.ajax({
+            async: false,
+            type: 'POST',
+            url: 'profil_bearbeiten/username_aendern.php',
+            data: {new_username: form.new_username.value},
+            success:function(isUserNew) {
+              console.log(isUserNew);
+                if(isUserNew.localeCompare("true") == 0) {
+                  returnVal = true;
+                } else if(isUserNew.localeCompare("false_same") == 0) {
+                  alert ("Ein Konto mit dem Nutzernamen existiert bereits.");
+                  returnVal = false;
+                } else if(isUserNew.localeCompare("false_exists") == 0) {
+                  alert ("Ein Konto mit dem Nutzernamen existiert bereits.");
+                  returnVal = false;
+                } else {
+                  alert ("Ein Fehler ist aufgetreten");
+                  returnVal = false;
+                }
+            }
+        });
+        return returnVal;
       }
     </script>
     <script

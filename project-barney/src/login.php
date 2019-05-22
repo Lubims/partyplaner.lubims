@@ -21,17 +21,13 @@ try {
           if(password_verify($login_pwd, $user['Passwort'])){
               $_SESSION['code'] = $user['Code'];
               $_SESSION['user'] = $login_username;
-              echo json_encode(true);
-          }
-            else{
-              echo json_encode(false);
-            }
-        }else{
-          echo json_encode(false);
-        }
-    }
-    else {
-        echo json_encode(false);
+              echo 'true';
+          } else {
+            echo 'false';
+        } else {
+          echo 'false';
+    } else {
+        echo 'false';
     }
 
 }

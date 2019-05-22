@@ -39,7 +39,7 @@ try {
 
       if ($user) {
         if ($user['Username'] === $signup_username) {
-          echo json_encode(false);
+          echo 'false';
         }
       } else {
       //Erstellen der Email
@@ -81,7 +81,7 @@ try {
       //Insert in die db
       $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort, Code) VALUES(?, ?, ?, ?)");
       $InsertStmt->execute([$signup_username, $signup_email, password_hash($signup_pwd, PASSWORD_BCRYPT), $code]);
-      echo json_encode(true);
+      echo 'true';
     }
 } catch (PDOException $e) {
     header("../error.html");
