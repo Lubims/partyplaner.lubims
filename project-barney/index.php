@@ -28,7 +28,6 @@
                   data: {signup_username: form.signup_username.value, signup_email: form.signup_email.value, signup_pwd: form.signup_pwd.value},
                   success:function(isUserNew) {
                       if(isUserNew.localeCompare("true") == 0) {
-                        alert ("User registriert, bitte anmelden.")
                         returnVal = true;
                       } else if(isUserNew.localeCompare("false") == 0) {
                         alert ("User existiert bereits");
@@ -70,7 +69,6 @@
           }
           ?>;
 
-          console.log(navbar);
           $('#dynamic-navbar').load('src/navbar/' + navbar);
         }
         function losGehts() {
@@ -218,7 +216,7 @@
                       </tr>
                       <tr>
                         <td style="padding: 10px">Passwort wiederholen:</td>
-                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen" oninput="check(this)" name="signup_pwd2" required></td>
+                        <td style="padding-left: 10px"><input class="form-control" type="password" placeholder="Passwort wiederholen" name="signup_pwd2" required></td>
                       </tr>
                     </table>
                   </div>
