@@ -20,51 +20,46 @@
 
             // If same return True.
             else {
+              var returnVal;
               jQuery.ajax({
                   async: false,
                   type: 'POST',
                   url: 'src/registrierung.php',
                   data: {signup_username: form.signup_username.value, signup_email: form.signup_email.value, signup_pwd: form.signup_pwd.value},
-
                   success:function(isUserNew) {
-                      if(isUserNew.localeCompare("true")) {
-                          newUser = false;
+                      if(isUserNew.localeCompare("true") == 0) {
+                        alert ("User registriert, bitte anmelden.")
+                        returnVal = true;
+                      } else if(isUserNew.localeCompare("false") == 0) {
+                        alert ("User existiert bereits");
+                        returnVal = false;
                       } else {
-                        newUser = true;
+                        alert ("Ein Fehler ist aufgetreten");
+                        returnVal = false;
                       }
                   }
               });
-
-              if(newUser) {
-                  alert ("User registriert, bitte anmelden.")
-                  return true;
-              } else {
-                  alert ("User existiert bereits");
-                  return false;
-              }
+              return returnVal;
             }
-
         }
         function checkLogin(form) {
             var isLoginCorrect = false;
-
+            var returnVal;
             jQuery.ajax({
                 async: false,
                 type: 'POST',
                 url: 'src/login.php',
                 data: {login_username: form.login_username.value, login_pwd: form.login_pwd.value},
-
                 success:function(loginCorrect) {
-                    if(loginCorrect.localeCompare("false")) {
-                      isLoginCorrect = true;
-                    } else {
+                    if(loginCorrect.localeCompare("false") == 0) {
                       alert ("Anmeldedaten falsch. Erneut versuchen.");
-                      isLoginCorrect = false;
+                      returnVal = false;
+                    } else {
+                      returnVal = true;
                     }
                 }
             });
-            return isLoginCorrect;
-
+            return returnVal;
         }
         function loadDynamicContentNavbar() {
           var navbar = <?php

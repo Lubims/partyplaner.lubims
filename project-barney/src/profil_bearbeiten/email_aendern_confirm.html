@@ -1,0 +1,21 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Email bestätigen</h4>
+  <label for="modal-switch" class="close" data-dismiss="modal" aria-label="Close" style="display: flex; align-items: center;">
+    <span aria-hidden="true">&times;</span>
+  </label>
+</div>
+<form class="form-inline" method="post" action="profil_bearbeiten/email_aendern_confirm.php" onSubmit="return checkInputCode(this)">
+  <div class="modal-body">
+    <table>
+      <tr>
+        <td style="padding: 10px">Bestätigungscode aus Email:</td>
+        <td style="padding-left: 10px"><input class="form-control" type="number" placeholder="Code" name="checkCode" required></td>
+      </tr>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
+    <a href="profil_bearbeiten/email_aendern_cancel.php"><button name="confirm_cancel" class="btn btn-danger">Verwerfen</button></a>
+    <button type="submit" name="confirm_submit" class="btn btn-primary mr-auto">Abschicken</button>
+  </div>
+</form>
