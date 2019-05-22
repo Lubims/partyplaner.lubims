@@ -39,9 +39,7 @@ try {
 
       if ($user) {
         if ($user['Username'] === $signup_username) {
-          echo "<script type='text/javascript'>alert('Dieser Username existiert bereits!');</script>";
-          header('Location: ..');
-          exit;
+          echo json_encode(false);
         }
       } else {
       //Erstellen der Email
@@ -49,7 +47,7 @@ try {
       $message .= "<body style=\"font-family:Verdana, Verdana, Geneva, sans-serif; font-size:12px; color:#666666;\">";
       $message .= "Der Code für die Registrierung lautet:<br>";
       $message .= "<br><font size=\"2\" color=\"black\" style=\"font-weight: bold\">".$code."</font><br>";
-      $message .= "<br><a href=\"http://localhost/php-2019/project-barney/src/profil.php\">Zur Homepage</a>";
+      $message .= "<br><a href=\"lubar.servebeer.com/php-2019/project-barney/src/dashboard/profil.php\">Zur Homepage</a>";
       $message .= "</body>";
       $message .= "</html>";
 
@@ -83,10 +81,10 @@ try {
       //Insert in die db
       $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort, Code) VALUES(?, ?, ?, ?)");
       $InsertStmt->execute([$signup_username, $signup_email, password_hash($signup_pwd, PASSWORD_BCRYPT), $code]);
-      echo "true";
+      echo json_encode(true);
     }
 } catch (PDOException $e) {
-    echo 'Connection failed: ' . $e->getMessage();
+    header("../error.html");
     die();
 }
 

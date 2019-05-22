@@ -8,7 +8,20 @@ $USER_EMAIL = $user['Email'];
 <html lang="de">
   <head>
     <script>
-    	function loadDynamicContentModal(modal) {
+      function emailConfirm() {
+        if(<?php if(isset($_GET['email_confirm'])){echo $_GET['email_confirm'];} else{echo 0;}?> == 1) {
+          document.getElementById("modal-switch").checked = true;
+          loadDynamicContentModal('email_aendern_confirm.html');
+        }
+      }
+      function loadDynamicContentModal(modal) {
+        isCodeSet = <?php if(isset($_SESSION['newemail_code'])){echo json_encode(true);} else{echo json_encode(false);}?>;
+        if(modal.localeCompare('email_aendern.html') == 0) {
+          if(isCodeSet == true) {
+            console.log("test");
+            modal = 'email_aendern_confirm.html';
+          }
+        }
     		var options = {
     			modal : true,
     			height : 300,
@@ -25,7 +38,6 @@ $USER_EMAIL = $user['Email'];
         altes_passwort = form.old_pwd.value;
         neues_passwort = form.new_pwd.value;
         neues_passwort2 = form.new_pwd2.value;
-        var isReturnTrue = false;
 
         if (neues_passwort != neues_passwort2) {
             alert ("Passwörter stimmen nicht überein.");
@@ -41,20 +53,50 @@ $USER_EMAIL = $user['Email'];
               data: {old_pwd: form.old_pwd.value, new_pwd: form.new_pwd.value},
 
               success:function(isPasswordCorrect) {
-                  console.log(isPasswordCorrect);
-                  if(isPasswordCorrect.localeCompare('true')) {
+                  if(isPasswordCorrect.localeCompare('true') == 0) {
+                    return true;
+                  } else if(isPasswordCorrect.localeCompare('false') == 0){
                     alert ("Altes Passwort inkorrekt.")
-                    isReturnTrue = false;
-                  } else if(isPasswordCorrect.localeCompare('false')){
-                    isReturnTrue = true;
+                    return false;
                   } else {
                     alert ("Ein Fehler ist aufgetreten. Erneut versuchen.");
-                    isReturnTrue = false;
+                    return false;
                   }
               }
           });
-          return isReturnTrue;
         }
+      }
+      function checkInputCode(form) {
+        userCode = <?php if(isset($_SESSION['newemail_code'])){echo $_SESSION['newemail_code'];} else{echo -1;}?>;
+        inputCode = form.checkCode.value;
+        if(userCode == inputCode) {
+            return true;
+        } else {
+            alert ("Registrierungs-Code inkorrekt");
+            return false;
+        }
+      }
+      function checkNewEmail(form) {
+          jQuery.ajax({
+              async: false,
+              type: 'POST',
+              url: 'profil_bearbeiten/email_aendern.php',
+              data: {new_email: form.new_email.value},
+              success:function(isEmailNew) {
+                  if(isEmailNew.localeCompare("true") == 0) {
+                    return true;
+                  } else if(isEmailNew.localeCompare("false_same") == 0) {
+                    alert ("Ein Konto mit der Email existiert bereits.");
+                    return false;
+                  } else if(isEmailNew.localeCompare("false_exists") == 0) {
+                    alert ("Ein Konto mit der Email existiert bereits.");
+                    return false;
+                  } else {
+                    alert ("Ein Fehler ist aufgetreten");
+                    return false;
+                  }
+              }
+          });
       }
     </script>
     <script
@@ -87,7 +129,7 @@ $USER_EMAIL = $user['Email'];
     <![endif]-->
   </head>
 
-  <body>
+  <body onLoad="emailConfirm()">
 
     <div class="container-fluid">
 
@@ -209,7 +251,6 @@ $USER_EMAIL = $user['Email'];
     <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
-    <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
