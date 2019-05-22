@@ -14,8 +14,10 @@ CREATE TABLE benutzer (
 	userid INT NOT NULL AUTO_INCREMENT,
 	username VARCHAR(20) NOT NULL,
 	email VARCHAR(50) NOT NULL,
+	new_email VARCHAR(50),
 	passwort VARCHAR(255) NOT NULL,
 	code VARCHAR(6),
+	newemail_code VARCHAR(6),
 
 	PRIMARY KEY (userid)
 );
