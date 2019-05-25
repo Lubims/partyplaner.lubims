@@ -1,4 +1,10 @@
 <?php
+
+if(session_id() == ''){
+
+    session_start();
+}
+
 $dsn = "mysql:host=localhost;dbname=alkdb";
 $user = "root";
 $password = "";
@@ -7,7 +13,8 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $selectStmt = $dbh->prepare("SELECT * FROM projekte");
+    $selectStmt = $dbh->prepare("SELECT * FROM projekte WHERE projektid IN (SELECT projektid FROM projektuser WHERE userid = (SELECT userid FROM benutzer WHERE username = :username))");
+    $selectStmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
     $selectStmt->execute();
 
     $projekte = $selectStmt->fetchAll();
