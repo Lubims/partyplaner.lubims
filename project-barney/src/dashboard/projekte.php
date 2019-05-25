@@ -90,7 +90,29 @@
                 </div>
 
 
-
+<!--Tabelle-->
+                <div class="table-responsive">
+    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+    <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Termin</th>
+    <th>Uhrzeit</th>
+    <th>Beschreibung</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Termin</th>
+    <th>Uhrzeit</th>
+    <th>Beschreibung</th>
+    </tr>
+    </tfoot>
+    <?php include("projekte_db.php");?>
+    </table>
 
 
 
