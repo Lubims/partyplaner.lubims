@@ -22,9 +22,17 @@ try {
 
     $ID = $dbh->lastInsertId();
 
-    echo $ID;
 
-    $InsertStmt = $dbh->prepare("INSERT INTO projektuser (ProjektName, Termin, Zeit, Beschreibung) VALUES(?, ?, ?, ?)");
+    $idStmt = $dbh->prepare("SELECT userid FROM benutzer WHERE username = :username LIMIT 1");
+    $idStmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
+    $idStmt->execute();
+    $userID = $idStmt->fetch();
+
+    $InsertStmt = $dbh->prepare("INSERT INTO projektuser (projektid, userid, besitzer) VALUES(?, ?, ?)");
+    $InsertStmt->execute([$ID, $userID['userid'],1]);
+
+    header("Location: /php-2019/project-barney/src/dashboard/projekte.php");
+    die();
   } catch (PDOException $e) {
       header("../error.html");
       die();
