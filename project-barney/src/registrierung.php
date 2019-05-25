@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 /* Connect to a MySQL database using driver invocation */
 
 

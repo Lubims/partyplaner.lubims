@@ -82,7 +82,7 @@
 
                   <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                      <form class="form-inline">
+                      <form class="form-inline" method="post" action="/php-2019/project-barney/src/projekt_erstellen.php">
                         <div class="modal-body">
                           <table>
                             <tr>
@@ -100,7 +100,7 @@
                             <tr>
                               <td style="padding: 10px">Beschreibung:</td>
                               <td style="padding-left: 10px">
-                                <textarea class="form-control" rows="3" cols=75% placeholder="Beschreibung der Veranstaltung" name="veranstaltung_termin" required></textarea>
+                                <textarea class="form-control" rows="3" cols=75% placeholder="Beschreibung der Veranstaltung" name="beschreibung" required></textarea>
                               </td>
                             </tr>
                           </table>
