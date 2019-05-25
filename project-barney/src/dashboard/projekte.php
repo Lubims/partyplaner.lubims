@@ -92,6 +92,7 @@
                                 <th>Termin</th>
                                 <th>Uhrzeit</th>
                                 <th>Beschreibung</th>
+                                <th>Änderungen</th>
                               </tr>
                             </thead>
                             <?php include("projekte_db.php");?>
