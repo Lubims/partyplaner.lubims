@@ -82,37 +82,27 @@
 
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                        <canvas id="doughnutChart"></canvas>
-
-                      </div>
-                    </main>
+                        <!--Tabelle-->
+                        <div class="table-responsive">
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Termin</th>
+                                <th>Uhrzeit</th>
+                                <th>Beschreibung</th>
+                              </tr>
+                            </thead>
+                            <?php include("projekte_db.php");?>
+                          </table>
+                        </div>
+                      </main>
+                    </div>
                   </div>
-                </div>
 
 
-<!--Tabelle-->
-                <div class="table-responsive">
-    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-    <thead>
-    <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Termin</th>
-    <th>Uhrzeit</th>
-    <th>Beschreibung</th>
-    </tr>
-    </thead>
-    <tfoot>
-    <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Termin</th>
-    <th>Uhrzeit</th>
-    <th>Beschreibung</th>
-    </tr>
-    </tfoot>
-    <?php include("projekte_db.php");?>
-    </table>
+
 
 
 
