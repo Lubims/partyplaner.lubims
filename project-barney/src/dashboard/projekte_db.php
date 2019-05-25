@@ -1,42 +1,45 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "alkdb";
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = 'SELECT * from projekte';
-    if (mysqli_query($conn, $sql)) {
-    echo "";
-    } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-    $count=1;
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
+$dsn = "mysql:host=localhost;dbname=alkdb";
+$user = "root";
+$password = "";
+
+try {
+    $dbh = new PDO($dsn, $user, $password);
+    $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    //Testen ob es den nutzer schon gibt
+    $selectStmt = $dbh->prepare("SELECT * FROM projekte");
+    $selectStmt->execute();
+
+    $projekte = $selectStmt->fetchAll();
+
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+    die();
+}
+
+    if ($projekte) {
     // output data of each row
-    while($row = mysqli_fetch_assoc($result)) { ?>
+    foreach ($projekte as $row => $link) { ?>
     <tbody>
     <tr>
     <th>
-    <?php echo ['projekte_ProjektID']; ?>
+    <?php echo $link['projektid']; ?>
     </th>
     <td>
-    <?php echo $row['product_name']; ?>
+    <?php echo $link['projektname']; ?>
     </td>
     <td>
-    <?php echo $row['product_price']; ?>
+    <?php echo $link['termin']; ?>
     </td>
     <td>
-    <?php echo $row['product_cat']; ?>
+    <?php echo $link['zeit']; ?>
     </td>
     <td>
-    <?php echo $row['product_details']; ?>
+    <?php echo $link['beschreibung']; ?>
     </td>
     </tr>
     </tbody>
     <?php
-    $count++;
     }
     } else {
     echo '0 results';
