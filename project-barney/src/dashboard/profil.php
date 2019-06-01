@@ -44,6 +44,9 @@ if(isset($_POST['checkCode'])) {
             document.getElementById("modal-switch").checked = true;
           }
         }
+        function redirectOrga(id) {
+          window.location.replace("projekt_ansicht_orga.php?projektid=" + id);
+      }
     </script>
     <script
         src="https://code.jquery.com/jquery-3.4.1.js"
