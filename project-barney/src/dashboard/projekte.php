@@ -226,23 +226,10 @@
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                         <!--Tabelle-->
                         <div class="table-responsive">
-                          <table class="table table-bordered">
-                            <thead>
-                              <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Termin</th>
-                                <th>Uhrzeit</th>
-                                <th>Ort</th>
-                                <th>Beschreibung</th>
-                                <th>Änderungen</th>
-                              </tr>
-                            </thead>
                             <?php include("projekte_db.php");?>
-                          </table>
                         </div>
-                      </main>
-                    </div>
+                      </div>
+                    </main>
                   </div>
 
 
