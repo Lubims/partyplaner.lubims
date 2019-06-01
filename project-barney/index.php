@@ -248,8 +248,8 @@
                 <div class="mask rgba-black-light"></div>
               </div>
               <div class="carousel-caption">
-                <h1>Alkohol Rechner</h1>
-                <p class="lead">Beschreibung zum Rechner</p>
+                <h1>Party-Planer!</h1>
+                <p class="lead">Alles begint mit einer Idee!</p>
                 <p><a class="btn btn-lg btn-success" href="javascript:losGehts()" role="button">Los Gehts!</a></p>
               </div>
             </div>
@@ -260,8 +260,8 @@
                 <div class="mask rgba-black-strong"></div>
               </div>
               <div class="carousel-caption">
-                <h3 class="h3-responsive">Strong mask</h3>
-                <p>Secondary text</p>
+                <h3 class="h3-responsive">Sie möchten eine Party veranstalten und Gäste empfangen?</h3>
+                <p>Planen sie mit uns!</p>
               </div>
             </div>
             <div class="carousel-item">
@@ -271,8 +271,8 @@
                 <div class="mask rgba-black-slight"></div>
               </div>
               <div class="carousel-caption">
-                <h3 class="h3-responsive">Slight mask</h3>
-                <p>Third text</p>
+                <h3 class="h3-responsive">Oder haben Sie mal wieder Lust eine Grillparty oder einen Brunch zu veranstalten?</h3>
+                <p>Nutzen sie unseren Wunderbaren Service</p>
               </div>
             </div>
           </div>
@@ -294,20 +294,17 @@
       <!-- Beispiel-Zeile von Spalten -->
       <div class="row">
         <div class="col-lg-4">
-          <h2>Safari-Fehlerwarnung!</h2>
-          <p class="text-danger">Safari (Stand v8.0) hat einen Fehler, bei dem die Veränderung der Breite deines Browsers zu Problemen in der Anzeige der gleichmäßig ausgerichteten Navigation führt, was durch ein erneutes Laden der Seite behoben werden kann.</p>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-primary" href="#" role="button">Details anzeigen &raquo;</a></p>
+          <h2>Unsere Partyplaner im Überblick</h2>
+          <p>Sie möchten eine Party veranstalten und Gäste empfangen? Oder steht der nächste Kindergeburtstag vor der Tür? Oder haben Sie mal wieder Lust eine Grillparty oder einen Brunch zu veranstalten? Dann gibt es für Sie Einiges zu tun. Noch bevor man mit den Vorbereitungen beginnen kann, reiht sich eine Frage an die nächste:
+          Wer trinkt was? Wer trinkt wieviel? Wer bringt was mit? Welches Getränk wird getrunken? Mit uns können sie diese Fragen leicht klären!</p>
         </div>
         <div class="col-lg-4">
-          <h2>Überschrift</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-primary" href="#" role="button">Details anzeigen &raquo;</a></p>
+          <h2>Budgetplanung der Party</h2>
+          <p>Keine Sorge, wir helfen Ihnen dabei, den Überblick in Bezug auf Aufwand und Kosten zu behalten. Um Ihr Budget optimal zu verteilen zeigen wir wer welches Getränk mitbrinkt!</p>
        </div>
         <div class="col-lg-4">
-          <h2>Überschrift</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-          <p><a class="btn btn-primary" href="#" role="button">Details anzeigen &raquo;</a></p>
+          <h2>Wie viel brauchst du wovon?</h2>
+          <p>Um Reste zu vermeiden, muss nicht jeder Gast von jedem Getränk satt werden können. Es kommt auf die richtige Gesamtmenge an. Dafür gibt’s den Partyplaner. Egal, ob für's Schulfest, die Familienfeier oder die Einweihungsparty, in wenigen Schritten errechnet er die ideale Menge an Getränken.</p>
         </div>
       </div>
 
