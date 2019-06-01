@@ -42,6 +42,33 @@
             });
           });
     }
+
+    function newFriend(form) {
+      var returnVal;
+      jQuery.ajax({
+          async: false,
+          type: 'POST',
+          url: 'profil_bearbeiten/freunde_hinzufuegen.php',
+          data: {freunde_hinzufuegen: form.freunde_hinzufuegen.value},
+          success:function(newFriend) {
+            console.log(newFriend);
+              if(newFriend.localeCompare("true") == 0) {
+                returnVal = true;
+              } else if(newFriend.localeCompare("false_not_exists") == 0) {
+                alert ("Diesen Account gibt es nicht");
+                returnVal = false;
+              } else if(newFriend.localeCompare("false_exists") == 0) {
+                  alert ("Ihr seit schon Freunde");
+                  returnVal = false;
+                } else {
+                alert ("Ein Fehler ist aufgetreten");
+                returnVal = false;
+              }
+          }
+
+      });
+      return returnVal;
+    }
 </script>
 
 <body onLoad="emailConfirm()">

@@ -11,7 +11,7 @@ require '../../lib/PHPMailer/src/SMTP.php';
 /* Connect to a MySQL database using driver invocation */
 //Variablen
 $code = mt_rand(100000, 999999);
-$new_email = $_POST["new_email"];
+$new_email = htmlspecialchars($_POST["new_email"]);
 $dsn = "mysql:host=localhost; dbname=alkdb";
 $user = "root";
 $password = "";

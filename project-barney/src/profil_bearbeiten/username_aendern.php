@@ -1,6 +1,6 @@
 <?php session_start();
 
-$new_username = $_POST["new_username"];
+$new_username = htmlspecialchars($_POST["new_username"]);
 $dsn = "mysql:host=localhost; dbname=alkdb";
 $user = "root";
 $password = "";

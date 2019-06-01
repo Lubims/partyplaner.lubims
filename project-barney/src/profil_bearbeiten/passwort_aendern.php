@@ -4,8 +4,8 @@ $dsn = "mysql:host=localhost;dbname=alkdb";
 $user = "root";
 $password = "";
 
-$old_pwd = $_POST["old_pwd"];
-$new_pwd = $_POST["new_pwd"];
+$old_pwd = htmlspecialchars($_POST["old_pwd"]);
+$new_pwd = htmlspecialchars($_POST["new_pwd"]);
 
 try {
     $dbh = new PDO($dsn, $user, $password);
