@@ -230,6 +230,9 @@
                             <td><input class="form-control" type="text" placeholder="Gast" name="gast" list="friend_list" required></td>
                             <datalist id="friend_list">
                             <?php
+                            $dsn = "mysql:host=localhost;dbname=alkdb";
+                            $user = "root";
+                            $password = "";
                             try {
                                 $dbh = new PDO($dsn, $user, $password);
                                 $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -250,7 +253,7 @@
                                 foreach ($projekte as $row => $link) {
                                   ?>
                                   <option>
-                                     <?php echo "test"; ?>
+                                     <?php echo $link['username']; ?>
                                   </option>
                                   <?php
                                 }
