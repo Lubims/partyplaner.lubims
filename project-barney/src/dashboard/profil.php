@@ -1,5 +1,6 @@
 <?php include("../../includes/config.php");
 
+//Prüft ob der Nutzer den bestätigungscode bestätigt hat
 if(isset($_POST['checkCode'])) {
   if($_SESSION['code'] == $_POST['checkCode']) {
     $dsn = "mysql:host=localhost;dbname=alkdb";
