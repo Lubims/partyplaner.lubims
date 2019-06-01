@@ -60,7 +60,8 @@ try {
         $ownerStmt->bindParam(":projektid", $link['projektid'], PDO::PARAM_STR, 12);
         $ownerStmt->execute();
 
-        $powner = $ownerStmt->fetchAll();
+        $owner = $ownerStmt->fetch();
+        // $owner["besitzer"] ist 1 oder 0
 
     } catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
