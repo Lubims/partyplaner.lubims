@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Freund hinzufügen</h4>
+  <label for="modal-switch" class="close" data-dismiss="modal" aria-label="Close" style="display: flex; align-items: center;">
+    <span aria-hidden="true">&times;</span>
+  </label>
+</div>
+<form class="form-inline" method="post" action=freunde_hinzufuegen.php>
+  <div class="modal-body">
+    <table>
+      <tr>
+        <td style="padding: 10px">Freund:</td>
+        <td style="padding-left: 10px"><input class="form-control" placeholder="Freund Benutzername" name="freund_username" required></td>
+      </tr>
+    </table>
+  </div>
+  <div class="modal-footer" width=100%>
+    <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
+    <button type="submit" name="signup_submit" class="btn btn-primary">Freund hinzufügen</button>
+  </div>
+</form>

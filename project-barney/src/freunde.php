@@ -28,9 +28,108 @@
     <![endif]-->
   </head>
 
-  <body>
+  <script>
+    function loadDynamicContentModal(modal) {
+      var options = {
+        modal : true,
+        height : 300,
+        width : 500
+      };
+      $('#modal-freunde_hinzufuegen').load('profil_bearbeiten/' + modal,
+          function() {
+            $('#bootstrap-modal').modal({
+              show : true
+            });
+          });
+    }
+</script>
 
-    <div class="container-fluid">
+<body onLoad="emailConfirm()">
+
+  <div class="container-fluid">
+
+    <!-- Modal -->
+    <div class="pure-css-bootstrap-modal">
+      <style>
+        .pure-css-bootstrap-modal {
+          position: absolute; /* Don't take any space. */
+        }
+        .pure-css-bootstrap-modal label.close {
+          /* Reset */
+          padding: 0;
+          margin: 0;
+        }
+
+        #modal-switch {
+          display: none;
+        }
+        /* MODAL */
+        .modal {
+          display: block;
+        }
+        #modal-switch:not(:checked) ~ .modal {
+          /*
+          In Bootstrap Model is hidden by `display: none`.
+          Unfortunately I couldn't get this option to work with css transitions
+          (they are disabled when `display: none` is present).
+          We need other way to hide the modal, e.g. with `max-width`.
+          */
+          max-width: 0;
+        }
+        #modal-switch:checked ~ .fade,
+        #modal-switch:checked ~ .modal .fade
+        {
+          opacity: 1;
+        }
+        /* BACKDROP */
+        .modal-backdrop {
+          margin: 0;
+        }
+        #modal-switch:not(:checked) ~ .modal .modal-backdrop
+        {
+          display: none;
+        }
+        #modal-switch:checked ~ .modal .modal-backdrop
+        {
+          filter: alpha(opacity=50);
+          opacity: 0.5;
+        }
+        /* DIALOG */
+        #modal-switch ~ .modal .modal-dialog {
+          transition: transform .3s ease-out;
+          transform: translate(0, -50%);
+        }
+        #modal-switch:checked ~ .modal .modal-dialog {
+          transform: translate(0, 10%);
+          z-index: 1050;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            /* display: none; <- Crashes Chrome on hover */
+            -webkit-appearance: none;
+            margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+
+        input[type=number] {
+            -moz-appearance:textfield; /* Firefox */
+        }
+      </style>
+
+
+      <input type="checkbox" id="modal-switch" onchange="emailConfirm()"/>
+
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <label class="modal-backdrop fade" for="modal-switch"></label>
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div id="modal-freunde_hinzufuegen"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
       <nav class="navbar navbar-light bg-light">
         <a href="/php-2019/project-barney"><img src="/php-2019/project-barney/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
@@ -56,7 +155,7 @@
     <form class="form-inline mt-2 mt-md-0 justify-content-center">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
-      <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" role="button" data-toggle="modal" onclick="loadDynamicContentModal('username_aendern.html')">Freunde hinzufügen</label>
+      <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" role="button" data-toggle="modal" onclick="loadDynamicContentModal('freunde_hinzufuegen.html')">Freunde hinzufügen</label>
     </form>
     </div>
 
