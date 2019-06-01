@@ -48,30 +48,33 @@ try {
         </div>
         <div class="timeline-body">
           <p><?php echo $link['beschreibung']; ?></p>
+          <?php
+          try {
+            $dbh = new PDO($dsn, $user, $password);
+            $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            //Testen ob es den nutzer schon gibt
+            $ownerStmt = $dbh->prepare("SELECT besitzer FROM projektuser WHERE projektid = :projektid AND userid IN (SELECT userid FROM benutzer WHERE username = :username)");
+            $ownerStmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
+            $ownerStmt->bindParam(":projektid", $link['projektid'], PDO::PARAM_STR, 12);
+            $ownerStmt->execute();
+
+            $owner = $ownerStmt->fetch();
+            // $owner["besitzer"] ist 1 oder 0
+
+          } catch (PDOException $e) {
+            echo 'Connection failed: ' . $e->getMessage();
+            die();
+          }
+        if ($owner["besitzer"] == 1) { ?>
+            <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onClick="getProjektdaten(<?php echo $link['projektid']; ?>)">ändern</label>
+            <label class="btn btn-outline-danger my-2 my-sm-0" role="button">Projekt löschen</label>
+        <?php
+        }
+        ?>
         </div>
         <?php
-
-    try {
-        $dbh = new PDO($dsn, $user, $password);
-        $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-        //Testen ob es den nutzer schon gibt
-        $ownerStmt = $dbh->prepare("SELECT besitzer FROM projektuser WHERE projektid = :projektid AND userid IN (SELECT userid FROM benutzer WHERE username = :username)");
-        $ownerStmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
-        $ownerStmt->bindParam(":projektid", $link['projektid'], PDO::PARAM_STR, 12);
-        $ownerStmt->execute();
-
-        $owner = $ownerStmt->fetch();
-        // $owner["besitzer"] ist 1 oder 0
-
-    } catch (PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
-        die();
     }
-
-    if ($owner ==1) {
     }
-  }
-}
-?>
-      </div>
+    ?>
+    </div>
     </li>
