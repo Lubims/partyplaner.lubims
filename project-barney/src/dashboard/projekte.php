@@ -11,6 +11,7 @@
               data: {id: id},
               success:function(projektdatenArray) {
                 projektdatenArray = jQuery.parseJSON(projektdatenArray);
+                document.getElementById("projektid").value = projektdatenArray[0][0];
                 document.getElementById("projektdaten_veranstaltungsname_neu").value = projektdatenArray[0][1];
                 document.getElementById("projektdaten_termin_neu").value = projektdatenArray[0][2];
                 document.getElementById("projektdaten_uhrzeit_neu").value = projektdatenArray[0][3];
@@ -156,8 +157,8 @@
                             <span aria-hidden="true">&times;</span>
                           </label>
                         </div>
-                        <!-- HIER ACTION ÄNDERN -->
-                        <form class="form-inline" method="post" action="">
+                        <form class="form-inline" method="post" action="projekte_set_daten.php">
+                          <input type="hidden" id="projektid"></input>
                           <div class="modal-body">
                             <table>
                               <tr>
