@@ -61,7 +61,10 @@
               } else if(freundCheck.localeCompare("false_exists") == 0) {
                   alert ("Ihr seit schon Freunde");
                   returnVal = false;
-                } else {
+              } else if(freundCheck.localeCompare("false_own_user") == 0) {
+                  alert ("Das bist du selber du dödel");
+                  returnVal = false;
+              } else {
                 alert ("Ein Fehler ist aufgetreten");
                 returnVal = false;
               }

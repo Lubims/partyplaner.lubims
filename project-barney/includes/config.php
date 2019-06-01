@@ -124,4 +124,27 @@ switch ($_SERVER["SCRIPT_NAME"]) {
           die();
       }
     }
+
+    function getProjektData(){
+      $dsn = "mysql:host=localhost;dbname=alkdb";
+      $user = "root";
+      $password = "";
+
+      try {
+          $dbh = new PDO($dsn, $user, $password);
+          $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+          //Testen ob es den nutzer schon gibt
+          $testStmt = $dbh->prepare("SELECT Username FROM benutzer WHERE UserID IN (SELECT User2ID FROM freunde WHERE User1ID = (SELECT UserID FROM benutzer WHERE Username = :username))");
+          $testStmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
+          $testStmt->execute();
+
+          $user = $testStmt->fetch();
+
+        return($user);
+
+      } catch (PDOException $e) {
+          echo 'Connection failed: ' . $e->getMessage();
+          die();
+      }
+    }
 ?>

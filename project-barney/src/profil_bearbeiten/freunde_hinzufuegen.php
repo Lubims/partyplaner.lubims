@@ -24,21 +24,23 @@ try {
       if ($ID) {
         $userID = $ID["userid"];
       }
-
-      $Stmt = $dbh->prepare("SELECT * FROM Freunde WHERE user1id = :userID AND user2id = :freundID");
-      $Stmt->bindParam(":userID", $userID, PDO::PARAM_STR, 12);
-      $Stmt->bindParam(":freundID", $freundID, PDO::PARAM_STR, 12);
-      $Stmt->execute();
-      $freunde = $Stmt->fetch();
-
-      if($freunde){
-        echo 'false_exists';
+      if($userID == $freundID){
+        echo 'false_own_user';
       }else{
-        $Stmt = $dbh->prepare("INSERT INTO Freunde(user1id, user2id) VALUES (?,?)");
-        $Stmt->execute([$userID, $freundID]);
-        echo 'true';
-      }
+        $Stmt = $dbh->prepare("SELECT * FROM Freunde WHERE user1id = :userID AND user2id = :freundID");
+        $Stmt->bindParam(":userID", $userID, PDO::PARAM_STR, 12);
+        $Stmt->bindParam(":freundID", $freundID, PDO::PARAM_STR, 12);
+        $Stmt->execute();
+        $freunde = $Stmt->fetch();
 
+        if($freunde){
+          echo 'false_exists';
+        }else{
+          $Stmt = $dbh->prepare("INSERT INTO Freunde(user1id, user2id) VALUES (?,?)");
+          $Stmt->execute($userID,$freundID);
+          echo 'true';
+        }
+      }
     }else{
       echo 'false_not_exists';
     }
