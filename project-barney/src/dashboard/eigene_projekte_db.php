@@ -42,6 +42,9 @@ try {
     <?php echo $link['zeit']; ?>
     </td>
     <td>
+    <?php echo $link['ort']; ?>
+    </td>
+    <td>
     <?php echo $link['beschreibung']; ?>
     </td>
     <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('projekte_aendern.html')">ändern</label></td>

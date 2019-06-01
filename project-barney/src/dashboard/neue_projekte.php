@@ -98,6 +98,10 @@
                               <td style="padding-left: 10px"><input class="form-control" type="time" placeholder="Uhrzeit" name="veranstaltung_uhrzeit" required></td>
                             </tr>
                             <tr>
+                              <td style="padding: 10px">Ort:</td>
+                              <td style="padding-left: 10px"><input class="form-control" type="place" placeholder="Ort" name="veranstaltung_ort" required></td>
+                            </tr>
+                            <tr>
                               <td style="padding: 10px">Beschreibung:</td>
                               <td style="padding-left: 10px">
                                 <textarea class="form-control" rows="3" cols=75% placeholder="Beschreibung der Veranstaltung" name="beschreibung" required></textarea>

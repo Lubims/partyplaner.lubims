@@ -91,6 +91,7 @@
                                 <th>Name</th>
                                 <th>Termin</th>
                                 <th>Uhrzeit</th>
+                                <th>Ort</th>
                                 <th>Beschreibung</th>
                                 <th>Änderungen</th>
                               </tr>
