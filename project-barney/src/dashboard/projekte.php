@@ -158,7 +158,7 @@
                           </label>
                         </div>
                         <form class="form-inline" method="post" action="projekte_set_daten.php">
-                          <input type="hidden" id="projektid"></input>
+                          <input type="hidden" id="projektid" name="projektid"></input>
                           <div class="modal-body">
                             <table>
                               <tr>
