@@ -28,9 +28,10 @@ try {
     if ($freunde) {
     // output data of each row
     foreach ($freunde as $row => $link) {
-      $projektStmt = $dbh->prepare("SELECT projektname, termin, zeit FROM projekte WHERE projektid IN (SELECT projektid FROM projektuser WHERE userid = (SELECT userid FROM benutzer WHERE username = :username)) AND projektid IN (SELECT projektid FROM projektuser WHERE userid = :user2id) ORDER BY termin DESC LIMIT 1");
+      $projektStmt = $dbh->prepare("SELECT projektname, termin, zeit FROM projekte WHERE projektid IN (SELECT projektid FROM projektuser WHERE userid = (SELECT userid FROM benutzer WHERE username = :username)) AND projektid IN (SELECT projektid FROM projektuser WHERE userid = :user2id)AND termin >= CURDATE() ORDER BY termin ASC LIMIT 1");
       $projektStmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
-      $projektStmt->bindParam(":user2id", $link['username'], PDO::PARAM_STR, 12);
+      $projektStmt->bindParam(":user2id", $link['userid'], PDO::PARAM_STR, 12);
+      $projektStmt->execute();
       $projekte = $projektStmt->fetch();
       ?>
     <tbody>
@@ -42,11 +43,8 @@ try {
     <?php if($projekte){
       echo $projekte['projektname'] . " am " . $projekte['termin'] . " um " . $projekte['zeit'];
     }else{
-      echo "/";
+      echo $projektStmt->fetch();
     }?>
-    </td>
-    <td style="padding-left: 10px"><label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('projekte_aendern.html')">ändern</label></td>
-    </tr>
     </tbody>
     <?php
     }

@@ -36,8 +36,10 @@ try {
         if($freunde){
           echo 'false_exists';
         }else{
-          $Stmt = $dbh->prepare("INSERT INTO Freunde(user1id, user2id) VALUES (?,?)");
-          $Stmt->execute($userID,$freundID);
+          $Stmt = $dbh->prepare("INSERT INTO Freunde(user1id, user2id) VALUES (:userID,:freundID)");
+          $Stmt->bindParam(":userID", $userID, PDO::PARAM_STR, 12);
+          $Stmt->bindParam(":freundID", $freundID, PDO::PARAM_STR, 12);
+          $Stmt->execute();
           echo 'true';
         }
       }
