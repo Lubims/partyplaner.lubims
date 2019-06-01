@@ -66,9 +66,18 @@ try {
             die();
           }
         if ($owner["besitzer"] == 1) { ?>
-            <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">erweiterte Ansicht</label>
+          <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">erweiterte Ansicht</label>
         <?php
         }
+        else { ?>
+          <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">Ansicht</label>
+        <?php
+        }
+        if ($owner["zugesagt"] == 0) { ?>
+          <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="">Zusagen</label>
+          <label class="btn btn-outline-danger my-2 my-sm-0" role="button" onClick="">Absagen</label>
+      <?php
+      }
         ?>
         </div>
         <?php

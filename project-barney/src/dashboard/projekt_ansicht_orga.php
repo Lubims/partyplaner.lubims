@@ -203,6 +203,7 @@
                         <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onClick="loadDynamicContentModal('aendern.html')">ändern</label>
                         <div>
                           <table>
+                            <form action="/projekt_ansicht_orga_gast.php">
                             <td><input class="form-control" type="text" placeholder="Gast" name="gast" list="friend_list"  required></td>
                             <input type="hidden" id="projektid" name="projektid" value="<?php echo $_GET['projektid']; ?>"></input>
                             <datalist id="friend_list">
@@ -239,6 +240,7 @@
                             </datalist>
 
                             <td><label class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal">Hinzufügen</label></td>
+                          </form>
                           </table>
                         </div>
                         <div>
