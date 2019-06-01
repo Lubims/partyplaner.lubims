@@ -3,12 +3,25 @@
 <html lang="de">
   <head>
     <script>
-      function getProjektdaten(id) {
+      function loadDynamicContentModal(modal) {
+        console.log(modal);
+        var options = {
+          modal : true,
+          height : 300,
+          width : 500
+        };
+        $('#modal-projekt-aendern-loeschen').load('projekte_ansicht_orga.php_modals/' + modal,
+            function() {
+              $('#bootstrap-modal').modal({
+                show : true
+              });
+            });
+        if(modal.localeCompare('aendern.html') == 0) {
           jQuery.ajax({
               async: false,
               type: 'POST',
               url: 'projekte_get_daten.php',
-              data: {id: id},
+              data: {id: <?php echo $_GET['projektid']; ?>},
               success:function(projektdatenArray) {
                 projektdatenArray = jQuery.parseJSON(projektdatenArray);
                 document.getElementById("projektid").value = projektdatenArray[0][0];
@@ -19,6 +32,7 @@
                 document.getElementById("projektdaten_beschreibung_neu").value = projektdatenArray[0][5];
               }
           });
+        }
       }
     </script>
 
@@ -151,45 +165,7 @@
 
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title" id="myModalLabel">Projektdaten ändern</h4>
-                          <label for="modal-switch" class="close" data-dismiss="modal" aria-label="Close" style="display: flex; align-items: center;">
-                            <span aria-hidden="true">&times;</span>
-                          </label>
-                        </div>
-                        <form class="form-inline" method="post" action="projekte_set_daten.php">
-                          <input type="hidden" id="projektid" name="projektid"></input>
-                          <div class="modal-body">
-                            <table>
-                              <tr>
-                                <td style="padding: 10px">Name:</td>
-                                <td style="padding-left: 10px"><input class="form-control" name="veranstaltungsname_neu" id="projektdaten_veranstaltungsname_neu" required></td>
-                              </tr>
-                              <tr>
-                                <td style="padding: 10px">Termin:</td>
-                                <td style="padding-left: 10px"><input class="form-control" type="date" name="termin_neu" id="projektdaten_termin_neu" required></td>
-                              </tr>
-                              <tr>
-                                <td style="padding: 10px">Uhrzeit:</td>
-                                <td style="padding-left: 10px"><input class="form-control" type="time" name="uhrzeit_neu" id="projektdaten_uhrzeit_neu" required></td>
-                              </tr>
-                              <tr>
-                                <td style="padding: 10px">Ort:</td>
-                                <td style="padding-left: 10px"><input class="form-control" name="ort_neu" id="projektdaten_ort_neu" required></td>
-                              </tr>
-                              <tr>
-                                <td style="padding: 10px">Beschreibung:</td>
-                                <td style="padding-left: 10px">
-                                  <textarea class="form-control" name="beschreibung_neu" id="projektdaten_beschreibung_neu" required></textarea>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                          <div class="modal-footer">
-                            <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
-                            <button type="submit" name="projektdaten_change_submit" class="btn btn-primary">Ändern</button>
-                          </div>
-                        </form>
+                        <div id="modal-projekt-aendern-loeschen"></div>
                       </div>
                     </div>
                   </div>
@@ -224,7 +200,7 @@
 
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                        <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onClick="getProjektdaten(<?php echo $_GET['projektid']; ?>)">ändern</label>
+                        <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onClick="loadDynamicContentModal('aendern.html')">ändern</label>
                         <div>
                           <table>
                             <td><input class="form-control" type="text" placeholder="Gast" name="gast" list="friend_list" required></td>
@@ -258,18 +234,17 @@
                             ?>
                             </datalist>
 
-                            <td><label class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('')">Hinzufügen</label></td>
+                            <td><label class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal">Hinzufügen</label></td>
                           </table>
                         </div>
                         <div>
                           <table>
                             <td><input class="form-control" type="text" placeholder="Getränk" name="getraenk" required></td>
                             <td><input class="form-control" type="text" placeholder="Menge in Litern" name="menge" required></td>
-                            <td><label class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('')">Hinzufügen</label></td>
+                            <td><label class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal">Hinzufügen</label></td>
                           </table>
                         </div>
-                        <label class="btn btn-outline-danger my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('')">Projekt löschen</label>
-
+                        <label for="modal-switch" class="btn btn-outline-danger my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('projekt_loeschen_modal.php')">Projekt löschen</label>
                       </div>
                     </main>
                   </div>
