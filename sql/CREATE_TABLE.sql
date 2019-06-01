@@ -3,9 +3,6 @@ CREATE DATABASE  alkdb;
 CREATE TABLE produkte (
 	produktid INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(20) NOT NULL,
-	firma VARCHAR(30) NOT NULL,
-	beschreibung VARCHAR(500),
-	alkwert DECIMAL(3,1) NOT NULL,
 
 	PRIMARY KEY (produktid)
 );
@@ -55,9 +52,12 @@ CREATE TABLE projektuser(
 
 CREATE TABLE produktliste(
 projekteid INT NOT NULL,
+userid INT NOT NULL,
 produktid INT NOT NULL,
+menge INT NOT NULL,
 
-PRIMARY KEY (projekteid, produktid),
+PRIMARY KEY (projekteid, produktid, userid),
 FOREIGN KEY (produktid) REFERENCES produkte(produktid),
+FOREIGN KEY (userid) REFERENCES benutzer(userid),
 FOREIGN KEY (projekteid) REFERENCES projekte(projektid)
 );
