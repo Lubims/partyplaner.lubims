@@ -44,20 +44,21 @@
     }
 
     function newFriend(form) {
+
       var returnVal;
       jQuery.ajax({
           async: false,
           type: 'POST',
           url: 'profil_bearbeiten/freunde_hinzufuegen.php',
           data: {freunde_hinzufuegen: form.freunde_hinzufuegen.value},
-          success:function(newFriend) {
-            console.log(newFriend);
-              if(newFriend.localeCompare("true") == 0) {
+          success:function(freundCheck) {
+            console.log(freundCheck);
+              if(freundCheck.localeCompare("true") == 0) {
                 returnVal = true;
-              } else if(newFriend.localeCompare("false_not_exists") == 0) {
+              } else if(freundCheck.localeCompare("false_not_exists") == 0) {
                 alert ("Diesen Account gibt es nicht");
                 returnVal = false;
-              } else if(newFriend.localeCompare("false_exists") == 0) {
+              } else if(freundCheck.localeCompare("false_exists") == 0) {
                   alert ("Ihr seit schon Freunde");
                   returnVal = false;
                 } else {
@@ -71,7 +72,7 @@
     }
 </script>
 
-<body onLoad="emailConfirm()">
+<body>
 
   <div class="container-fluid">
 
@@ -143,7 +144,7 @@
       </style>
 
 
-      <input type="checkbox" id="modal-switch" onchange="emailConfirm()"/>
+      <input type="checkbox" id="modal-switch"/>
 
 
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -194,8 +195,7 @@
     </div> <!-- /container -->
 
 
-    <!-- IE10-Anzeigefenster-Hack für Fehler auf Surface und Desktop-Windows-8 -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 
     <script
 			  src="https://code.jquery.com/jquery-3.4.1.js"
