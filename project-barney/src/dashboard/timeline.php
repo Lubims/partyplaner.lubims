@@ -66,7 +66,7 @@ try {
             die();
           }
         if ($owner["besitzer"] == 1) { ?>
-            <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">ändern</label>
+            <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">erweiterte Ansicht</label>
         <?php
         }
         ?>
