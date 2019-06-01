@@ -49,6 +49,9 @@ try {
         <div class="timeline-body">
           <p><?php echo $link['beschreibung']; ?></p>
         </div>
+        <?php
+    }
+    if ($user == $)
       </div>
     </li>
     <?php
