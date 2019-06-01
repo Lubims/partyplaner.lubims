@@ -25,22 +25,22 @@ try {
         $userID = $ID["userid"];
       }
 
-      Stmt = $dbh->prepare("SELECT * FROM Freunde WHERE user1id = :userID AND user2id = :freundID");
+      $Stmt = $dbh->prepare("SELECT * FROM Freunde WHERE user1id = :userID AND user2id = :freundID");
       $Stmt->bindParam(":userID", $userID, PDO::PARAM_STR, 12);
       $Stmt->bindParam(":freundID", $freundID, PDO::PARAM_STR, 12);
       $Stmt->execute();
-      $freunde = %Stmt->fetch();
+      $freunde = $Stmt->fetch();
 
       if($freunde){
-        echo 'false_exists'
+        echo 'false_exists';
       }else{
-        Stmt = $dbh->prepare("INSERT INTO Freunde(user1id, user2id) VALUES (?,?)");
-        $Stmt->execute($userID,$freundID);
+        $Stmt = $dbh->prepare("INSERT INTO Freunde(user1id, user2id) VALUES (?,?)");
+        $Stmt->execute([$userID, $freundID]);
         echo 'true';
       }
 
     }else{
-      echo 'false_not_exists'
+      echo 'false_not_exists';
     }
 
 } catch (PDOException $e) {

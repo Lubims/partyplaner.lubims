@@ -50,7 +50,7 @@
           async: false,
           type: 'POST',
           url: 'profil_bearbeiten/freunde_hinzufuegen.php',
-          data: {freunde_hinzufuegen: form.freunde_hinzufuegen.value},
+          data: {freund_username: form.freund_username.value},
           success:function(freundCheck) {
             console.log(freundCheck);
               if(freundCheck.localeCompare("true") == 0) {
