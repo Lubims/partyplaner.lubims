@@ -68,10 +68,10 @@ try {
         die();
     }
 
-    if ($owner ==1) { ?>
+    if ($owner ==1) {
     }
-  
+  }
+}
+?>
       </div>
     </li>
-    <?php
-    }
