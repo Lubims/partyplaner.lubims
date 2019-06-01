@@ -8,11 +8,14 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
+    //$Stmt = $dbh->prepare("DELETE FROM produktliste WHERE projektid = ?");
+    //$Stmt->execute([intval($_POST['projektid'])]);
+    $Stmt = $dbh->prepare("DELETE FROM projektuser WHERE projektid = ?");
+    $Stmt->execute([intval($_POST['projektid'])]);
     $Stmt = $dbh->prepare("DELETE FROM projekte WHERE projektid = ?");
-    $Stmt->execute([htmlspecialchars($_POST['projektid'])]);
+    $Stmt->execute([intval($_POST['projektid'])]);
 
-    echo htmlspecialchars($_POST['projektid']);
-    //header("Location: ../projekt_ansicht_orga.php");
+    header("Location: ../projekte.php");
     die();
 }
 catch (PDOException $e) {

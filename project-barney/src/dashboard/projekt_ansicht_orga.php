@@ -10,7 +10,7 @@
           height : 300,
           width : 500
         };
-        $('#modal-projekt-aendern-loeschen').load('projekte_ansicht_orga.php_modals/' + modal,
+        $('#modal-projekt-aendern-loeschen').load('projekte_ansicht_orga.php_modals/' + modal + "?projektid=" + <?php echo $_GET['projektid']; ?>,
             function() {
               $('#bootstrap-modal').modal({
                 show : true

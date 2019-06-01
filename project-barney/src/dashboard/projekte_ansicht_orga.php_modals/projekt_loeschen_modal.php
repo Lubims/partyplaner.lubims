@@ -5,7 +5,7 @@
   </label>
 </div>
 <form class="form-inline" method="post" action="projekte_ansicht_orga.php_modals\projekt_loeschen.php">
-  <input type="hidden" id="projektid" name="projektid" value=<?php echo $_GET['projektid']; ?>></input>
+  <input type="hidden" name="projektid" value="<?php echo $_GET['projektid']; ?>"/>
   <div class="modal-body" style="display: inline">
     <table style="width: 100%; float: center">
       <tr>
