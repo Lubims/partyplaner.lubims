@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Passwort vergessen</h4>
+  <label for="modal-switch" class="close" data-dismiss="modal" aria-label="Close" style="display: flex; align-items: center;">
+    <span aria-hidden="true">&times;</span>
+  </label>
+</div>
+<form class="form-inline" method="post" action="index.php" onSubmit="return forgotPW(this)">
+  <div class="modal-body">
+    <table>
+      <tr>
+        <td style="padding: 10px">Email-Adresse:</td>
+        <td style="padding-left: 10px"><input class="form-control" type="email" placeholder="Email-Adresse" name="input_email" required></td>
+      </tr>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <label for="modal-switch" class="btn btn-default" data-dismiss="modal">Schließen</label>
+    <button type="submit" name="signup_submit" class="btn btn-primary">Absenden</button>
+  </div>
+</form>

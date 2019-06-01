@@ -39,7 +39,7 @@ try {
 
       if ($user) {
         if ($user['Username'] === $signup_username) {
-          echo 'false';
+          echo 'false_exists';
         }
       } else {
       //Erstellen der Email
