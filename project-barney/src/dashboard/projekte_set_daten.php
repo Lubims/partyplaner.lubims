@@ -16,7 +16,7 @@ try {
     $selectStmt = $dbh->prepare("UPDATE projekte SET projektname = ?, termin = ?, zeit = ?, ort = ?, beschreibung = ? WHERE projektid = ?");
     $selectStmt->execute([htmlspecialchars($_POST['veranstaltungsname_neu']), htmlspecialchars($_POST['termin_neu']), htmlspecialchars($_POST['uhrzeit_neu']), htmlspecialchars($_POST['ort_neu']), htmlspecialchars($_POST['beschreibung_neu']), htmlspecialchars($_POST['projektid'])]);
 
-    header("Location: projekte.php");
+    header("Location: projekte.php?projektid=".htmlspecialchars($_POST['projektid']));
     die();
 
 } catch (PDOException $e) {
