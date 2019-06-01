@@ -53,7 +53,7 @@ try {
             $dbh = new PDO($dsn, $user, $password);
             $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
             //Testen ob es den nutzer schon gibt
-            $ownerStmt = $dbh->prepare("SELECT besitzer FROM projektuser WHERE projektid = :projektid AND userid IN (SELECT userid FROM benutzer WHERE username = :username)");
+            $ownerStmt = $dbh->prepare("SELECT besitzer, zugesagt FROM projektuser WHERE projektid = :projektid AND userid IN (SELECT userid FROM benutzer WHERE username = :username)");
             $ownerStmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
             $ownerStmt->bindParam(":projektid", $link['projektid'], PDO::PARAM_STR, 12);
             $ownerStmt->execute();
