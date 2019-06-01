@@ -9,6 +9,7 @@ if(session_id() == ''){
 $veranstaltung_name = htmlspecialchars($_POST["veranstaltung_name"]);
 $veranstaltung_termin = htmlspecialchars($_POST["veranstaltung_termin"]);
 $veranstaltung_uhrzeit = htmlspecialchars($_POST["veranstaltung_uhrzeit"]);
+$veranstaltung_ort = htmlspecialchars($_POST["veranstaltung_ort"]);
 $beschreibung = htmlspecialchars($_POST["beschreibung"]);
 $dsn = "mysql:host=localhost; dbname=alkdb";
 $user = "root";
@@ -18,8 +19,8 @@ $password = "";
 try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    $InsertStmt = $dbh->prepare("INSERT INTO projekte (ProjektName, Termin, Zeit, Beschreibung) VALUES(?, ?, ?, ?)");
-    $InsertStmt->execute([$veranstaltung_name, $veranstaltung_termin, $veranstaltung_uhrzeit, $beschreibung]);
+    $InsertStmt = $dbh->prepare("INSERT INTO projekte (ProjektName, Termin, Zeit, Ort, Beschreibung) VALUES(?, ?, ?, ?, ?)");
+    $InsertStmt->execute([$veranstaltung_name, $veranstaltung_termin, $veranstaltung_uhrzeit,$veranstaltung_ort, $beschreibung]);
 
     $ID = $dbh->lastInsertId();
 
