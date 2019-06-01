@@ -68,14 +68,10 @@ try {
         die();
     }
 
-    if ($user == $)
-
-  } //da habe ich di mal hingesetzt
+    if ($owner ==1) { ?>
+    }
+  
       </div>
     </li>
     <?php
     }
-    } else {
-    echo '0 results';
-    }
-    ?>
