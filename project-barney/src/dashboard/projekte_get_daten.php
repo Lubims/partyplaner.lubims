@@ -13,7 +13,7 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $selectStmt = $dbh->prepare("SELECT * FROM projekte WHERE projektid = :projektid ORDER BY termin DESC");
+    $selectStmt = $dbh->prepare("SELECT * FROM projekte WHERE projektid = :projektid AND termin >= CURDATE() ORDER BY termin ASC;");
     $selectStmt->bindParam(":projektid", $_POST['id'], PDO::PARAM_STR, 12);
     $selectStmt->execute();
 
