@@ -9,6 +9,7 @@ $dsn = "mysql:host=localhost;dbname=alkdb";
 $user = "root";
 $password = "";
 
+//gibt die Projekte aus die dem Nutzer gehören
 try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );

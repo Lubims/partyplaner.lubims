@@ -36,6 +36,7 @@ CREATE TABLE projekte (
 	projektname VARCHAR(30) NOT NULL,
 	termin DATE NOT NULL,
 	zeit VARCHAR(30) NOT NULL,
+	ort VARCHAR(30),
 	beschreibung VARCHAR(500),
 
 	PRIMARY KEY (projektid)
