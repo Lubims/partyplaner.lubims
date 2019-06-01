@@ -266,7 +266,38 @@
                         </div>
                         <div>
                           <table>
-                            <td><input class="form-control" type="text" placeholder="Getränk" name="getraenk" required></td>
+                            <td><input class="form-control" type="text" placeholder="Getränk" name="getraenk" list="getraenke_list" required></td>
+                            <datalist id="getraenke_list">
+                            <?php
+                            $dsn = "mysql:host=localhost;dbname=alkdb";
+                            $user = "root";
+                            $password = "";
+                            try {
+                                $dbh = new PDO($dsn, $user, $password);
+                                $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+                                //Testen ob es den nutzer schon gibt
+                                $selectStmt = $dbh->prepare("SELECT name FROM produkte");
+                                $selectStmt->execute();
+
+                                $projekte = $selectStmt->fetchAll();
+
+                            } catch (PDOException $e) {
+                                echo 'Connection failed: ' . $e->getMessage();
+                                die();
+                            }
+
+                                if ($projekte) {
+                                // output data of each row
+                                foreach ($projekte as $row => $link) {
+                                  ?>
+                                  <option>
+                                     <?php echo $link['name']; ?>
+                                  </option>
+                                  <?php
+                                }
+                              }
+                            ?>
+                            </datalist>
                             <td><input class="form-control" type="text" placeholder="Menge in Litern" name="menge" required></td>
                             <td><label class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('')">Hinzufügen</label></td>
                           </table>
