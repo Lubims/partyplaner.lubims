@@ -30,8 +30,8 @@ try {
     $idStmt->execute();
     $userID = $idStmt->fetch();
 
-    $InsertStmt = $dbh->prepare("INSERT INTO projektuser (projektid, userid, besitzer) VALUES(?, ?, ?)");
-    $InsertStmt->execute([$ID, $userID['userid'],1]);
+    $InsertStmt = $dbh->prepare("INSERT INTO projektuser (projektid, userid, zugesagt, besitzer) VALUES(?, ?, ?, ?)");
+    $InsertStmt->execute([$ID, $userID['userid'],1,1]);
 
     header("Location: /php-2019/project-barney/src/dashboard/projekte.php");
     die();
