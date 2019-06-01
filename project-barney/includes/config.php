@@ -4,6 +4,9 @@ if(session_id() == ''){
 
     session_start();
 }
+
+//Prüft ob der Nutzer eingelogt ist
+//ist das nicht der fall wird er auf die Startseite weitergeleitet
 switch ($_SERVER["SCRIPT_NAME"]) {
   case    "/php-2019/project-barney/src/dashboard/profil.php":
           $CURRENT_PAGE = "Profil";
@@ -79,6 +82,7 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 
     }
 
+//Funktion um die Daten über einen Nutzer zu bekommen
     function getUserData(){
       $dsn = "mysql:host=localhost;dbname=alkdb";
       $user = "root";
@@ -102,6 +106,7 @@ switch ($_SERVER["SCRIPT_NAME"]) {
       }
     }
 
+//Funktion um die Daten über die Freunde zu bekommen
     function getFriendData(){
       $dsn = "mysql:host=localhost;dbname=alkdb";
       $user = "root";
