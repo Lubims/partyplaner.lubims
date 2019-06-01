@@ -34,6 +34,7 @@ $USER_EMAIL = $user['Email'];
     					});
     				});
     	}
+      //Überprüft die Passwörter
       function checkPasswords(form) {
         altes_passwort = form.old_pwd.value;
         neues_passwort = form.new_pwd.value;
@@ -67,6 +68,7 @@ $USER_EMAIL = $user['Email'];
           return returnVal;
         }
       }
+      //Überprüft den bestätigungscode
       function checkInputCode(form) {
         userCode = <?php if(isset($_SESSION['newemail_code'])){echo $_SESSION['newemail_code'];} else{echo -1;}?>;
         inputCode = form.checkCode.value;
@@ -77,6 +79,7 @@ $USER_EMAIL = $user['Email'];
             return false;
         }
       }
+      //Überprüft die neue Email
       function checkNewEmail(form) {
           var returnVal;
           jQuery.ajax({
@@ -101,6 +104,7 @@ $USER_EMAIL = $user['Email'];
           });
           return returnVal;
       }
+      //Überprüft den neuen Username
       function checkNewUser(form) {
         var returnVal;
         jQuery.ajax({

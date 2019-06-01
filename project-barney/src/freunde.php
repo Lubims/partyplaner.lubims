@@ -190,6 +190,21 @@
     </form>
     </div>
 
+    <main role="main" class="ml-sm-auto">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <!--Tabelle-->
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Nächstes gemeinsames Projekt</th>
+              </tr>
+            </thead>
+            <?php include("freunde_db.php");?>
+          </table>
+        </div>
+      </main>
 
 
       <!-- Site footer -->
