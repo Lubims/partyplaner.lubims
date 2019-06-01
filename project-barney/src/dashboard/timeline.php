@@ -66,8 +66,7 @@ try {
             die();
           }
         if ($owner["besitzer"] == 1) { ?>
-            <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onClick="getProjektdaten(<?php echo $link['projektid']; ?>)">ändern</label>
-            <label class="btn btn-outline-danger my-2 my-sm-0" role="button">Projekt löschen</label>
+            
         <?php
         }
         ?>
