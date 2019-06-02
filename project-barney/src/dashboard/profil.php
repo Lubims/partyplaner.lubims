@@ -47,9 +47,6 @@ if(isset($_POST['checkCode'])) {
         function redirectOrga(id) {
           window.location.replace("projekt_ansicht_orga.php?projektid=" + id);
         }
-        function redirectGast(id) {
-          window.location.replace("projekt_ansicht_gast.php?projektid=" + id);
-      }
     </script>
     <script
         src="https://code.jquery.com/jquery-3.4.1.js"
