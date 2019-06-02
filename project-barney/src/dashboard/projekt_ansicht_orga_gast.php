@@ -31,10 +31,10 @@ try {
       $Stmt->bindParam(":projektid", $projektID, PDO::PARAM_STR, 12);
       $Stmt->execute();
 
-      $prjektUser = $Stmt->fetch();
+      $projektUser = $Stmt->fetch();
 
       if ($Stmt->rowcount() > 0) {
-          if ($prjektUser['userid'] == $gastID) {
+          if ($projektUser['userid'] == $gastID) {
             header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
           }else{
             $Stmt = $dbh->prepare("INSERT INTO projektuser (projektid, userid, besitzer, zugesagt) VALUES(:projektID, :gastID, 0, 0)");
