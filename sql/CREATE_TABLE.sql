@@ -51,13 +51,13 @@ CREATE TABLE projektuser(
 );
 
 CREATE TABLE produktliste(
-projekteid INT NOT NULL,
+projektid INT NOT NULL,
 userid INT NOT NULL,
 produktid INT NOT NULL,
 menge INT NOT NULL,
 
-PRIMARY KEY (projekteid, produktid, userid),
+PRIMARY KEY (projektid, produktid, userid),
 FOREIGN KEY (produktid) REFERENCES produkte(produktid),
 FOREIGN KEY (userid) REFERENCES benutzer(userid),
-FOREIGN KEY (projekteid) REFERENCES projekte(projektid)
+FOREIGN KEY (projektid) REFERENCES projekte(projektid)
 );
