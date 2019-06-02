@@ -11,7 +11,7 @@ try {
     $Stmt = $dbh->prepare("DELETE FROM projektuser WHERE projektid = ? AND userid = ?");
     $Stmt->execute([intval($_POST['projektid']), intval($_POST['userid'])]);
 
-    header("Location: ../projekte.php");
+    header("Location: ../projekt_ansicht_orga.php?projektid=".$_POST['projektid']);
     die();
 }
 catch (PDOException $e) {
