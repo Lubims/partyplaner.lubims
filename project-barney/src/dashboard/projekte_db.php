@@ -61,7 +61,7 @@ try {
       <td>
       <?php echo $link['beschreibung']; ?>
       </td>
-      <td style="padding-left: 10px"><label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">ändern</label></td>
+      <td style="padding-left: 10px"><label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">erweiterte Ansicht</label></td>
       </tr>
     </tbody>
     <?php

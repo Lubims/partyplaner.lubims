@@ -70,7 +70,7 @@ try {
         <?php
         }
         else { ?>
-          <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">Ansicht</label>
+          <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectGast(<?php echo $link['projektid']; ?>)">Ansicht</label>
         <?php
         }
         if ($owner["zugesagt"] == 0) { ?>

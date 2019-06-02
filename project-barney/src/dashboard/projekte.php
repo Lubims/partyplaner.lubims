@@ -6,6 +6,9 @@
       function redirectOrga(id) {
           window.location.replace("projekt_ansicht_orga.php?projektid=" + id);
       }
+      function redirectGast(id) {
+          window.location.replace("projekt_ansicht_gast.php?projektid=" + id);
+      }
     </script>
 
     <meta charset="utf-8">
