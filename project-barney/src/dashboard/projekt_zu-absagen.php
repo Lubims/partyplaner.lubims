@@ -83,9 +83,16 @@ try {
       }else{
         echo "/";
       }
+      if ($link['besitzer'] == 1) { ?>
+        <td style="padding-left: 10px"><label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">Getränke leeren</label></td>
+      <?php
+      }
+      else { ?>
+        <td style="padding-left: 10px"><label class="btn btn-outline-danger my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">Gast entfernen</label></td>
+        <?php
+      }
       ?>
       </td>
-      <td style="padding-left: 10px"><label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">ändern</label></td>
       </tr>
     </tbody>
     <?php
