@@ -52,4 +52,4 @@ try {
     echo '0 results';
     }
     ?>
-    
+    </table>
