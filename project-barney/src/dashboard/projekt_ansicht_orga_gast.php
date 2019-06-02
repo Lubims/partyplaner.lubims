@@ -1,4 +1,8 @@
 <?php
+if(session_id() == ''){
+
+    session_start();
+}
 
 $gast = htmlspecialchars($_POST["gast"]);
 $projektID = htmlspecialchars($_POST["projektid"]);
@@ -18,29 +22,44 @@ try {
     $gastIDDB = $Stmt->fetch();
     $gastID = $gastIDDB['userid'];
 
+    if($gastIDDB){
 
 
-    $Stmt = $dbh->prepare("SELECT userid FROM projektuser WHERE userid = :gastID AND projektid = :projektid");
-    $Stmt->bindParam(":gastID", $gastID, PDO::PARAM_STR, 12);
-    $Stmt->bindParam(":projektid", $gastID, PDO::PARAM_STR, 12);
-    $Stmt->execute();
 
-    $prjektUser = $Stmt->fetch();
+      $Stmt = $dbh->prepare("SELECT userid FROM projektuser WHERE userid = :gastID AND projektid = :projektid");
+      $Stmt->bindParam(":gastID", $gastID, PDO::PARAM_STR, 12);
+      $Stmt->bindParam(":projektid", $projektID, PDO::PARAM_STR, 12);
+      $Stmt->execute();
 
-    if ($prjektUser) {
-        if ($prjektUser['userid'] == $gastID) {
-          header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
+      $prjektUser = $Stmt->fetch();
+
+      if ($Stmt->rowcount() > 0) {
+          if ($prjektUser['userid'] == $gastID) {
+            header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
+          }else{
+            $Stmt = $dbh->prepare("INSERT INTO projektuser (projektid, userid, besitzer, zugesagt) VALUES(:projektID, :gastID, 0, 0)");
+            $Stmt->bindParam(":projektID", $projektID, PDO::PARAM_STR, 12);
+            $Stmt->bindParam(":gastID", $gastID, PDO::PARAM_STR, 12);
+            $Stmt->execute();
+
+            header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
+          }
+
         }else{
-          $Stmt = $dbh->prepare("INSERT INTO projektuser (projektid, userid, besitzer, zugesagt) VALUES(?, ?, ?, ?)");
-          $Stmt->execute($projektID, $gastID, 0, 0);
+          $Stmt = $dbh->prepare("INSERT INTO projektuser (projektid, userid, besitzer, zugesagt) VALUES(:projektID, :gastID, 0, 0)");
+          $Stmt->bindParam(":projektID", $projektID, PDO::PARAM_STR, 12);
+          $Stmt->bindParam(":gastID", $gastID, PDO::PARAM_STR, 12);
+          $Stmt->execute();
 
           header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
-        }
-
-      }
+  }
+}else{
+  header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
+}
 }
 catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
     die();
 }
+
  ?>
