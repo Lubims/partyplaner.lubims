@@ -85,6 +85,7 @@ try {
       }
       ?>
       </td>
+      <td style="padding-left: 10px"><label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">ändern</label></td>
       </tr>
     </tbody>
     <?php
