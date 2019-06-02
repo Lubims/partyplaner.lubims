@@ -379,7 +379,7 @@ if(isset($_POST['checkCode'])) {
 }
                         </style>
   <div class="page-header">
-    <h1 id="timeline">Eigene Projekte</h1>
+    <h1 id="timeline">Anstehende Projekte</h1>
   </div>
   <ul class="timeline">
     <?php include("timeline.php");?>
