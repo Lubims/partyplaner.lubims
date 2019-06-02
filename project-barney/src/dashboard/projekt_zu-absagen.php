@@ -78,7 +78,7 @@ try {
           $Stmt->execute();
           $getraenk = $Stmt->fetch();
 
-          echo nl2br ($getraenkLink['menge'] . " liter " . $getraenk['name'] . "\n");
+          echo nl2br (($getraenkLink['menge']/100) . " liter " . $getraenk['name'] . "\n");
         }
       }else{
         echo "/";
