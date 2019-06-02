@@ -43,7 +43,7 @@ CREATE TABLE projektuser(
 	projektid INT NOT NULL,
 	userid INT NOT NULL,
 	besitzer BOOLEAN,
-	zugesagt BOOLEAN,
+	zugesagt INT,
 
 	PRIMARY KEY (projektid, userid),
 	FOREIGN KEY (projektid) REFERENCES projekte(projektid),
