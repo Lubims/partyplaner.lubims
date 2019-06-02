@@ -79,6 +79,9 @@ $ownerDB = $Stmt->fetch();
         console.log(returnVal);
         return returnVal;
       }
+      function removeGast(projektid, userid) {
+        loadDynamicContentModal('gast_loeschen_modal.php?projektid=' + projektid + "&userid=" + userid);
+      }
       function addGetraenk(form) {
         var returnVal;
         jQuery.ajax({
