@@ -11,6 +11,9 @@ try {
     $Stmt = $dbh->prepare("DELETE FROM projektuser WHERE projektid = ? AND userid = ?");
     $Stmt->execute([intval($_POST['projektid']), intval($_POST['userid'])]);
 
+    $Stmt = $dbh->prepare("DELETE FROM produktliste WHERE projektid = ? AND userid = ?");
+    $Stmt->execute([intval($_POST['projektid']), intval($_POST['userid'])]);
+
     header("Location: ../projekt_ansicht_orga.php?projektid=".$_POST['projektid']);
     die();
 }
