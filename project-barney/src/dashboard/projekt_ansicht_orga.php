@@ -286,6 +286,7 @@
                         </div>
                         <label for="modal-switch" class="btn btn-outline-danger my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('projekt_loeschen_modal.php')">Projekt löschen</label>
                       </div>
+                      <?php include("projekt_zu-absagen.php");?>
                     </main>
                   </div>
                 </div>
