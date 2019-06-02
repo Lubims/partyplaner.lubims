@@ -75,7 +75,7 @@ try {
         }
         if ($viewer["zugesagt"] == 0) { ?>
           <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="zusagen(<?php echo $link['projektid']; ?>,'<?php echo $_SESSION['user'] ?>')">Zusagen</label>
-          <label class="btn btn-outline-danger my-2 my-sm-0" role="button" onClick="">Absagen</label>
+          <label class="btn btn-outline-danger my-2 my-sm-0" role="button" onClick="absage(<?php echo $link['projektid']; ?>,'<?php echo $_SESSION['user'] ?>')">Absagen</label>
       <?php
       }
         ?>

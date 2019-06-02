@@ -68,6 +68,27 @@ if(isset($_POST['checkCode'])) {
           });
           return returnVal;
         }
+
+        function absage(projektid,userid) {
+          var returnVal;
+          jQuery.ajax({
+              async: false,
+              type: 'POST',
+              url: 'profil_absage.php',
+              data: {projektid: projektid, userid: userid},
+              success:function(absage) {
+                console.log(absage);
+                if(absage.localeCompare("true") == 0) {
+                  returnVal = true;
+                  location.reload();
+                } else {
+                  alert ("Ein Fehler ist aufgetreten");
+                  returnVal = false;
+                }
+              }
+          });
+          return returnVal;
+        }
     </script>
     <script
         src="https://code.jquery.com/jquery-3.4.1.js"
