@@ -9,7 +9,7 @@ $dsn = "mysql:host=localhost;dbname=alkdb";
 $user = "root";
 $password = "";
 ?>
-<h6><b>Zusagen:</b></h6>
+<h6><b>Gäste:</b></h6>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -51,10 +51,39 @@ try {
       ?>
       </th>
       <td>
-      <?php echo $link['']; ?>
+      <?php
+      if($link['zugesagt'] == 0){
+        echo "noch keine Antwort";
+      }
+      if($link['zugesagt'] == 1){
+        echo "Ist dabei!";
+      }
+      if($link['zugesagt'] == 2){
+        echo "Kommt nicht";
+      }
+      ?>
       </td>
       <td>
-      <?php echo $link['']; ?>
+      <?php
+      $Stmt = $dbh->prepare("SELECT produktid,menge FROM produktliste WHERE userid = :userid AND projektid = :projektID");
+      $Stmt->bindParam(":userid", $link['userid'], PDO::PARAM_STR, 12);
+      $Stmt->bindParam(":projektID", $_GET['projektid'], PDO::PARAM_STR, 12);
+      $Stmt->execute();
+      $getraenk = $Stmt->fetchAll();
+
+      if($getraenk){
+        foreach($getraenk as $row => $getraenkLink){
+          $Stmt = $dbh->prepare("SELECT name FROM produkte WHERE produktid = :produktid");
+          $Stmt->bindParam(":produktid", $getraenkLink['produktid'], PDO::PARAM_STR, 12);
+          $Stmt->execute();
+          $getraenk = $Stmt->fetch();
+
+          echo nl2br ($getraenkLink['menge'] . " liter " . $getraenk['name'] . "\n");
+        }
+      }else{
+        echo "/";
+      }
+      ?>
       </td>
       </tr>
     </tbody>
