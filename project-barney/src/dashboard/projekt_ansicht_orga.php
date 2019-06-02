@@ -1,4 +1,23 @@
-<?php include("../../includes/config.php");?>
+<?php include("../../includes/config.php");
+
+$dsn = "mysql:host=localhost;dbname=alkdb";
+$user = "root";
+$password = "";
+$dbh = new PDO($dsn, $user, $password);
+$dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+
+$Stmt = $dbh->prepare("SELECT userid FROM benutzer WHERE username = :username");
+$Stmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
+$Stmt->execute();
+$userIDDB = $Stmt->fetch();
+$thisUserID = $userIDDB['userid'];
+
+$Stmt = $dbh->prepare("SELECT besitzer FROM projektuser WHERE userid = :thisUserID AND projektid = :projektID");
+$Stmt->bindParam(":thisUserID", $thisUserID, PDO::PARAM_STR, 12);
+$Stmt->bindParam(":projektID", $_GET['projektid'], PDO::PARAM_STR, 12);
+$Stmt->execute();
+$ownerDB = $Stmt->fetch();
+?>
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -248,7 +267,9 @@
 
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                        <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onClick="loadDynamicContentModal('aendern.html')">ändern</label>
+                        <?php if($ownerDB['besitzer'] == 1) { ?>
+                            <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onClick="loadDynamicContentModal('aendern.html')">ändern</label>
+                        <?php } ?>
                         <div>
                           <table>
                             <form action="projekt_ansicht_orga.php?projektid=<?php echo $_GET['projektid']; ?>" method="post" name="neuer_gast" onSubmit="return addGast(this)">
@@ -331,9 +352,13 @@
                                 <td><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Hinzufügen</button></td>
                           </table>
                         </div>
-                        <label for="modal-switch" class="btn btn-outline-danger my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('projekt_loeschen_modal.php')">Projekt löschen</label>
+                        <?php if($ownerDB['besitzer'] == 1) { ?>
+                            <label for="modal-switch" class="btn btn-outline-danger my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('projekt_loeschen_modal.php')">Projekt löschen</label>
+                        <?php } ?>
+
                       </div>
-                      <?php include("projekt_zu-absagen.php");?>
+                      <?php include("projekt_zu-absagen.php");?><br>
+                      <?php include("projekt_getraenke.php");?>
                     </main>
                   </div>
                 </div>

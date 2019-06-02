@@ -16,6 +16,7 @@ $password = "";
       <th>Name</th>
       <th>Zugesagt</th>
       <th>Bringt mit</th>
+      <th>Aktionen</th>
     </tr>
   </thead>
 <?php
@@ -83,11 +84,24 @@ try {
       }else{
         echo "/";
       }
-      if ($link['besitzer'] == 1) { ?>
+
+      $Stmt = $dbh->prepare("SELECT userid FROM benutzer WHERE username = :username");
+      $Stmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
+      $Stmt->execute();
+      $userIDDB = $Stmt->fetch();
+      $thisUserID = $userIDDB['userid'];
+
+      $Stmt = $dbh->prepare("SELECT besitzer FROM projektuser WHERE userid = :thisUserID AND projektid = :projektID");
+      $Stmt->bindParam(":thisUserID", $thisUserID, PDO::PARAM_STR, 12);
+      $Stmt->bindParam(":projektID", $_GET['projektid'], PDO::PARAM_STR, 12);
+      $Stmt->execute();
+      $ownerDB = $Stmt->fetch();
+
+      if ($link['userid'] == $thisUserID) { ?>
         <td style="padding-left: 10px"><label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">Getränke leeren</label></td>
       <?php
       }
-      else { ?>
+      else if($ownerDB['besitzer'] == 1) { ?>
         <td style="padding-left: 10px"><label class="btn btn-outline-danger my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">Gast entfernen</label></td>
         <?php
       }
