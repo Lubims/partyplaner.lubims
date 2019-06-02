@@ -98,7 +98,7 @@ try {
       $ownerDB = $Stmt->fetch();
 
       if ($link['userid'] == $thisUserID) { ?>
-        <td style="padding-left: 10px"><label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">Getränke leeren</label></td>
+        <td style="padding-left: 10px"><label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="removeGetraenke(<?php echo $link['projektid']; ?>,  <?php echo $link['userid']; ?>)">Getränke leeren</label></td>
       <?php
       }
       else if($ownerDB['besitzer'] == 1) { ?>

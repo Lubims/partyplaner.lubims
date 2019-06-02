@@ -104,6 +104,27 @@ $ownerDB = $Stmt->fetch();
         });
         return returnVal;
       }
+
+      function removeGetraenke(int1,int2) {
+        var returnVal;
+        jQuery.ajax({
+            async: false,
+            type: 'POST',
+            url: 'projekt_ansicht_orga_removeGetraenke.php',
+            data: {projektid: int1, userid: int2},
+            success:function(getraenkRemoved) {
+              console.log(getraenkRemoved);
+              if(getraenkRemoved.localeCompare("true") == 0) {
+                returnVal = true;
+                location.reload();
+              } else {
+                alert ("Ein Fehler ist aufgetreten");
+                returnVal = false;
+              }
+            }
+        });
+        return returnVal;
+      }
     </script>
 
     <meta charset="utf-8">
