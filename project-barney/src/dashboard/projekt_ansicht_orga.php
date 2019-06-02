@@ -5,7 +5,6 @@
     <script>
 
       function loadDynamicContentModal(modal) {
-        console.log(modal);
         var options = {
           modal : true,
           height : 300,
@@ -34,6 +33,54 @@
               }
           });
         }
+      }
+
+      function addGast(form) {
+        var returnVal;
+        jQuery.ajax({
+            async: false,
+            type: 'POST',
+            url: 'projekt_ansicht_orga_gast.php',
+            data: {gast: form.gast.value, projektid: form.projektid.value},
+            success:function(gastAdded) {
+              if(gastAdded.localeCompare("true") == 0) {
+                returnVal = true;
+              } else if(gastAdded.localeCompare("false_exists") == 0) {
+                alert ("User existiert nicht");
+                returnVal = false;
+              } else if(gastAdded.localeCompare("false_inprojekt") == 0) {
+                alert ("User ist bereits im Projekt");
+                returnVal = false;
+              } else {
+                alert ("Ein Fehler ist aufgetreten");
+                returnVal = false;
+              }
+            }
+        });
+        console.log(returnVal);
+        return returnVal;
+      }
+      function addGetraenk(form) {
+        var returnVal;
+        jQuery.ajax({
+            async: false,
+            type: 'POST',
+            url: 'projekt_ansicht_orga_getraenk.php',
+            data: {getraenk: form.getraenk.value, menge: form.menge.value, projektid: form.projektid.value},
+            success:function(getraenkAdded) {
+              console.log(getraenkAdded);
+              if(getraenkAdded.localeCompare("true") == 0) {
+                returnVal = true;
+              } else if(getraenkAdded.localeCompare("false_numeric") == 0) {
+                alert ("Menge darf nur aus Zahlen bestehen");
+                returnVal = false;
+              } else {
+                alert ("Ein Fehler ist aufgetreten");
+                returnVal = false;
+              }
+            }
+        });
+        return returnVal;
       }
     </script>
 
@@ -204,7 +251,7 @@
                         <label for="modal-switch" class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onClick="loadDynamicContentModal('aendern.html')">ändern</label>
                         <div>
                           <table>
-                            <form action="projekt_ansicht_orga_gast.php" method="post" name="neuer_gast">
+                            <form action="projekt_ansicht_orga.php?projektid=<?php echo $_GET['projektid']; ?>" method="post" name="neuer_gast" onSubmit="return addGast(this)">
                               <td><input class="form-control" type="text" placeholder="Gast" name="gast" list="friend_list"  required></td>
                               <input type="hidden" id="projektid" name="projektid" value="<?php echo $_GET['projektid']; ?>"></input>
                               <datalist id="friend_list">
@@ -240,13 +287,13 @@
                               ?>
                               </datalist>
 
-                              <td><button class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal" onClick="redirectOrgaGast(<?php echo $link['projektid']; ?>)">Hinzufügen</button></td>
+                              <td><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Hinzufügen</button></td>
                           </form>
                           </table>
                         </div>
                         <div>
                           <table>
-                              <form action="projekt_ansicht_orga_getraenk.php" method="post" name="neues_getraenk">
+                              <form action="projekt_ansicht_orga.php?projektid=<?php echo $_GET['projektid']; ?>" method="post" name="neues_getraenk" onSubmit="return addGetraenk(this)">
                                 <td><input class="form-control" type="text" placeholder="Getränk" name="getraenk" list="getraenke_list" required></td>
                                 <input type="hidden" id="projektid" name="projektid" value="<?php echo $_GET['projektid']; ?>"></input>
                                 <datalist id="getraenke_list">
@@ -281,7 +328,7 @@
                                 ?>
                                 </datalist>
                                 <td><input class="form-control" type="text" placeholder="Menge in Litern" name="menge" required></td>
-                                <td><button class="btn btn-outline-success my-2 my-sm-0" role="button" data-toggle="modal">Hinzufügen</button></td>
+                                <td><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Hinzufügen</button></td>
                           </table>
                         </div>
                         <label for="modal-switch" class="btn btn-outline-danger my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('projekt_loeschen_modal.php')">Projekt löschen</label>

@@ -11,7 +11,6 @@ $dsn = "mysql:host=localhost; dbname=alkdb";
 $user = "root";
 $password = "";
 
-  $menge = str_replace(',', '.',htmlspecialchars($_POST["menge"])) * 100;
 
 if(is_numeric($menge)){
 
@@ -53,7 +52,7 @@ if(is_numeric($menge)){
           $Stmt->bindParam(":userID", $userID, PDO::PARAM_STR, 12);
           $Stmt->bindParam(":menge", $menge, PDO::PARAM_STR, 12);
           $Stmt->execute();
-          header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
+          echo 'true';
 
         }else{
         $Stmt = $dbh->prepare("INSERT INTO produktliste (projektid, userid, produktid, menge) VALUES(:projektID, :userID, :getraenkID, :menge)");
@@ -62,7 +61,7 @@ if(is_numeric($menge)){
           $Stmt->bindParam(":userID",$userID, PDO::PARAM_STR, 12);
           $Stmt->bindParam(":menge", $menge, PDO::PARAM_STR, 12);
           $Stmt->execute();
-          header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
+          echo 'true';
         }
       }else{
         $Stmt = $dbh->prepare("INSERT INTO produkte (name) VALUES(:getraenk)");
@@ -77,7 +76,7 @@ if(is_numeric($menge)){
         $Stmt->bindParam(":userID", $userID, PDO::PARAM_STR, 12);
         $Stmt->bindParam(":menge", $menge, PDO::PARAM_STR, 12);
         $Stmt->execute();
-        header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
+        echo 'true';
 
       }
     }
@@ -85,6 +84,7 @@ if(is_numeric($menge)){
       echo 'Connection failed: ' . $e->getMessage();
       die();
   }
+} else {
+  echo 'false_numeric';
 }
-  header("Location: projekt_ansicht_orga.php?projektid=".$projektID);
  ?>
