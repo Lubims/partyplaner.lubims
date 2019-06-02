@@ -58,14 +58,14 @@ try {
             $ownerStmt->bindParam(":projektid", $link['projektid'], PDO::PARAM_STR, 12);
             $ownerStmt->execute();
 
-            $owner = $ownerStmt->fetch();
+            $viewer = $ownerStmt->fetch();
             // $owner["besitzer"] ist 1 oder 0
 
           } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
             die();
           }
-        if ($owner["besitzer"] == 1) { ?>
+        if ($viewer["besitzer"] == 1) { ?>
           <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">erweiterte Ansicht</label>
         <?php
         }
@@ -73,7 +73,7 @@ try {
           <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="redirectGast(<?php echo $link['projektid']; ?>)">Ansicht</label>
         <?php
         }
-        if ($owner["zugesagt"] == 0) { ?>
+        if ($viewer["zugesagt"] == 0) { ?>
           <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="">Zusagen</label>
           <label class="btn btn-outline-danger my-2 my-sm-0" role="button" onClick="">Absagen</label>
       <?php
