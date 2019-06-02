@@ -16,6 +16,7 @@ $password = "";
       <th>Name</th>
       <th>Zugesagt</th>
       <th>Bringt mit</th>
+      <th>Aktionen</th>
     </tr>
   </thead>
 <?php
