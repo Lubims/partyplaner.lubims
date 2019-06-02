@@ -360,7 +360,13 @@ $ownerDB = $Stmt->fetch();
                         <?php } ?>
 
                       </div>
-                      <h5><?php echo $link['projektname']; ?></h5>
+                      <h5><?php
+                      $Stmt = $dbh->prepare("SELECT projektname FROM projekte WHERE projektid = :projektid");
+                      $Stmt->bindParam(":projektid", $_GET['projektid'], PDO::PARAM_STR, 12);
+                      $Stmt->execute();
+                      $projektName = $Stmt->fetch();
+                      echo $projektName['projektname'];
+                      ?></h5>
                       <?php include("projekt_zu-absagen.php");?><br>
                       <?php include("projekt_getraenke.php");?>
                     </main>
