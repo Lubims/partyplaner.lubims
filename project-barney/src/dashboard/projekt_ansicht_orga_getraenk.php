@@ -11,8 +11,11 @@ $dsn = "mysql:host=localhost; dbname=alkdb";
 $user = "root";
 $password = "";
 
+  $menge = str_replace(',', '.',htmlspecialchars($_POST["menge"])) * 100;
+
 if(is_numeric($menge)){
 
+//  $menge = str_replace(',', '.',htmlspecialchars($_POST["menge"])) * 100;
 
   try {
 
