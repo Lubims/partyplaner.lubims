@@ -102,7 +102,8 @@ try {
       <?php
       }
       else if($ownerDB['besitzer'] == 1) { ?>
-        <td style="padding-left: 10px"><label class="btn btn-outline-danger my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">Gast entfernen</label></td>
+        <!--<td style="padding-left: 10px"><label class="btn btn-outline-danger my-2 my-sm-0" role="button" onClick="redirectOrga(<?php echo $link['projektid']; ?>)">Gast entfernen</label></td>-->
+        <td><label for="modal-switch" class="btn btn-outline-danger my-2 my-sm-0" role="button" data-toggle="modal" onclick="loadDynamicContentModal('projekt_loeschen_modal.php')">Gast entfernen</label></td>
         <?php
       }
       ?>

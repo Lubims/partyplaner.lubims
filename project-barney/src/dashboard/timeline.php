@@ -74,7 +74,7 @@ try {
         <?php
         }
         if ($viewer["zugesagt"] == 0) { ?>
-          <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick="">Zusagen</label>
+          <label class="btn btn-outline-success my-2 my-sm-0" role="button" onClick=" ">Zusagen</label>
           <label class="btn btn-outline-danger my-2 my-sm-0" role="button" onClick="">Absagen</label>
       <?php
       }
