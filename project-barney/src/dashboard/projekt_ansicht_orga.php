@@ -310,7 +310,8 @@ $ownerDB = $Stmt->fetch();
                         <?php } ?>
 
                       </div>
-                      <?php include("projekt_zu-absagen.php");?>
+                      <?php include("projekt_zu-absagen.php");?><br>
+                      <?php include("projekt_getraenke.php");?>
                     </main>
                   </div>
                 </div>
