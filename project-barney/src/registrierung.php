@@ -25,7 +25,6 @@ $dsn = "mysql:host=localhost; dbname=alkdb";
 $user = "root";
 $password = "";
 
-
 try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
@@ -51,7 +50,6 @@ try {
       $message .= "</body>";
       $message .= "</html>";
 
-
       $mail = new PHPMailer(true);
       //Send mail using gmail
       //if($send_using_gmail){
@@ -74,9 +72,9 @@ try {
       try{
         $mail->Send();
       } catch(Exception $e){
+        echo $e->getMessage();
         die();
       }
-
 
       //Insert in die db
       $InsertStmt = $dbh->prepare("INSERT INTO benutzer (Username, Email, Passwort, Code) VALUES(?, ?, ?, ?)");
@@ -86,7 +84,7 @@ try {
       echo 'true';
     }
 } catch (PDOException $e) {
-    header("../error.html");
+    echo "test";
     die();
 }
 
