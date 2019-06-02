@@ -47,6 +47,27 @@ if(isset($_POST['checkCode'])) {
         function redirectOrga(id) {
           window.location.replace("projekt_ansicht_orga.php?projektid=" + id);
         }
+
+        function zusagen(projektid,userid) {
+          var returnVal;
+          jQuery.ajax({
+              async: false,
+              type: 'POST',
+              url: 'profil_zusage.php',
+              data: {projektid: projektid, userid: userid},
+              success:function(zusagen) {
+                console.log(zusagen);
+                if(zusagen.localeCompare("true") == 0) {
+                  returnVal = true;
+                  location.reload();
+                } else {
+                  alert ("Ein Fehler ist aufgetreten");
+                  returnVal = false;
+                }
+              }
+          });
+          return returnVal;
+        }
     </script>
     <script
         src="https://code.jquery.com/jquery-3.4.1.js"
