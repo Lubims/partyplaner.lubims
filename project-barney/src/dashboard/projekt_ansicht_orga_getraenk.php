@@ -14,6 +14,7 @@ $password = "";
 
 if(is_numeric($menge)){
 
+  $menge = $menge * 100;
 //  $menge = str_replace(',', '.',htmlspecialchars($_POST["menge"])) * 100;
 
   try {
