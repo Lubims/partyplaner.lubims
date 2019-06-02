@@ -24,8 +24,8 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $selectStmt = $dbh->prepare("SELECT * FROM projekte WHERE projektid IN (SELECT projektid FROM projektuser WHERE userid = (SELECT userid FROM benutzer WHERE username = :username))AND termin >= CURDATE() ORDER BY termin ASC");
-    $selectStmt->bindParam(":username", $_SESSION['user'], PDO::PARAM_STR, 12);
+    $selectStmt = $dbh->prepare("SELECT * FROM projektuser WHERE projektid = :projektID");
+    $selectStmt->bindParam(":projektID", $_GET['projektid'], PDO::PARAM_STR, 12);
     $selectStmt->execute();
 
     $projekte = $selectStmt->fetchAll();
@@ -41,7 +41,14 @@ try {
     <tbody>
       <tr>
       <th>
-      <?php echo $link['']; ?>
+      <?php
+      //Testen ob es den nutzer schon gibt
+      $Stmt = $dbh->prepare("SELECT username FROM benutzer WHERE userid = :userid");
+      $Stmt->bindParam(":userid", $link['userid'], PDO::PARAM_STR, 12);
+      $Stmt->execute();
+      $userIDDB = $Stmt->fetch();
+      echo $userIDDB['username'];
+      ?>
       </th>
       <td>
       <?php echo $link['']; ?>
