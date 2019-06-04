@@ -118,6 +118,7 @@
 
           if(signup == "signup") {
             document.getElementById("modal-switch").checked = true;
+            loadDynamicContentModal("registrierung.html");
           } else {
             window.location.href = "src/dashboard/neue_projekte.php";
           }
