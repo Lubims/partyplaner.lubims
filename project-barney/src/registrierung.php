@@ -38,7 +38,9 @@ try {
 
       if ($user) {
         if ($user['Username'] === $signup_username) {
-          echo 'false_exists';
+          echo 'false_user_exists';
+        } else if ($user['Email'] === $signup_email) {
+          echo 'false_email_exists';
         }
       } else {
       //Erstellen der Email

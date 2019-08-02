@@ -29,8 +29,11 @@
                   success:function(isUserNew) {
                       if(isUserNew.localeCompare("true") == 0) {
                         returnVal = true;
-                      } else if(isUserNew.localeCompare("false_exists") == 0) {
+                      } else if(isUserNew.localeCompare("false_user_exists") == 0) {
                         alert ("User existiert bereits");
+                        returnVal = false;
+                      } else if(isUserNew.localeCompare("false_email_exists") == 0) {
+                        alert ("Email ist bereits registriert");
                         returnVal = false;
                       } else {
                         alert ("Ein Fehler ist aufgetreten");
