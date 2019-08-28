@@ -27,9 +27,9 @@ for ($i = 0; $i < 10; $i++) {
 }
 
 $input_email = htmlspecialchars($_POST["input_email"]);
-$dsn = "mysql:host=localhost; dbname=alkdb";
-$user = "root";
-$password = "";
+$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$user = "kd58916_root";
+$password = "At452B7L9s";
 
 
 try {

@@ -84,7 +84,7 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 
 //Funktion um die Daten über einen Nutzer zu bekommen
     function getUserData(){
-      $dsn = "mysql:host=localhost;dbname=alkdb";
+      $dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
       $user = "root";
       $password = "";
 
@@ -108,7 +108,7 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 
 //Funktion um die Daten über die Freunde zu bekommen
     function getFriendData(){
-      $dsn = "mysql:host=localhost;dbname=alkdb";
+      $dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
       $user = "root";
       $password = "";
 

@@ -5,9 +5,9 @@ if(session_id() == ''){
     session_start();
 }
 
-$dsn = "mysql:host=localhost;dbname=alkdb";
-$user = "root";
-$password = "";
+$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$user = "kd58916_root";
+$password = "At452B7L9s";
 $zaehler = 0;
 
 //gibt Projekte aus an denen der Nutzer beteiligt ist

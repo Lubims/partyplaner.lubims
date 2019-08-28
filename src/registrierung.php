@@ -21,9 +21,9 @@ $code = mt_rand(100000, 999999);
 $signup_username = htmlspecialchars($_POST["signup_username"]);
 $signup_email = htmlspecialchars($_POST["signup_email"]);
 $signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
-$dsn = "mysql:host=localhost; dbname=alkdb";
-$user = "root";
-$password = "";
+$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$user = "kd58916_root";
+$password = "At452B7L9s";
 
 try {
     $dbh = new PDO($dsn, $user, $password);
