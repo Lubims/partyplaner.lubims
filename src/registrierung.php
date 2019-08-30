@@ -37,6 +37,8 @@ try {
     $Stmt->bindParam(":email", $signup_email, PDO::PARAM_STR, 12);
     $Stmt->execute();
 
+    echo "test1";
+
       $user = $Stmt->fetch();
 
       if ($user) {
@@ -64,7 +66,7 @@ try {
         $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
         $mail->Host = "mail.lubims.de"; // sets lubims.de as the SMTP server
         $mail->Port = 465; // set the SMTP port for the Mail server
-        $mail->Username = "noreply@lubims"; // Mail username
+        $mail->Username = "noreply@lubims.de"; // Mail username
         $mail->Password = "LubimsNoreply"; // Mail password
         //s}
         //Typical mail data
