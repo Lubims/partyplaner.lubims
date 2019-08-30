@@ -73,8 +73,10 @@ try {
       $mail->Body = $message;
       try{
         $mail->Send();
+        echo "1";
       } catch(Exception $e){
         echo $e->getMessage();
+        echo "2";
         die();
       }
 
