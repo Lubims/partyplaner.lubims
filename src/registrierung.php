@@ -70,7 +70,8 @@ try {
         $mail->Password = "LubimsNoreply"; // Mail password
         //s}
         //Typical mail data
-        $mail->AddAddress($signup_email);
+      $mail->AddAddress($signup_email);
+      $mail->SetFrom("noreply@barney.com");
       $mail->Subject = "Registrierung für User ".$signup_username;
       $mail->Body = $message;
       try{

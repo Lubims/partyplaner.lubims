@@ -67,8 +67,8 @@ try {
           $mail->Password = "LubimsNoreply"; // Mail password
           //s}
           //Typical mail data
-          $mail->AddAddress($input_email);
-          $mail->SetFrom("noreply@lubims.de");
+        $mail->AddAddress($input_email);
+        $mail->SetFrom("noreply@lubims.de");
         $mail->Subject = "Neues Passwort für User ".$user["Username"];
         $mail->Body = $message;
         try{
