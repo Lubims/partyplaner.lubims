@@ -58,7 +58,6 @@ try {
 
       $mail = new PHPMailer(true);
 
-        echo "lololl";
       //Send mail using gmail
         $mail->IsSMTP(); // telling the class to use SMTP
         $mail->IsHTML(true); //html-format einstellen
@@ -69,6 +68,7 @@ try {
         $mail->Port = 465; // set the SMTP port for the Mail server
         $mail->Username = "noreply@lubims.de"; // Mail username
         $mail->Password = "LubimsNoreply"; // Mail password
+                echo "lololol";
         //s}
         //Typical mail data
         $mail->AddAddress($new_email);
