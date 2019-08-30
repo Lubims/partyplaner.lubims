@@ -55,9 +55,10 @@ try {
       $message .= "</body>";
       $message .= "</html>";
 
-      echo "lolololol";
 
       $mail = new PHPMailer(true);
+
+        echo "lololl";
       //Send mail using gmail
         $mail->IsSMTP(); // telling the class to use SMTP
         $mail->IsHTML(true); //html-format einstellen
