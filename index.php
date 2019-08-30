@@ -37,6 +37,7 @@
                         returnVal = false;
                       } else {
                         alert ("Ein Fehler ist aufgetreten");
+                        echo isUserNew;
                         returnVal = false;
                       }
                   }

@@ -86,7 +86,7 @@ try {
       echo 'true';
     }
 } catch (PDOException $e) {
-    echo "test";
+    echo $e;
     die();
 }
 
