@@ -86,7 +86,7 @@ try {
       echo 'true';
     }
 } catch (PDOException $e) {
-    echo $e;
+    echo $e->getMessage();
     die();
 }
 

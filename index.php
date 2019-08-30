@@ -37,7 +37,7 @@
                         returnVal = false;
                       } else {
                         alert ("Ein Fehler ist aufgetreten");
-                        echo isUserNew;
+                        console.log(isUserNew);
                         returnVal = false;
                       }
                   }
