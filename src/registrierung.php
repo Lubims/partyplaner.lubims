@@ -18,9 +18,12 @@ require dirname(__DIR__).'/lib/PHPMailer/src/SMTP.php';
 
 //Variablen
 $code = mt_rand(100000, 999999);
-$signup_email = htmlspecialchars($_POST["signup_email"]);
-$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
-$signup_username = htmlspecialchars($_POST["signup_username"]);
+//$signup_email = htmlspecialchars($_POST["signup_email"]);
+//$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
+//$signup_username = htmlspecialchars($_POST["signup_username"]);
+$signup_email = "admin@lubims.de";
+$signup_pwd = "test";
+$signup_username = "admin";
 $dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
@@ -33,8 +36,6 @@ try {
     $Stmt->bindParam(":username", $signup_username, PDO::PARAM_STR, 12);
     $Stmt->bindParam(":email", $signup_email, PDO::PARAM_STR, 12);
     $Stmt->execute();
-
-    echo "test1";
 
       $user = $Stmt->fetch();
 
@@ -68,7 +69,6 @@ try {
         //s}
         //Typical mail data
         $mail->AddAddress($new_email);
-        $mail->SetFrom("noreply@lubims.de");
       $mail->Subject = "Registrierung für User ".$signup_username;
       $mail->Body = $message;
       try{
