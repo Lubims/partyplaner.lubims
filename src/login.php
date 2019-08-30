@@ -10,12 +10,15 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     //Testen ob es den nutzer schon gibt
-    $Stmt = $dbh->prepare("SELECT UserID, Username, Passwort, Code FROM benutzer WHERE Username = :username LIMIT 1");
+    //$Stmt = $dbh->prepare("SELECT UserID, Username, Passwort, Code FROM benutzer WHERE Username = :username LIMIT 1");
+    $Stmt = $dbh->prepare("SELECT UserID, Username, Passwort, Code FROM benutzer WHERE Username = root LIMIT 1");
     $Stmt->bindParam(":username", $login_username, PDO::PARAM_STR, 12);
     $Stmt->execute();
 
     $user = $Stmt->fetch();
 
+    echo $user;
+/*
     if ($user) {
         if ($user['Username'] == $login_username) {
           if(password_verify($login_pwd, $user['Passwort'])){
@@ -31,7 +34,7 @@ try {
     } else {
         echo 'false';
     }
-
+*/
 }
 catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
