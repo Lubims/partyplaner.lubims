@@ -70,15 +70,13 @@ try {
         $mail->Password = "LubimsNoreply"; // Mail password
         //s}
         //Typical mail data
-        $mail->AddAddress($new_email);
+        $mail->AddAddress($signup_email);
       $mail->Subject = "Registrierung für User ".$signup_username;
       $mail->Body = $message;
       try{
         $mail->Send();
-        echo "1";
       } catch(Exception $e){
         echo $e->getMessage();
-        echo "2";
         die();
       }
 
