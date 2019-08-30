@@ -71,7 +71,7 @@ try {
         //s}
         //Typical mail data
       $mail->AddAddress($signup_email);
-      $mail->SetFrom("noreply@barney.com");
+      $mail->SetFrom("noreply@lubims.de");
       $mail->Subject = "Registrierung für User ".$signup_username;
       $mail->Body = $message;
       try{
