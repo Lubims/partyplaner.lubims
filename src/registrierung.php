@@ -89,7 +89,11 @@ try {
       echo 'true';
     }
 } catch (PDOException $e) {
+<<<<<<< HEAD
     echo $e->getMessage();
+=======
+    echo "test";
+>>>>>>> parent of 003ce9f... test
     die();
 }
 

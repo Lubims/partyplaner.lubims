@@ -37,7 +37,10 @@
                         returnVal = false;
                       } else {
                         alert ("Ein Fehler ist aufgetreten");
+<<<<<<< HEAD
                         console.log(isUserNew);
+=======
+>>>>>>> parent of 003ce9f... test
                         returnVal = false;
                       }
                   }
