@@ -18,12 +18,9 @@ require dirname(__DIR__).'/lib/PHPMailer/src/SMTP.php';
 
 //Variablen
 $code = mt_rand(100000, 999999);
-//$signup_email = htmlspecialchars($_POST["signup_email"]);
-//$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
-//$signup_username = htmlspecialchars($_POST["signup_username"]);
-$signup_email = "admin@lubims.de";
-$signup_pwd = "test";
-$signup_username = "admin";
+$signup_email = htmlspecialchars($_POST["signup_email"]);
+$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
+$signup_username = htmlspecialchars($_POST["signup_username"]);
 $dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
@@ -89,15 +86,7 @@ try {
       echo 'true';
     }
 } catch (PDOException $e) {
-<<<<<<< HEAD
-<<<<<<< HEAD
     echo $e->getMessage();
-=======
-    echo "test";
->>>>>>> parent of 003ce9f... test
-=======
-    echo "test";
->>>>>>> parent of 003ce9f... test
     die();
 }
 
