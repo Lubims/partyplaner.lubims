@@ -222,7 +222,7 @@ if(isset($_POST['checkCode'])) {
       </div>
 
       <nav class="navbar navbar-light bg-light">
-            <a href="/php-2019/project-barney"><img src="/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
+            <a href="/"><img src="/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
           <form class="form-inline">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
