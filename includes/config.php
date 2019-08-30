@@ -85,8 +85,8 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 //Funktion um die Daten über einen Nutzer zu bekommen
     function getUserData(){
       $dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
-      $user = "root";
-      $password = "";
+      $user = "kd58916_root";
+      $password = "At452B7L9s";
 
       try {
           $dbh = new PDO($dsn, $user, $password);
@@ -109,8 +109,8 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 //Funktion um die Daten über die Freunde zu bekommen
     function getFriendData(){
       $dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
-      $user = "root";
-      $password = "";
+      $user = "kd58916_root";
+      $password = "At452B7L9s";
 
       try {
           $dbh = new PDO($dsn, $user, $password);

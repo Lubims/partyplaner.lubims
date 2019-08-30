@@ -31,8 +31,7 @@ try {
     } else {
         echo 'false';
     }
-
-    echo $_SESSION['user'];
+    
 }
 catch (PDOException $e) {
     echo 'Connection failed: ' . $e->getMessage();
