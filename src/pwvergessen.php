@@ -61,15 +61,14 @@ try {
           $mail->CharSet = 'UTF-8'; //charset einstellen
           $mail->SMTPAuth = true; // enable SMTP authentication
           $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
-          $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
-          $mail->Port = 465; // set the SMTP port for the GMAIL server
-          $mail->Username = "noreply.brny@gmail.com"; // GMAIL username
-          $mail->Password = "php-2019"; // GMAIL password
-        //s}
-
-        //Typical mail data
-        $mail->AddAddress($input_email);
-        $mail->SetFrom("noreply@barney.com");
+          $mail->Host = "mail.lubims.de"; // sets lubims.de as the SMTP server
+          $mail->Port = 465; // set the SMTP port for the Mail server
+          $mail->Username = "noreply@lubims"; // Mail username
+          $mail->Password = "LubimsNoreply"; // Mail password
+          //s}
+          //Typical mail data
+          $mail->AddAddress($new_email);
+          $mail->SetFrom("noreply@lubims.de");
         $mail->Subject = "Neues Passwort für User ".$user["Username"];
         $mail->Body = $message;
         try{

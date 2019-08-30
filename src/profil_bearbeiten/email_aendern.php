@@ -48,7 +48,7 @@ try {
         $mail->CharSet = 'UTF-8'; //charset einstellen
         $mail->SMTPAuth = true; // enable SMTP authentication
         $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
-        $mail->Host = "mail.lubims"; // sets lubims.de as the SMTP server
+        $mail->Host = "mail.lubims.de"; // sets lubims.de as the SMTP server
         $mail->Port = 465; // set the SMTP port for the Mail server
         $mail->Username = "noreply@lubims"; // Mail username
         $mail->Password = "LubimsNoreply"; // Mail password

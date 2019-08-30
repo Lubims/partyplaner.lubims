@@ -54,21 +54,19 @@ try {
 
       $mail = new PHPMailer(true);
       //Send mail using gmail
-      //if($send_using_gmail){
         $mail->IsSMTP(); // telling the class to use SMTP
         $mail->IsHTML(true); //html-format einstellen
         $mail->CharSet = 'UTF-8'; //charset einstellen
         $mail->SMTPAuth = true; // enable SMTP authentication
         $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
-        $mail->Host = "smtp.gmail.com"; // sets GMAIL as the SMTP server
-        $mail->Port = 465; // set the SMTP port for the GMAIL server
-        $mail->Username = "noreply.brny@gmail.com"; // GMAIL username
-        $mail->Password = "php-2019"; // GMAIL password
-      //s}
-
-      //Typical mail data
-      $mail->AddAddress($signup_email);
-      $mail->SetFrom("noreply@barney.com");
+        $mail->Host = "mail.lubims.de"; // sets lubims.de as the SMTP server
+        $mail->Port = 465; // set the SMTP port for the Mail server
+        $mail->Username = "noreply@lubims"; // Mail username
+        $mail->Password = "LubimsNoreply"; // Mail password
+        //s}
+        //Typical mail data
+        $mail->AddAddress($new_email);
+        $mail->SetFrom("noreply@lubims.de");
       $mail->Subject = "Registrierung für User ".$signup_username;
       $mail->Body = $message;
       try{
