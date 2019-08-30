@@ -18,9 +18,12 @@ require dirname(__DIR__).'/lib/PHPMailer/src/SMTP.php';
 
 //Variablen
 $code = mt_rand(100000, 999999);
-$signup_username = htmlspecialchars($_POST["signup_username"]);
-$signup_email = htmlspecialchars($_POST["signup_email"]);
-$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
+//$signup_email = htmlspecialchars($_POST["signup_email"]);
+//$signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
+//$signup_username = htmlspecialchars($_POST["signup_username"]);
+$signup_email = "admin@lubims.de";
+$signup_pwd = "test";
+$signup_username = "admin";
 $dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
