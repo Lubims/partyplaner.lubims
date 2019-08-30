@@ -38,7 +38,10 @@
                       } else {
                         alert ("Ein Fehler ist aufgetreten");
 <<<<<<< HEAD
+<<<<<<< HEAD
                         console.log(isUserNew);
+=======
+>>>>>>> parent of 003ce9f... test
 =======
 >>>>>>> parent of 003ce9f... test
                         returnVal = false;

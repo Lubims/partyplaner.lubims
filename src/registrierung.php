@@ -90,7 +90,11 @@ try {
     }
 } catch (PDOException $e) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     echo $e->getMessage();
+=======
+    echo "test";
+>>>>>>> parent of 003ce9f... test
 =======
     echo "test";
 >>>>>>> parent of 003ce9f... test
