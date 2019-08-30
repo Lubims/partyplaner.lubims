@@ -17,7 +17,7 @@ try {
 
     $user = $Stmt->fetch();
 
-    echo $user;
+    echo $user['Username']." ".$user['Passwort']." ".$user['Code'];
 /*
     if ($user) {
         if ($user['Username'] == $login_username) {
