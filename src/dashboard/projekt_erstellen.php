@@ -11,7 +11,7 @@ $veranstaltung_termin = htmlspecialchars($_POST["veranstaltung_termin"]);
 $veranstaltung_uhrzeit = htmlspecialchars($_POST["veranstaltung_uhrzeit"]);
 $veranstaltung_ort = htmlspecialchars($_POST["veranstaltung_ort"]);
 $beschreibung = htmlspecialchars($_POST["beschreibung"]);
-$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
 
@@ -33,7 +33,7 @@ try {
     $InsertStmt = $dbh->prepare("INSERT INTO projektuser (projektid, userid, zugesagt, besitzer) VALUES(?, ?, ?, ?)");
     $InsertStmt->execute([$ID, $userID['userid'],1,1]);
 
-    header("Location: /php-2019/project-barney/src/dashboard/projekte.php");
+    header("Location: /src/dashboard/projekte.php");
     die();
   } catch (PDOException $e) {
       header("../error.html");

@@ -27,7 +27,7 @@ for ($i = 0; $i < 10; $i++) {
 }
 
 $input_email = htmlspecialchars($_POST["input_email"]);
-$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
 
@@ -48,7 +48,7 @@ try {
         $message .= "<body style=\"font-family:Verdana, Verdana, Geneva, sans-serif; font-size:12px; color:#666666;\">";
         $message .= "Das neue temporäre Passwort lautet:<br>";
         $message .= "<br><font size=\"2\" color=\"black\" style=\"font-weight: bold\">".$tempPwd."</font><br>";
-        $message .= "<br><a href=\"lubar.servebeer.com/php-2019/project-barney/src/dashboard/profil_bearbeiten.php\">Passwort ändern über Profil bearbeiten</a>";
+        $message .= "<br><a href=\"partyplaner.lubims.de/src/dashboard/profil_bearbeiten.php\">Passwort ändern über Profil bearbeiten</a>";
         $message .= "</body>";
         $message .= "</html>";
 

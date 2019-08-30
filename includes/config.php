@@ -8,83 +8,83 @@ if(session_id() == ''){
 //Prüft ob der Nutzer eingelogt ist
 //ist das nicht der fall wird er auf die Startseite weitergeleitet
 switch ($_SERVER["SCRIPT_NAME"]) {
-  case    "/php-2019/project-barney/src/dashboard/profil.php":
+  case    "/src/dashboard/profil.php":
           $CURRENT_PAGE = "Profil";
           $PAGE_TITLE = "Profil";
           if (!isset($_SESSION['user'])){
-            header("Location: /php-2019/project-barney/");
+            header("Location: /");
             exit;
           }
           break;
-  case    "/php-2019/project-barney/src/index_log.php":
+  case    "/src/index_log.php":
           $CURRENT_PAGE = "IndexLog";
           $PAGE_TITLE = "Projekt Barney";
           if (!isset($_SESSION['user'])){
-            header("Location: /php-2019/project-barney/");
+            header("Location: /");
             exit;
           }
           if($_SESSION['code'] != -1) {
-            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
+            header("Location: /src/dashboard/profil.php");
             exit;
           }
           break;
-  case    "/php-2019/project-barney/src/dashboard/projekte.php":
+  case    "/src/dashboard/projekte.php":
           $CURRENT_PAGE = "Projekte";
           $PAGE_TITLE = "Projekte";
           if (!isset($_SESSION['user'])){
-            header("Location: /php-2019/project-barney/");
+            header("Location: /");
             exit;
           }
           if($_SESSION['code'] != -1) {
-            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
+            header("Location: /src/dashboard/profil.php");
             exit;
           }
           break;
-  case    "/php-2019/project-barney/src/dashboard/neue_projekte.php":
+  case    "/src/dashboard/neue_projekte.php":
           $CURRENT_PAGE = "NeueProjekte";
           $PAGE_TITLE = "Neue Projekte";
           if (!isset($_SESSION['user'])){
-            header("Location: /php-2019/project-barney/");
+            header("Location: /");
             exit;
           }
           if($_SESSION['code'] != -1) {
-            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
+            header("Location: /src/dashboard/profil.php");
             exit;
           }
           break;
-  case    "/php-2019/project-barney/src/freunde.php":
+  case    "/src/freunde.php":
           $CURRENT_PAGE = "Freunde";
           $PAGE_TITLE = "Freunde";
           if (!isset($_SESSION['user'])){
-            header("Location: /php-2019/project-barney/");
+            header("Location: /");
             exit;
           }
           if($_SESSION['code'] != -1) {
-            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
+            header("Location: /src/dashboard/profil.php");
             exit;
           }
           break;
-  case    "/php-2019/project-barney/src/profil_bearbeiten.php":
+  case    "/src/profil_bearbeiten.php":
           $CURRENT_PAGE = "ProfilBearbeiten";
           $PAGE_TITLE = "Profil Bearbeiten";
           if (!isset($_SESSION['user'])){
-            header("Location: /php-2019/project-barney/");
+            header("Location: /");
             exit;
           }
           if($_SESSION['code'] != -1) {
-            header("Location: /php-2019/project-barney/src/dashboard/profil.php");
+            header("Location: /src/dashboard/profil.php");
             exit;
           }
           break;
   default:
     			$CURRENT_PAGE = "Index";
-    			$PAGE_TITLE = "Titel der Seite";
+    			$PAGE_TITLE = "Lubims Partyplaner";
 
     }
 
 //Funktion um die Daten über einen Nutzer zu bekommen
     function getUserData(){
-      $dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+      $dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
       $user = "root";
       $password = "";
 
@@ -108,7 +108,7 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 
 //Funktion um die Daten über die Freunde zu bekommen
     function getFriendData(){
-      $dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+      $dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
       $user = "root";
       $password = "";
 

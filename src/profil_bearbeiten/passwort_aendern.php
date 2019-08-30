@@ -1,6 +1,6 @@
 <?php session_start();
 
-$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
 

@@ -6,7 +6,7 @@ if(session_id() == ''){
 /* Connect to a MySQL database using driver invocation */
 //Variablen
 $code = mt_rand(100000, 999999);
-$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
 try {

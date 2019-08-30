@@ -1,6 +1,6 @@
 <?php include("../../includes/config.php");
 
-$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
 $dbh = new PDO($dsn, $user, $password);
@@ -160,7 +160,7 @@ $ownerDB = $Stmt->fetch();
     <div class="container-fluid">
 
       <nav class="navbar navbar-light bg-light">
-          <a href="/php-2019/project-barney"><img src="/php-2019/project-barney/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
+          <a href="/php-2019/project-barney"><img src="/pictures/logo.jpg" width="100" height="40" title="Logo"></a>
           <form class="form-inline">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle btn-outline-success my-2 my-sm-0 mr-sm-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -301,7 +301,7 @@ $ownerDB = $Stmt->fetch();
                               <input type="hidden" id="projektid" name="projektid" value="<?php echo $_GET['projektid']; ?>"></input>
                               <datalist id="friend_list">
                               <?php
-                              $dsn = "mysql:host=localhost;dbname=alkdb";
+                              $dsn = "mysql:host=localhost:3306;dbname=alkdb";
                               $user = "root";
                               $password = "";
                               try {
@@ -343,7 +343,7 @@ $ownerDB = $Stmt->fetch();
                                 <input type="hidden" id="projektid" name="projektid" value="<?php echo $_GET['projektid']; ?>"></input>
                                 <datalist id="getraenke_list">
                                 <?php
-                                $dsn = "mysql:host=localhost;dbname=alkdb";
+                                $dsn = "mysql:host=localhost:3306;dbname=alkdb";
                                 $user = "root";
                                 $password = "";
                                 try {

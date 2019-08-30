@@ -21,7 +21,7 @@ $code = mt_rand(100000, 999999);
 $signup_username = htmlspecialchars($_POST["signup_username"]);
 $signup_email = htmlspecialchars($_POST["signup_email"]);
 $signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
-$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
 
@@ -48,7 +48,7 @@ try {
       $message .= "<body style=\"font-family:Verdana, Verdana, Geneva, sans-serif; font-size:12px; color:#666666;\">";
       $message .= "Der Code für die Registrierung lautet:<br>";
       $message .= "<br><font size=\"2\" color=\"black\" style=\"font-weight: bold\">".$code."</font><br>";
-      $message .= "<br><a href=\"lubar.servebeer.com/php-2019/project-barney/src/dashboard/profil.php\">Zur Homepage</a>";
+      $message .= "<br><a href=\"partyplaner.lubims.de/src/dashboard/profil.php\">Zur Homepage</a>";
       $message .= "</body>";
       $message .= "</html>";
 

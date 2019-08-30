@@ -2,7 +2,7 @@
 //Variablen
 $login_username = htmlspecialchars($_POST["login_username"]);
 $login_pwd = htmlspecialchars($_POST["login_pwd"]);
-$dsn = "mysql:host=localhost;dbname=kd58916_alkdb";
+$dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
 $user = "kd58916_root";
 $password = "At452B7L9s";
 
