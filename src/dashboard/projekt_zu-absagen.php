@@ -5,9 +5,9 @@ if(session_id() == ''){
     session_start();
 }
 
-$dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
-$user = "kd58916_root";
-$password = "At452B7L9s";
+$dsn = $GLOBALS['db_address'];
+$user = $GLOBALS['db_user'];
+$password = $GLOBALS['db_pw'];
 ?>
 <h6><b>Gäste:</b></h6>
 <table class="table table-bordered">

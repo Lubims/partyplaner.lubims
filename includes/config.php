@@ -5,6 +5,12 @@ if(session_id() == ''){
     session_start();
 }
 
+$GLOBALS['db_address'] = "mysql:host=localhost:3306;dbname=usr_web438_1";
+$GLOBALS['db_user'] = "web438";
+$GLOBALS['db_pw'] = "LubimsAG2019";
+$GLOBALS['smtp_address'] = 'webspace32.do.de';
+$GLOBALS['noreply_pw'] = 'nrLubims';
+
 //Prüft ob der Nutzer eingelogt ist
 //ist das nicht der fall wird er auf die Startseite weitergeleitet
 switch ($_SERVER["SCRIPT_NAME"]) {
@@ -84,9 +90,9 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 
 //Funktion um die Daten über einen Nutzer zu bekommen
     function getUserData(){
-      $dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
-      $user = "kd58916_root";
-      $password = "At452B7L9s";
+      $dsn = $GLOBALS['db_address'];
+      $user = $GLOBALS['db_user'];
+      $password = $GLOBALS['db_pw'];
 
       try {
           $dbh = new PDO($dsn, $user, $password);
@@ -108,9 +114,9 @@ switch ($_SERVER["SCRIPT_NAME"]) {
 
 //Funktion um die Daten über die Freunde zu bekommen
     function getFriendData(){
-      $dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
-      $user = "kd58916_root";
-      $password = "At452B7L9s";
+      $dsn = $GLOBALS['db_address'];
+      $user = $GLOBALS['db_user'];
+      $password = $GLOBALS['db_pw'];
 
       try {
           $dbh = new PDO($dsn, $user, $password);

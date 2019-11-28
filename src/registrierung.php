@@ -21,9 +21,9 @@ $code = mt_rand(100000, 999999);
 $signup_email = htmlspecialchars($_POST["signup_email"]);
 $signup_pwd = htmlspecialchars($_POST["signup_pwd"]);
 $signup_username = htmlspecialchars($_POST["signup_username"]);
-$dsn = "mysql:host=localhost:3306;dbname=kd58916_alkdb";
-$user = "kd58916_root";
-$password = "At452B7L9s";
+$dsn = $GLOBALS['db_address'];
+$user = $GLOBALS['db_user'];
+$password = $GLOBALS['db_pw'];
 
 try {
     $dbh = new PDO($dsn, $user, $password);
@@ -61,10 +61,10 @@ try {
         $mail->CharSet = 'UTF-8'; //charset einstellen
         $mail->SMTPAuth = true; // enable SMTP authentication
         $mail->SMTPSecure = "ssl"; // sets the prefix to the servier
-        $mail->Host = "mail.lubims.de"; // sets lubims.de as the SMTP server
+        $mail->Host = "$GLOBALS['smtp_address']"; // sets lubims.de as the SMTP server
         $mail->Port = 465; // set the SMTP port for the Mail server
         $mail->Username = "noreply@lubims.de"; // Mail username
-        $mail->Password = "LubimsNoreply"; // Mail password
+        $mail->Password = $GLOBALS['noreply_pw']; // Mail password
         //s}
         //Typical mail data
       $mail->AddAddress($signup_email);
